@@ -14,3 +14,41 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+h2 {
+    color: #5C272D;
+    text-align: center;
+}
+
+.slides{
+     background-color: rgba(255,255,255,0.0);
+     text-align: center;
+     height:100px;
+    //  width
+}
+
+.slide{
+     background-color: rgba(255,255,255,0.0);
+     text-align: center;
+     height:100px;
+     width: 100px;
+}
+
+.buttonStyle{
+    background: rgba(255,255,255,0.0);
+    color: rgba(255,255,255,0.0);
+}
+
+.button-img {
+    display: inline-block;
+    min-width: 20px;
+    min-height: 20px;
+    background: rgba(255,255,255,0.0);
+    contain: strict;
+}
+
+
+
+.slide_style{
+    width : 328px;
+  
+}
