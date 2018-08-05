@@ -8,4 +8,20 @@
 
 <ion-content padding>
 
+        <ion-row>
+          <ion-col *ngFor="let maid of maids$ | async; let i = index" (click)="openModal(i)" style="width:33%">
+            <ion-card>
+              <ion-item center>
+                <ion-avatar class="avatars">
+                  <img src="../../assets/imgs/maid1.jpeg">
+                </ion-avatar>
+                <br>
+                <h2>{{maid.name}}</h2>
+                <h3>Age: {{maid.age}}</h3>
+                <h3>{{maid.working_exp_yr}} years Exp</h3>
+              </ion-item>
+            </ion-card>
+            </ion-col>
+          </ion-row>
+
 </ion-content>

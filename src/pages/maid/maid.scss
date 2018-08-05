@@ -1,3 +1,17 @@
-page-about {
-
+page-maid {
+    .avatars img{
+        margin: auto;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+    }
+    .avatars-detail img{
+        margin: auto;
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+    h3{
+        text-align:center;
+    }
 }

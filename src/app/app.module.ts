@@ -8,9 +8,22 @@ import { CollectionPage } from '../pages/collection/collection';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SettingPage } from "../pages/setting/setting";
+import { ModalContentPage } from '../pages/maid/detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+var config = { 
+  apiKey: "AIzaSyDIlCA-Lydkcv9xQTUQAfP_ZhXSDtGR83c",
+  authDomain: "domper-c6ded.firebaseapp.com",
+  databaseURL: "https://domper-c6ded.firebaseio.com",
+  projectId: "domper-c6ded",
+  storageBucket: "",
+  messagingSenderId: "1098406345864" 
+}
 
 @NgModule({
   declarations: [
@@ -19,9 +32,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CollectionPage,
     HomePage,
     SettingPage,
-    TabsPage
+    TabsPage,
+    ModalContentPage
   ],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
+  imports: [
+    BrowserModule,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(config),
+    IonicModule.forRoot(MyApp)
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -29,7 +49,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CollectionPage,
     HomePage,
     SettingPage,
-    TabsPage
+    TabsPage,
+    ModalContentPage
   ],
   providers: [
     StatusBar,
