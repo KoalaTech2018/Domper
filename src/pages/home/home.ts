@@ -44,5 +44,8 @@ export class HomePage {
     { data: "Indonesia Maid 5" }
   ];
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController) {
+
+   }
+  
 }

@@ -19,34 +19,34 @@
 
   <br>
 
-  <ion-slides autoplay="5000" loop="true" speed="2000">
+  <!-- <ion-slides autoplay="5000" loop="true" speed="2000">
     <ion-slide *ngFor="let slide of image">
       <button class="buttonStyle">
         <ion-img class="button-img" width="50" height="50" src={{slide.image}}></ion-img>
       </button>
     </ion-slide>
-  </ion-slides>
+  </ion-slides> -->
 
 
-  <ion-slides autoplay="5000" loop="true" speed="2000">
-    <ion-slide *ngFor="let slide of companyInfo">
-      <h1>{{slide.data}}</h1>
+  <ion-slides autoplay="5000" loop="true" speed="2000" slidesPerView="2">
+    <ion-slide *ngFor="let slide of companyInfo" >
+      <h1 [ngStyle]="{'font-size': '20px'}"  >{{slide.data}}</h1>
     </ion-slide>
   </ion-slides>
 
   <br>
 
-  <ion-slides autoplay="5000" loop="true" speed="1500">
+  <ion-slides autoplay="5000" loop="true" speed="1500" slidesPerView="3">
     <ion-slide *ngFor="let slide of pMaidInfo">
-      <h1>{{slide.data}}</h1>
+      <h1 [ngStyle]="{'font-size': '20px'}">{{slide.data}}</h1>
     </ion-slide>
   </ion-slides>
 
 
   <br>
-  <ion-slides autoplay="5000" loop="true" speed="1500">
+  <ion-slides autoplay="5000" loop="true" speed="1500" slidesPerView="3">
     <ion-slide *ngFor="let slide of iPaidInfo">
-      <h1>{{slide.data}}</h1>
+      <h1 [ngStyle]="{'font-size': '20px'}">{{slide.data}}</h1>
     </ion-slide>
   </ion-slides>
 

@@ -49,14 +49,14 @@ h2 {
 
 
 .slide_style{
-    width : 328px;
+    width : 108px;
   
 }
-// Hidden Scroll bar
-// ::-webkit-scrollbar,
-// *::-webkit-scrollbar {
-//   display: none;
-// }
+//Hidden Scroll bar
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}
 
 @font-face {
   font-family: 'Humanst';

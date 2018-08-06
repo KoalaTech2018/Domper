@@ -1,6 +1,39 @@
 page-home {
 
-.slider {
-  height:30%;
-}
+// ion-slide { 
+//          width: 100px !important;
+
+// }
+
+ .md,
+  .ios,
+  .wp {
+      .swiper-slide .swiper-slide-active{
+         width: 100px !important;
+     }
+   }
+
+//    .slide-zoom{
+//        width : 120px;
+//    }
+
+
+    // ion-slides {
+    //     .slide-zoom {
+    //       width: 150px;
+    //       height: 100%;
+        
+    //     }
+    //     .swiper-slide{
+    //         //  width: 90%;
+    //          width: 170px;
+    //          column-width: 170px;
+            
+    //     }
+    //      .swiper-slide-active{
+    //             width: 170px;
+    //             height: 80%;
+    //         }
+
+    //   }
 }
