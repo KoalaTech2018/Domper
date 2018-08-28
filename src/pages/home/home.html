@@ -36,19 +36,51 @@
 
   <br>
 
-  <ion-slides autoplay="5000" loop="true" speed="1500" slidesPerView="3">
-    <ion-slide *ngFor="let slide of pMaidInfo">
-      <h1 [ngStyle]="{'font-size': '20px'}">{{slide.data}}</h1>
+  <h5>Best Choice</h5>
+  <ion-slides slidesPerView="2">
+    <ion-slide *ngFor="let maid of maids$ | async; let i = index" (click)="openModal(i)" style="width:33%">
+      <ion-card class="test">
+        <ion-item center>
+          <img src="../../assets/imgs/ph.png" />
+        </ion-item>
+
+        <ion-item center >
+          
+          <ion-avatar class="avatars" >
+            <img src="../../assets/imgs/maid1.jpeg">
+          </ion-avatar>
+        
+          <br>
+         
+          <h4  [ngStyle]="{'font-size': '10px'}">{{maid.name}}</h4>
+          <h6 [ngStyle]="{'font-size': '10px'}">Age: {{maid.age}}</h6>
+          <h6 [ngStyle]="{'font-size': '10px'}">{{maid.working_exp_yr}} yrs Exp</h6>
+          
+        </ion-item>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  <br/>
+
+  <ion-slides slidesPerView="3"  >
+    <ion-slide *ngFor="let maid of maids$ | async; let i = index" (click)="openModal(i)" style="width:33%">
+        <ion-card>
+          <ion-item center>
+            <ion-avatar class="avatars">
+              <img src="../../assets/imgs/maid1.jpeg">
+            </ion-avatar>
+            <br>
+            <h4>{{maid.name}}</h4>
+            <h6>Age: {{maid.age}}</h6>
+            <h6>{{maid.working_exp_yr}} yrs Exp</h6>
+          </ion-item>
+        </ion-card>
     </ion-slide>
   </ion-slides>
 
 
-  <br>
-  <ion-slides autoplay="5000" loop="true" speed="1500" slidesPerView="3">
-    <ion-slide *ngFor="let slide of iPaidInfo">
-      <h1 [ngStyle]="{'font-size': '20px'}">{{slide.data}}</h1>
-    </ion-slide>
-  </ion-slides>
+
+ 
 
   <br>
 

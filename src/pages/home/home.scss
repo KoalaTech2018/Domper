@@ -1,39 +1,25 @@
 page-home {
 
-// ion-slide { 
-//          width: 100px !important;
+.avatars img{
+        margin: auto;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+    }
+    .avatars-detail img{
+        margin: auto;
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+    h3{
+        text-align:center;
+    }
 
-// }
-
- .md,
-  .ios,
-  .wp {
-      .swiper-slide .swiper-slide-active{
-         width: 100px !important;
-     }
-   }
-
-//    .slide-zoom{
-//        width : 120px;
-//    }
-
-
-    // ion-slides {
-    //     .slide-zoom {
-    //       width: 150px;
-    //       height: 100%;
-        
-    //     }
-    //     .swiper-slide{
-    //         //  width: 90%;
-    //          width: 170px;
-    //          column-width: 170px;
-            
-    //     }
-    //      .swiper-slide-active{
-    //             width: 170px;
-    //             height: 80%;
-    //         }
-
-    //   }
+    .slides{
+     background-color: rgba(255,255,255,0.0);
+     text-align: center;
+     height:228px;
+    //  width:10px;
+}
 }
