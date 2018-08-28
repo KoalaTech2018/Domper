@@ -33,26 +33,22 @@ export class HomePage {
     { data: "Company 10" }
   ];
 
-  pMaidInfo = [
-    { data: "Philippines Maid 1" },
-    { data: "Philippines Maid 2" },
-    { data: "Philippines Maid 3" },
-    { data: "Philippines Maid 4" },
-    { data: "Philippines Maid 5" }
-  ];
 
-  iPaidInfo = [
-    { data: "Indonesia Maid 1" },
-    { data: "Indonesia Maid 2" },
-    { data: "Indonesia Maid 3" },
-    { data: "Indonesia Maid 4" },
-    { data: "Indonesia Maid 5" }
-  ];
 
   constructor(public navCtrl: NavController, public afd: AngularFireDatabase,
     public modalCtrl: ModalController) {
       this.getDataFromFireBase();
+    this.getCompanyiesFromFireBase();
    }
+
+  public companies$: Observable<any[]>;
+  company = new Array<any>();
+  getCompanyiesFromFireBase(){
+    this.companies$ = this.afd.list("companies").valueChanges();
+    this.companies$.subscribe(item=>{
+      this.company = item;
+    });
+  }
 
   public maids$: Observable<any[]>;
   maids = new Array<any>();
