@@ -2,8 +2,8 @@ page-home {
 
 .avatars img{
         margin: auto;
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         object-fit: cover;
     }
     .avatars-detail img{
@@ -19,7 +19,7 @@ page-home {
     .slides{
      background-color: rgba(255,255,255,0.0);
      text-align: center;
-     height:228px;
-    //  width:10px;
-}
+     height: auto;
+     width: auto;
+    }
 }

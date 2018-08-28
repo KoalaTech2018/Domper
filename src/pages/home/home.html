@@ -28,7 +28,7 @@
   </ion-slides> -->
 
 
-  <ion-slides autoplay="5000" loop="true" speed="2000" slidesPerView="2">
+  <ion-slides autoplay="5000" loop="true" speed="2000" slidesPerView="3">
     <ion-slide *ngFor="let slide of companyInfo" >
       <h1 [ngStyle]="{'font-size': '20px'}"  >{{slide.data}}</h1>
     </ion-slide>
@@ -40,8 +40,9 @@
   <ion-slides slidesPerView="2">
     <ion-slide *ngFor="let maid of maids$ | async; let i = index" (click)="openModal(i)" style="width:33%">
       <ion-card class="test">
-        <ion-item center>
-          <img src="../../assets/imgs/ph.png" />
+
+        <ion-item  >
+          <img style="width: 30px; height: 15px;" src="../../assets/imgs/ph.png" />
         </ion-item>
 
         <ion-item center >
@@ -52,9 +53,9 @@
         
           <br>
          
-          <h4  [ngStyle]="{'font-size': '10px'}">{{maid.name}}</h4>
+          <h4 [ngStyle]="{'font-size': '15px'}">{{maid.name}}, {{maid.age}}</h4>
           <h6 [ngStyle]="{'font-size': '10px'}">Age: {{maid.age}}</h6>
-          <h6 [ngStyle]="{'font-size': '10px'}">{{maid.working_exp_yr}} yrs Exp</h6>
+          <h6 [ngStyle]="{'font-size': '10px'}">Exp: {{maid.working_exp_yr}} (yrs)</h6>
           
         </ion-item>
       </ion-card>

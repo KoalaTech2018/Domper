@@ -14,19 +14,16 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-h2 {
-    color: #5C272D;
-    text-align: center;
-}
 
 
 
-.slide{
-     background-color: rgba(255,255,255,0.0);
-     text-align: center;
-     height:100px;
-     width: 160px;
-}
+
+// .slide{
+//      background-color: rgba(255,255,255,0.0);
+//      text-align: center;
+//      height:100px;
+//      width: 160px;
+// }
 
 .buttonStyle{
     background: rgba(255,255,255,0.0);
@@ -41,12 +38,6 @@ h2 {
     contain: strict;
 }
 
-
-
-.slide_style{
-    width : 108px;
-  
-}
 //Hidden Scroll bar
 ::-webkit-scrollbar,
 *::-webkit-scrollbar {
@@ -62,4 +53,21 @@ h2 {
 
 * {
   font-family: 'Humanst';
+}
+h2 {
+    color: #5C272D;
+    text-align: center;
+}
+
+h3{
+    text-align:center;
+}
+
+h4{
+    color: #5C272D;
+    text-align:center;
+}
+
+h6{
+    color: #5C272D;
 }
