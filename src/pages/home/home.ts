@@ -45,6 +45,7 @@ export class HomePage {
   company = new Array<any>();
   getCompanyiesFromFireBase(){
     this.companies$ = this.afd.list("companies").valueChanges();
+    // for detail page
     this.companies$.subscribe(item=>{
       this.company = item;
     });
