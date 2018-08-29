@@ -1,8 +1,9 @@
 page-home {
-.avatars{
-    height: 100%;
-     width: 100%;
-     padding-top: 3px;
+
+    .avatars{
+        height: 100%;
+        width: 100%;
+        padding-top: 3px;
     img{
         padding-top: 0px;
         margin: auto;
@@ -12,13 +13,20 @@ page-home {
         box-shadow: 0 0 8px #52B6BC;
     }
 }
-    .avatars-detail img{
-        margin: auto;
-        // width: 60px;
-        // height: 60px;
-        object-fit: cover;
-        box-shadow: 0 0 8px gray;
+    .avatars-detail {
+    
+        // height: 100%;
+        // width: 100%;
+        padding-top: 5px;
+        img{
+            margin: auto;
+            // width: 60px;
+            // height: 60px;
+            object-fit: cover;
+            box-shadow: 0 0 8px gray;
+        }
     }
+
     h3{
         text-align:center;
     }
