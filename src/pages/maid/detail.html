@@ -19,7 +19,6 @@
             </ion-avatar>
             <h2>{{maid.name}}</h2>
         </ion-item>
-
         <ion-item no-margin>
             <ion-icon name="logo-android" item-start small></ion-icon> {{maid.now_at}}
         </ion-item>
@@ -76,6 +75,25 @@
     </ion-card>
     <!-- Skill -->
     <ion-card>
-
+        <ion-item no-margin>
+            <ion-icon name="ios-home" item-start color="primary"></ion-icon>
+            <ion-label>Nationality</ion-label>
+            <div item-end class="grey">{{maid.nationality}}</div>
+        </ion-item>
+        <ion-item no-margin>
+            <ion-icon name="md-calendar" item-start color="primary"></ion-icon>
+            <ion-label>Working Experience</ion-label>
+            <div item-end class="grey">{{maid.working_exp_yr}} Years</div>
+        </ion-item>
+        <ion-item no-margin>
+            <ion-icon name="apps" item-start color="primary"></ion-icon>
+            <ion-label>Age</ion-label>
+            <div item-end class="grey">{{maid.age}}</div>
+        </ion-item>
+        <ion-item no-margin>
+            <ion-icon name="ios-aperture" item-start color="primary"></ion-icon>
+            <ion-label>Language</ion-label>
+            <div item-end class="grey">{{maid.language}}</div>
+        </ion-item>
     </ion-card>
 </ion-content>

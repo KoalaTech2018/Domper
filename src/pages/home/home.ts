@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from "ionic-angular";
+import { NavController, ModalController, Tabs , NavParams, Events} from "ionic-angular";
 
 import { AngularFireDatabase } from "angularfire2/database";
 import { Observable } from "rxjs/Observable";
 import { ModalContentPage } from "../maid/detail";
 
+import { MaidPage } from "../maid/maid";
 
 @Component({
   selector: "page-home",
@@ -36,18 +37,18 @@ export class HomePage {
 
 
   constructor(public navCtrl: NavController, public afd: AngularFireDatabase,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController, public navParams: NavParams, private events: Events) {
       this.getDataFromFireBase();
     this.getCompanyiesFromFireBase();
    }
 
   public companies$: Observable<any[]>;
-  company = new Array<any>();
+  companys = new Array<any>();
   getCompanyiesFromFireBase(){
     this.companies$ = this.afd.list("companies").valueChanges();
     // for detail page
     this.companies$.subscribe(item=>{
-      this.company = item;
+      this.companys = item;
     });
   }
 
@@ -66,6 +67,16 @@ export class HomePage {
     console.log(index);
     let modal = this.modalCtrl.create(ModalContentPage, { obj: this.maids[index] });
     modal.present();
+  }
+
+  redirectToMaid(index) {
+    console.log(index);
+    // this.navParams = this.companys[index];
+    // var t: Tabs = this.navCtrl.parent;
+    // t.select(1);
+    //this.navCtrl.push(MaidPage, { obj: this.companys[index] });
+    //this.companys[index];
+    this.events.publish('change-tab', 1, this.companys[index]);
   }
   
 }

@@ -14,6 +14,7 @@ export class ModalContentPage {
         public params: NavParams,
         public viewCtrl: ViewController
     ) {
+        console.log('I am created');
         this.maid = this.params.get('obj');
     }
 

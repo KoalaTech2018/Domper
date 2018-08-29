@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController} from 'ionic-angular';
+import { NavController, ModalController, NavParams, Events} from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { ModalContentPage } from '../maid/detail';
@@ -11,8 +11,11 @@ import { ModalContentPage } from '../maid/detail';
 export class MaidPage {
 
   constructor(public navCtrl: NavController, public afd : AngularFireDatabase,
-    public modalCtrl:ModalController) {
+    public modalCtrl:ModalController, public navParams: NavParams, events: Events) {
     this.getDataFromFireBase();
+    events.subscribe('change-tab', (tab, obj) => {
+      console.log('Passed params', obj);
+    });
   }
   public maids$ : Observable<any[]>;
   maids = new Array<any>();
