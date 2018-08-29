@@ -11,15 +11,22 @@ page-maid {
             box-shadow: 0 0 8px #52B6BC;
         }
     }
-    .avatars-detail img{
+    .avatars-detail {
+            padding-top: 5px;
+    img{
         margin: auto;
         width: 80px;
         height: 80px;
         object-fit: cover;
         box-shadow: 0 0 8px #52B6BC;
     }
+}
     .grey{
         color:grey;
+    }
+
+    .detail_font{
+        font-size: 15px;
     }
     
 }

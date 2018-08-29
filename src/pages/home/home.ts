@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, Tabs , NavParams, Events} from "ionic-angular";
+import { NavController, ModalController , NavParams, Events} from "ionic-angular";
 
 import { AngularFireDatabase } from "angularfire2/database";
 import { Observable } from "rxjs/Observable";

@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-title>
-            Description
+            Maid details
         </ion-title>
         <ion-buttons start>
             <button ion-button (click)="dismiss()">
@@ -19,70 +19,110 @@
             </ion-avatar>
             <h2>{{maid.name}}</h2>
         </ion-item>
-        <ion-item no-margin>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.now_at}}
+
+        <ion-item no-margin [ngStyle]="{'font-size': '10px'}">
+            <ion-icon name="pin" item-start small color="primary"></ion-icon>
+            <ion-label>Now @</ion-label>
+            <div item-end class="grey">{{maid.now_at}}</div>
         </ion-item>
-        <ion-item no-margin>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.working_exps}}
+        <ion-item no-margin [ngStyle]="{'font-size': '10px'}">
+            <ion-icon  class="fa fa-id-card-o" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>Working Exp.</ion-label>
+            <div item-end class="grey">{{maid.working_exp_yr}} Years</div>
         </ion-item>
-        <ion-item no-margin>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.working_exp_yr}} Years Working Experience
+        <ion-item no-margin [ngStyle]="{'font-size': '10px'}">
+            <ion-icon class="fa fa-briefcase" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>Ex-Job Location</ion-label>
+            <div item-end class="grey">{{maid.working_exps}}</div>
         </ion-item>
-        <ion-item no-margin>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.available_work_date}}
+        <ion-item no-margin [ngStyle]="{'font-size': '10px'}">
+            <ion-icon class="fa fa-language" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>Lang.</ion-label>
+            <div item-end class="grey">{{maid.language}}</div>
         </ion-item>
+        <ion-item no-margin [ngStyle]="{'font-size': '10px'}">
+            <ion-icon class="fa fa-calendar" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>Available Date</ion-label>
+            <div item-end class="grey">{{maid.available_work_date}}</div>
+        </ion-item>
+
     </ion-card>
 
     <!-- Self Description -->
+    <h4 [ngStyle]="{'font-size': '15px'}">Description</h4>
     <ion-card>
-        <ion-item>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.intro}}
+        <ion-item [ngStyle]="{'font-size': '10px'}">
+            <ion-icon name="list-box" item-start small color="primary"></ion-icon>
+            <div item-end class="grey">{{maid.intro}}</div>
         </ion-item>
     </ion-card>
 
     <!-- Personal Info -->
-    <ion-card>
-        <ion-item>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.nationality}}
+    <h4 [ngStyle]="{'font-size': '15px'}">Personal Info</h4>
+    <ion-card >
+        <ion-item [ngStyle]="{'font-size': '10px'}"> 
+            <ion-icon name="globe" item-start small color="primary"></ion-icon>
+            <ion-label>Nationality</ion-label>
+            <div item-end class="grey">{{maid.nationality}}</div>
         </ion-item>
-        <ion-item>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.sex}}
+        <ion-item [ngStyle]="{'font-size': '10px'}">
+            <ion-icon class="fa fa-venus-mars" item-start small color="primary"></ion-icon>
+            <ion-label>Gender</ion-label>
+            <div item-end class="grey">{{maid.sex}}</div>
         </ion-item>
-        <ion-item>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.age}}
+        <ion-item [ngStyle]="{'font-size': '10px'}">
+
+            <ion-icon class="fa fa-calendar" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>Age</ion-label>
+            <div item-end class="grey">{{maid.age}}</div>
         </ion-item>
-        <ion-item>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.birthday}}
+        <ion-item [ngStyle]="{'font-size': '10px'}">
+            <ion-icon class="fa fa-birthday-cake" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>Birthday</ion-label>
+            <div item-end class="grey">{{maid.birthday}}</div>
         </ion-item>
-        <ion-item>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.height}}
+        <ion-item [ngStyle]="{'font-size': '10px'}">
+            <ion-icon class="fa fa-universal-access" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>Height</ion-label>
+            <div item-end class="grey">{{maid.height}}</div>
         </ion-item>
-        <ion-item>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.weight}}
+        <ion-item [ngStyle]="{'font-size': '10px'}">
+            <ion-icon name="speedometer" item-start small color="primary"></ion-icon>
+            <ion-label>Weight</ion-label>
+            <div item-end class="grey">{{maid.weight}}</div>
         </ion-item>
-        <ion-item>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.religion}}
+        <ion-item [ngStyle]="{'font-size': '10px'}">
+            <ion-icon  class="fa fa-book" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>Religion</ion-label>
+            <div item-end class="grey">{{maid.religion}}</div>
         </ion-item>
     </ion-card>
     <!-- marital -->
+
+    <h4 [ngStyle]="{'font-size': '15px'}">Marital</h4>
     <ion-card>
-        <ion-item>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.marital_status}}
+        <ion-item [ngStyle]="{'font-size': '10px'}">
+            <ion-icon name="heart" item-start small color="primary"></ion-icon> {{maid.marital_status}}
+            <ion-label>Status</ion-label>
+            <div item-end class="grey">{{maid.marital_status}}</div>
         </ion-item>
-        <ion-item>
-            <ion-icon name="logo-android" item-start small></ion-icon> {{maid.no_of_children}}
+        <ion-item [ngStyle]="{'font-size': '10px'}">
+            <ion-icon class="fa fa-child" aria-hidden="true" item-start small color="primary"></ion-icon> {{maid.no_of_children}}
+            <ion-label>No. of Children</ion-label>
+            <div item-end class="grey">{{maid.no_of_children}}</div>
         </ion-item>
     </ion-card>
     <!-- Skill -->
+    <h4 [ngStyle]="{'font-size': '15px'}">Skill</h4>
     <ion-card>
-        <ion-item no-margin>
+        <!-- <ion-item no-margin>
             <ion-icon name="ios-home" item-start color="primary"></ion-icon>
             <ion-label>Nationality</ion-label>
             <div item-end class="grey">{{maid.nationality}}</div>
         </ion-item>
         <ion-item no-margin>
             <ion-icon name="md-calendar" item-start color="primary"></ion-icon>
-            <ion-label>Working Experience</ion-label>
+            <ion-label>Working Exp.</ion-label>
             <div item-end class="grey">{{maid.working_exp_yr}} Years</div>
         </ion-item>
         <ion-item no-margin>
@@ -92,8 +132,8 @@
         </ion-item>
         <ion-item no-margin>
             <ion-icon name="ios-aperture" item-start color="primary"></ion-icon>
-            <ion-label>Language</ion-label>
+            <ion-label>Lang.</ion-label>
             <div item-end class="grey">{{maid.language}}</div>
-        </ion-item>
+        </ion-item> -->
     </ion-card>
 </ion-content>
