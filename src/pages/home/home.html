@@ -5,17 +5,27 @@
 </ion-header>
 
 <ion-content padding>
- 
-  <P>Country</P>
+
+  <h4>Maids from</h4>
 
   <button class="buttonStyle">
     <ion-img class="button-img" width="50" height="50" src="../../assets/icon/Philippines.ico"></ion-img>
+    <h6 [ngStyle]="{'font-size': '10px'}">Philippines</h6>
   </button>
   <button class="buttonStyle">
     <ion-img class="button-img" width="50" height="50" src="../../assets/icon/Indonesia.ico"></ion-img>
+    <h6 [ngStyle]="{'font-size': '10px'}"> Indonesia</h6>
   </button>
+
   <button class="buttonStyle">
-    <ion-img class="button-img" width="50" height="50" src="../../assets/icon/Philippines.ico"></ion-img>
+    <ion-img class="button-img" width="50" height="50" src="../../assets/icon/mynamay.ico"></ion-img>
+    <h6 [ngStyle]="{'font-size': '10px'}"> Mynamay</h6>
+  </button>
+
+  <button class="buttonStyle">
+    <ion-img class="button-img" width="50" height="50" src="../../assets/icon/other.ico"></ion-img>
+    
+    <h6 [ngStyle]="{'font-size': '10px'}">Others</h6>
   </button>
 
   <br>
@@ -28,9 +38,9 @@
     </ion-slide>
   </ion-slides> -->
 
-<h4>Best Companies</h4>
-  <ion-slides  slidesPerView="3">
-    <ion-slide *ngFor="let company of companies$ | async; let i = index"  style="width:33%" (click)="redirectToMaid(i)">
+  <h4>Best Companies</h4>
+  <ion-slides slidesPerView="3">
+    <ion-slide *ngFor="let company of companies$ | async; let i = index" style="width:33%" (click)="redirectToMaid(i)">
       <h1 [ngStyle]="{'font-size': '15px'}">{{company.name}}</h1>
     </ion-slide>
   </ion-slides>
@@ -40,13 +50,13 @@
   <h5>Best Choice</h5>
   <ion-slides slidesPerView="2">
     <ion-slide *ngFor="let maid of maids$ | async; let i = index" (click)="openModal(i)" style="width:33%">
-      <ion-card >
+      <ion-card>
 
         <ion-item>
-          <img class="image" src="{{'../../assets/imgs/country_flag/' + maid.country + '.png'}}" />
+              <img class="image" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
         </ion-item>
 
-        <ion-item  >
+        <ion-item>
 
           <ion-avatar class="avatars">
             <img src="../../assets/imgs/maid/maid1.jpeg">
@@ -70,7 +80,7 @@
       <ion-card>
 
         <ion-item>
-          <img class="image"  src="{{'../../assets/imgs/' + maid.country + '.png'}}" />
+          <img class="image" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
         </ion-item>
 
         <ion-item center>
