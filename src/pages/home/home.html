@@ -39,9 +39,10 @@
   </ion-slides> -->
 
   <h4>Best Companies</h4>
-  <ion-slides slidesPerView="3">
-    <ion-slide *ngFor="let company of companies$ | async; let i = index" style="width:33%" (click)="redirectToMaid(i)">
-      <h1 [ngStyle]="{'font-size': '15px'}">{{company.name}}</h1>
+  <ion-slides slidesPerView="2">
+    <ion-slide *ngFor="let company of companies$ | async; let i = index" (click)="redirectToMaid(i)" class="card-slide">
+      <!-- <h1 [ngStyle]="{'font-size': '15px'}">{{company.name}}</h1> -->
+      <img class="card-img" src="{{company.imgUrl}}"/>
     </ion-slide>
   </ion-slides>
 

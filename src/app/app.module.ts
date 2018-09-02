@@ -15,13 +15,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 var config = { 
   apiKey: "AIzaSyDIlCA-Lydkcv9xQTUQAfP_ZhXSDtGR83c",
   authDomain: "domper-c6ded.firebaseapp.com",
   databaseURL: "https://domper-c6ded.firebaseio.com",
   projectId: "domper-c6ded",
-  storageBucket: "",
+  storageBucket: "domper-c6ded.appspot.com",
   messagingSenderId: "1098406345864" 
 }
 
@@ -39,6 +40,7 @@ var config = {
     BrowserModule,
     AngularFireModule,
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     AngularFireModule.initializeApp(config),
     IonicModule.forRoot(MyApp)
   ],

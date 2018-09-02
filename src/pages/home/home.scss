@@ -4,15 +4,15 @@ page-home {
         height: 100%;
         width: 100%;
         padding-top: 3px;
-    img{
-        padding-top: 0px;
-        margin: auto;
-        width: 60px;
-        height: 60px;
-        object-fit: cover;
-        box-shadow: 0 0 8px #52B6BC;
+        img{
+            padding-top: 0px;
+            margin: auto;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            box-shadow: 0 0 8px #52B6BC;
+        }   
     }
-}
     .avatars-detail {
     
         // height: 100%;
@@ -49,5 +49,15 @@ page-home {
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
-}
+    }
+
+    //Style for Company Banner
+    .card-img {
+        border-radius: 10px;
+    }
+
+    .card-slide {
+        padding: 5px; 
+        opacity: 1.0;    //Can be used to adjust the opacity
+    }  
 }

@@ -19,10 +19,12 @@ export class TabsPage {
   tab3Root = CollectionPage;
   tab4Root = SettingPage;
   tabParams = {};
-  constructor(private events: Events) {
-    events.subscribe('change-tab', (tab, obj) => {
-      this.tabParams = obj;
-      this.tabs.select(tab);
-    });
-  }
+
+  //Used to Pass parameters to other tabs
+  // constructor(private events: Events) {
+  //   events.subscribe('change-tab', (tab, obj) => {
+  //     this.tabParams = obj;
+  //     this.tabs.select(tab);
+  //   });
+  // }
 }
