@@ -48,4 +48,12 @@ export class MaidPage {
   getCompany() {
     return this.promoteCompany;
   }
+
+  getItems($event){
+    let q = $event.target.value;
+    this.maids$ = this.afd.list('maids', 
+      ref => ref.orderByChild('age').startAt(+q)
+    ).valueChanges();
+    console.log(q);
+  }
 }
