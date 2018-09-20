@@ -51,7 +51,7 @@
   <h5>Best Choice</h5>
   <h6>Philippines</h6>
   <ion-slides slidesPerView="2.1">
-    <ion-slide *ngFor="let maid of maids_ph$ | async; let i = index" (click)="openModal(i)" style="width:33%">
+    <ion-slide *ngFor="let maid of maids_ph$ | async; let i = index" (click)="openPhMaidModal(i)" style="width:33%">
       <ion-card>
 
         <ion-item>
@@ -79,7 +79,7 @@
 
   <h6>Indonesia</h6>
   <ion-slides slidesPerView="2.1">
-    <ion-slide *ngFor="let maid of maids_in$ | async; let i = index" (click)="openModal(i)" style="width:33%">
+    <ion-slide *ngFor="let maid of maids_in$ | async; let i = index" (click)="openInMaidModal(i)" style="width:33%">
       <ion-card>
 
         <ion-item>

@@ -78,10 +78,18 @@ export class HomePage {
     });
   }
 
-  openModal(index) {
+  openPhMaidModal(index) {
     console.log(index);
     let modal = this.modalCtrl.create(ModalContentPage, {
-      obj: this.maids[index]
+      obj: this.maids_ph[index]
+    });
+    modal.present();
+  }
+
+  openInMaidModal(index) {
+    console.log(index);
+    let modal = this.modalCtrl.create(ModalContentPage, {
+      obj: this.maids_in[index]
     });
     modal.present();
   }
