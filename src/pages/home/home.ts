@@ -34,38 +34,55 @@ export class HomePage {
     { data: "Company 10" }
   ];
 
-
-
-  constructor(public navCtrl: NavController, public afd: AngularFireDatabase,
-    public modalCtrl: ModalController, public navParams: NavParams, private events: Events) {
-      this.getDataFromFireBase();
+  constructor(
+    public navCtrl: NavController,
+    public afd: AngularFireDatabase,
+    public modalCtrl: ModalController,
+    public navParams: NavParams,
+    private events: Events
+  ) {
+    this.getDataFromFireBase();
     this.getCompanyiesFromFireBase();
-   }
+  }
 
   public companies$: Observable<any[]>;
   companys = new Array<any>();
-  getCompanyiesFromFireBase(){
+  getCompanyiesFromFireBase() {
     this.companies$ = this.afd.list("companies").valueChanges();
     // for detail page
-    this.companies$.subscribe(item=>{
+    this.companies$.subscribe(item => {
       this.companys = item;
     });
   }
 
-  public maids$: Observable<any[]>;
-  maids = new Array<any>();
+  public maids_in$: Observable<any[]>;
+  public maids_ph$: Observable<any[]>;
+  maids_in = new Array<any>();
+  maids_ph = new Array<any>();
 
   getDataFromFireBase() {
-    this.maids$ = this.afd.list('maids').valueChanges();
-    this.maids$.subscribe(
-      item => {
-        this.maids = item;
-      });
+    this.maids_ph$ = this.afd
+      .list("maids", ref => ref.orderByChild("country").equalTo("Philippines"))
+      .valueChanges();
+    this.maids_ph$.subscribe(item => {
+      this.maids_ph = item;
+    });
+
+    this.maids_in$ = this.afd
+      .list("maids", ref =>
+        ref.orderByChild("country").equalTo("Indonesia")
+      )
+      .valueChanges();
+    this.maids_in$.subscribe(item => {
+      this.maids_in = item;
+    });
   }
 
   openModal(index) {
     console.log(index);
-    let modal = this.modalCtrl.create(ModalContentPage, { obj: this.maids[index] });
+    let modal = this.modalCtrl.create(ModalContentPage, {
+      obj: this.maids[index]
+    });
     modal.present();
   }
 
@@ -79,5 +96,4 @@ export class HomePage {
     //Used to Pass parameters to other tabs
     //this.events.publish('change-tab', 1, this.companys[index]);
   }
-  
 }
