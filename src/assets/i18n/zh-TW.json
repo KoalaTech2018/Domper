@@ -1,5 +1,11 @@
 ﻿{
+"maidFrom": "女傭來自", 
+"philippines": "菲律賓", 
+"indonesia": "印尼", 
+"mynamay": "緬甸", 
+"others": "其他", 
 "bestChoice": "熱門推介", 
-"BALL": "Ball", 
-"CAT": "Cat" 
+"bestCompany": "熱門中介公司",
+"exp": "工作年資",
+"language": "語言"
 }
