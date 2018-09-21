@@ -57,16 +57,16 @@
     <h4 [ngStyle]="{'font-size': '17px'}"> Working Exp. Info.</h4>
     <ion-card>
 
-        <ion-item *ngFor="let obj of arrayOfKeys" no-margin [ngStyle]="{'font-size': '14px'}">
+        <ion-item *ngFor="let exp of maid.working_exps" no-margin [ngStyle]="{'font-size': '14px'}">
             <ion-icon class="fa fa-briefcase" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label item-end class="grey">{{obj.location}}</ion-label>
+            <ion-label item-end class="grey">{{exp.location}}</ion-label>
             <ion-label item-end class="grey">
-                <div>Fr. {{obj.from}}</div>
+                <div>Fr. {{exp.from}}</div>
                 <br/>
-                <div>To {{obj.to}}</div>
+                <div>To {{exp.to}}</div>
             </ion-label>
 
-            <div item-end class="grey">{{obj.year}} year(s)</div>
+            <div item-end class="grey">{{exp.year}} year(s)</div>
         </ion-item>
     </ion-card>
 
@@ -137,25 +137,9 @@
     <!-- Skill -->
     <h4 [ngStyle]="{'font-size': '17px'}">Skill</h4>
     <ion-card>
-        <!-- <ion-item no-margin>
-            <ion-icon name="ios-home" item-start color="primary"></ion-icon>
-            <ion-label>Nationality</ion-label>
-            <div item-end class="grey">{{maid.nationality}}</div>
+        <ion-item *ngFor="let skill of maid.skills" no-margin [ngStyle]="{'font-size': '14px'}">
+            <ion-icon class="fa fa-check-square-o" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label item-end class="grey">{{skill}}</ion-label>
         </ion-item>
-        <ion-item no-margin>
-            <ion-icon name="md-calendar" item-start color="primary"></ion-icon>
-            <ion-label>Working Exp.</ion-label>
-            <div item-end class="grey">{{maid.working_exp_yr}} Years</div>
-        </ion-item>
-        <ion-item no-margin>
-            <ion-icon name="apps" item-start color="primary"></ion-icon>
-            <ion-label>Age</ion-label>
-            <div item-end class="grey">{{maid.age}}</div>
-        </ion-item>
-        <ion-item no-margin>
-            <ion-icon name="ios-aperture" item-start color="primary"></ion-icon>
-            <ion-label>Lang.</ion-label>
-            <div item-end class="grey">{{maid.language}}</div>
-        </ion-item> -->
     </ion-card>
 </ion-content>

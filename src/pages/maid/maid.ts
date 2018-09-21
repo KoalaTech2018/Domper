@@ -12,15 +12,30 @@ import { ModalContentPage } from '../maid/detail';
 export class MaidPage {
   promoteCompany;
   downloadURL;
+
   constructor(public navCtrl: NavController, public afd : AngularFireDatabase,
     public afStorage : AngularFireStorage,
     public modalCtrl:ModalController, public navParams: NavParams, events: Events) {
-    this.getDataFromFireBase();
+   
 
     console.log('Passed params', navParams.data);
     this.promoteCompany = navParams.get('obj');
     if(this.promoteCompany!=null){
       this.downloadURL= this.afStorage.ref('/' + this.promoteCompany.img).getDownloadURL();
+      this.maids$ = this.afd
+        .list("maids", ref =>
+          ref
+            .orderByChild("companyName")
+            .equalTo(this.promoteCompany.name)
+        )
+        .valueChanges();
+      this.maids$.subscribe(
+        item => {
+          this.maids = item;
+        });
+
+    }else{
+      this.getDataFromFireBase();
     }
     
     //Used to pass Parameters from other tabs
@@ -32,7 +47,9 @@ export class MaidPage {
   maids = new Array<any>();
 
   getDataFromFireBase(){
-    this.maids$ = this.afd.list('maids').valueChanges();
+    this.maids$ = this.afd
+      .list("maids" )
+      .valueChanges();
     this.maids$.subscribe(
       item => {
         this.maids = item;

@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
-import { NavController, ModalController , NavParams, Events} from "ionic-angular";
+import { Component } from "@angular/core";
+import {
+  NavController,
+  ModalController,
+  NavParams,
+  Events
+} from "ionic-angular";
 
 import { AngularFireDatabase } from "angularfire2/database";
 import { Observable } from "rxjs/Observable";
@@ -41,7 +46,7 @@ export class HomePage {
     public navParams: NavParams,
     private events: Events
   ) {
-    this.getDataFromFireBase();
+    this.getMaidDataFromFireBase();
     this.getCompanyiesFromFireBase();
   }
 
@@ -60,17 +65,21 @@ export class HomePage {
   maids_in = new Array<any>();
   maids_ph = new Array<any>();
 
-  getDataFromFireBase() {
+  getMaidDataFromFireBase() {
+
     this.maids_ph$ = this.afd
-      .list("maids", ref => ref.orderByChild("country").equalTo("Philippines"))
+      .list("maids", ref =>
+        ref.orderByChild("isPromoted").equalTo("PhilippinesY")
+      )
       .valueChanges();
+
     this.maids_ph$.subscribe(item => {
       this.maids_ph = item;
     });
 
     this.maids_in$ = this.afd
       .list("maids", ref =>
-        ref.orderByChild("country").equalTo("Indonesia")
+        ref.orderByChild("isPromoted").equalTo("IndonesiaY")
       )
       .valueChanges();
     this.maids_in$.subscribe(item => {

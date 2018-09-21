@@ -8,6 +8,7 @@
 
 <ion-content padding>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+   
     <ion-card>
       <div class="container" *ngIf="downloadURL | async; let url">
           <img [src]="url" alt="Image from AngularFireStorage">
@@ -18,6 +19,9 @@
       <ion-col *ngFor="let maid of maids$ | async; let i = index" (click)="openModal(i)" col-6 no-padding>
         <ion-card>
           <ion-item center>
+            <ion-item>
+              <img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
+            </ion-item>
             <ion-avatar class="avatars">
               <img src="../../assets/imgs/maid1.jpeg">
             </ion-avatar>

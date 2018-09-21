@@ -2,11 +2,12 @@ page-maid {
     .avatars {
         height: 100%;
         width: 100%;
-        padding-top: 5px;
+        padding-top: 3px;
         img{
+            padding-top: 0px;
             margin: auto;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             object-fit: cover;
             box-shadow: 0 0 8px #52B6BC;
         }
@@ -21,12 +22,26 @@ page-maid {
         box-shadow: 0 0 8px #52B6BC;
     }
 }
+
     .grey{
         color:grey;
     }
 
     .detail_font{
         font-size: 15px;
+    }
+
+    .countryFlagImage {
+    //  height: 20vw; 
+    //  width: 20vw; 
+    width: 30px; 
+    height: 15px;
+    border: 0px solid #fff;
+    // border-radius: 100%;
+    box-shadow: 0 0 5px gray;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
     }
     
 }
