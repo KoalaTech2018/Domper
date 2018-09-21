@@ -16,6 +16,9 @@
 <ion-content>
     <ion-card>
         <ion-item>
+            <img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
+        </ion-item>
+        <ion-item>
             <ion-avatar class="avatars-detail">
                 <img src="../../assets/imgs/maid1.jpeg">
             </ion-avatar>
@@ -27,11 +30,7 @@
             <ion-label>Now @</ion-label>
             <div item-end class="grey">{{maid.now_at}}</div>
         </ion-item>
-        <ion-item no-margin [ngStyle]="{'font-size': '14px'}">
-            <ion-icon class="fa fa-id-card-o" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label>Total Working Exp.</ion-label>
-            <div item-end class="grey">{{maid.working_exp_yr}} Years</div>
-        </ion-item>
+  
         <ion-item no-margin [ngStyle]="{'font-size': '14px'}">
             <ion-icon class="fa fa-language" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label>Lang.</ion-label>
@@ -41,9 +40,14 @@
         <ion-item no-margin [ngStyle]="{'font-size': '14px'}">
             <ion-icon class="fa fa-id-card-o" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label>Total Working Exp.</ion-label>
-            <div item-end class="grey">{{maid.working_exp_yr}} Years</div>
+            <div item-end class="grey">{{maid.working_exp_yr}} Year(s)</div>
         </ion-item>
 
+        <ion-item no-margin [ngStyle]="{'font-size': '14px'}">
+            <ion-icon class="fa fa-building-o" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>Belong to</ion-label>
+            <div item-end class="grey">{{maid.companyName}}</div>
+        </ion-item>
 
         <ion-item no-margin [ngStyle]="{'font-size': '14px'}">
             <ion-icon class="fa fa-calendar" aria-hidden="true" item-start small color="primary"></ion-icon>
@@ -74,7 +78,7 @@
     <h4 [ngStyle]="{'font-size': '17px'}">Description</h4>
     <ion-card>
         <ion-item [ngStyle]="{'font-size': '14px'}">
-            <ion-icon name="list-box" item-start small color="primary"></ion-icon>
+            <ion-icon class="fa fa-commenting-o" aria-hidden="true" item-start small color="primary"></ion-icon>
             <div item-end class="grey">{{maid.intro}}</div>
         </ion-item>
     </ion-card>

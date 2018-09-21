@@ -8,21 +8,21 @@
 
   <h4>Maids from</h4>
 <div align="center"> 
-  <button class="buttonStyle">
+  <button class="buttonStyle" (click)="redirectToMaidFrCountry('Philippines')">
     <ion-img class="button-img" width="50" height="50" src="../../assets/icon/Philippines.ico"></ion-img>
     <h6 [ngStyle]="{'font-size': '10px'}">Philippines</h6>
   </button>
-  <button class="buttonStyle">
+  <button class="buttonStyle" (click)="redirectToMaidFrCountry('Indonesia')">
     <ion-img class="button-img" width="50" height="50" src="../../assets/icon/Indonesia.ico"></ion-img>
     <h6 [ngStyle]="{'font-size': '10px'}"> Indonesia</h6>
   </button>
 
-  <button class="buttonStyle">
+  <button class="buttonStyle" (click)="redirectToMaidFrCountry('Mynamay')">
     <ion-img class="button-img" width="50" height="50" src="../../assets/icon/mynamay.ico"></ion-img>
     <h6 [ngStyle]="{'font-size': '10px'}"> Mynamay</h6>
   </button>
 
-  <button class="buttonStyle">
+  <button class="buttonStyle" (click)="redirectToMaidFrCountry('Other')">
     <ion-img class="button-img" width="50" height="50" src="../../assets/icon/other.ico"></ion-img>
     
     <h6 [ngStyle]="{'font-size': '10px'}">Others</h6>
@@ -48,7 +48,7 @@
 
   <br>
 
-  <h5>Best Choice</h5>
+  <h5>{{ 'bestChoice' | translate }}</h5>
   <h6>Philippines</h6>
   <ion-slides slidesPerView="2.1">
     <ion-slide *ngFor="let maid of maids_ph$ | async; let i = index" (click)="openPhMaidModal(i)" style="width:33%">
