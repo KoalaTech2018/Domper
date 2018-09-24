@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1098406345864",
+    "firebase_url": "https://domper-c6ded.firebaseio.com",
+    "project_id": "domper-c6ded",
+    "storage_bucket": "domper-c6ded.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098406345864:android:8b09024e22f35b3c",
+        "android_client_info": {
+          "package_name": "com.koalaTech.domper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098406345864-nv33p7ol23grcqvrmtfpkb48207o6lqp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.koalaTech.domper",
+            "certificate_hash": "85c6395e2fd083abaef119569cabd205d4ca2a20"
+          }
+        },
+        {
+          "client_id": "1098406345864-2fh06bjrgntkb2h3gt5g6lsg9jt9opbl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoq-tEZwi6lT_22yrEF_irkvHMf3sPpOs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098406345864-2fh06bjrgntkb2h3gt5g6lsg9jt9opbl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

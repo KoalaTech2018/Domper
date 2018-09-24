@@ -17,6 +17,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 
+import { GooglePlus } from "@ionic-native/google-plus";
+
+
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
@@ -72,6 +75,7 @@ var config = {
   providers: [
     StatusBar,
     SplashScreen,
+    GooglePlus,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

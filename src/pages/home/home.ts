@@ -12,22 +12,40 @@ import { ModalContentPage } from "../maid/detail";
 
 import { MaidPage } from "../maid/maid";
 
+import { GooglePlus } from "@ionic-native/google-plus";
+import firebase from "firebase";
+
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
+  userProfile: any = null;
   constructor(
     public navCtrl: NavController,
     public afd: AngularFireDatabase,
     public modalCtrl: ModalController,
     public navParams: NavParams,
-    private events: Events
-
+    private events: Events,
+    private googlePlus: GooglePlus
   ) {
     this.getMaidDataFromFireBase();
     this.getCompanyiesFromFireBase();
-   
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.userProfile = user;
+      } else {
+        this.userProfile = null;
+      }
+    });
+  }
+
+  loginUser(): void {
+    this.googlePlus.login({
+      'webClientId': '<Your web client ID>',
+      'offline': true
+    }).then(res => console.log(res))
+      .catch(err => console.error(err));
   }
 
   public companies$: Observable<any[]>;
@@ -103,4 +121,6 @@ export class HomePage {
     //Used to Pass parameters to other tabs
     //this.events.publish('change-tab', 1, this.companys[index]);
   }
+
+  
 }
