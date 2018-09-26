@@ -42,7 +42,7 @@ export class HomePage {
 
   loginUser(): void {
     this.googlePlus.login({
-      'webClientId': '<Your web client ID>',
+      'webClientId': '1098406345864-nv33p7ol23grcqvrmtfpkb48207o6lqp.apps.googleusercontent.com',
       'offline': true
     }).then(res => console.log(res))
       .catch(err => console.error(err));
@@ -121,6 +121,6 @@ export class HomePage {
     //Used to Pass parameters to other tabs
     //this.events.publish('change-tab', 1, this.companys[index]);
   }
-
+  
   
 }

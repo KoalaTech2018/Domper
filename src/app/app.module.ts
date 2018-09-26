@@ -16,8 +16,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { GooglePlus } from "@ionic-native/google-plus";
+import { GoogleLoginComponent } from "../components/google-login/google-login";
 
 
 import { HttpClientModule, HttpClient } from "@angular/common/http";
@@ -44,13 +46,15 @@ var config = {
     HomePage,
     SettingPage,
     TabsPage,
-    ModalContentPage
+    ModalContentPage,
+    GoogleLoginComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(config),
     IonicModule.forRoot(MyApp),
     HttpClientModule,
