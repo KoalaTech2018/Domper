@@ -44,4 +44,17 @@ page-maid {
     margin-right: auto;
     }
     
+
+    .center{
+    margin-left: auto;
+    margin-right: auto;
+    display: block !important;
+    background-color: #52B6BC;
+   -webkit-text-fill-color: #fff;
+	box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+    }
+    .gridFooter {
+        padding: 0px;
+        border: none;
+    }
 }

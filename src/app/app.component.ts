@@ -21,6 +21,9 @@ export class MyApp {
   ) {
     console.log(navigator.language);
     this.lang = navigator.language;
+    if (this.lang == null){
+      this.lang = "zh-TW";
+    }
     this.translate.setDefaultLang(this.lang);
     this.translate.use(this.lang);
     platform.ready().then(() => {

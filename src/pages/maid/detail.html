@@ -1,11 +1,11 @@
 <ion-header>
-    <ion-toolbar>
+    <ion-toolbar  color="primary">
         <ion-title>
-             {{ 'maidDetail' | translate }}
+            {{ 'maidDetail' | translate }}
         </ion-title>
         <ion-buttons start>
-            <button ion-button (click)="dismiss()">
-                <span ion-text color="primary"> {{ 'cancel' | translate }}</span>
+            <button ion-button (click)="dismiss()" >
+                <span ion-text > {{ 'cancel' | translate }}</span>
                 <!-- Below codes may deprecated after Ionic Update(It is not workin for ionic lab)-->
                 <!-- <span ion-text color="primary" showWhen="ios">Cancel</span>
                 <ion-icon name="md-close" showWhen="android, windows"></ion-icon> -->
@@ -26,11 +26,17 @@
         </ion-item>
 
         <ion-item no-margin [ngStyle]="{'font-size': '14px'}">
+            <ion-icon class="fa fa-money" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>{{ 'fee' | translate }}</ion-label>
+            <div item-end class="grey">HKD {{maid.fee}}</div>
+        </ion-item>
+
+        <ion-item no-margin [ngStyle]="{'font-size': '14px'}">
             <ion-icon name="pin" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'nowAt' | translate }}</ion-label>
             <div item-end class="grey">{{maid.now_at}}</div>
         </ion-item>
-  
+
         <ion-item no-margin [ngStyle]="{'font-size': '14px'}">
             <ion-icon class="fa fa-language" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'language' | translate }}</ion-label>
@@ -147,3 +153,18 @@
         </ion-item>
     </ion-card>
 </ion-content>
+
+<ion-footer no-border >
+    <ion-grid class= "gridFooter">
+        <ion-row>
+            <ion-col >
+                <button ion-button round outline class = "center">{{ 'contactCompany' | translate }}</button>
+            </ion-col>
+           
+            <ion-col >
+                <button ion-button round outline class = "center" >{{ 'addToCollection' | translate }}</button>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+</ion-footer>

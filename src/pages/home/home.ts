@@ -2,8 +2,7 @@ import { Component } from "@angular/core";
 import {
   NavController,
   ModalController,
-  NavParams,
-  Events
+  NavParams
 } from "ionic-angular";
 
 import { AngularFireDatabase } from "angularfire2/database";
@@ -11,9 +10,6 @@ import { Observable } from "rxjs/Observable";
 import { ModalContentPage } from "../maid/detail";
 
 import { MaidPage } from "../maid/maid";
-
-import { GooglePlus } from "@ionic-native/google-plus";
-import firebase from "firebase";
 
 @Component({
   selector: "page-home",
@@ -25,28 +21,12 @@ export class HomePage {
     public navCtrl: NavController,
     public afd: AngularFireDatabase,
     public modalCtrl: ModalController,
-    public navParams: NavParams,
-    private events: Events,
-    private googlePlus: GooglePlus
+    public navParams: NavParams
   ) {
     this.getMaidDataFromFireBase();
     this.getCompanyiesFromFireBase();
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        this.userProfile = user;
-      } else {
-        this.userProfile = null;
-      }
-    });
   }
 
-  loginUser(): void {
-    this.googlePlus.login({
-      'webClientId': '1098406345864-nv33p7ol23grcqvrmtfpkb48207o6lqp.apps.googleusercontent.com',
-      'offline': true
-    }).then(res => console.log(res))
-      .catch(err => console.error(err));
-  }
 
   public companies$: Observable<any[]>;
   companys = new Array<any>();

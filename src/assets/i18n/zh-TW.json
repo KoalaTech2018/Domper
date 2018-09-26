@@ -10,11 +10,12 @@
 "exp": "工作年資",
 "language": "語言",
 "years": "年",
+"maid": "傭工",
 "maidDetail": "傭工資訊",
 "nowAt": "現於",
 "ttlWorkExp": "工作年資",
 "belongTo": "所屬公司",
-"avaDate": "可日期",
+"avaDate": "可上班日期",
 "expInfo": "過往工作資訊",
 "from": "由",
 "to": "至",
@@ -33,5 +34,8 @@
 "status": "現況",
 "children": "擁有孩子",
 "skill": "技能",
-"cancel": "取消"
+"cancel": "取消",
+"fee" : "中介費用",
+"addToCollection" : "加到我的最愛",
+"contactCompany" : "聯絡中介公司"
 }
