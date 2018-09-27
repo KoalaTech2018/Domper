@@ -6,7 +6,7 @@ import { MaidPage } from "../maid/maid";
 import { CollectionPage } from "../collection/collection";
 import { SettingPage } from "../setting/setting";
 
-import { Tabs, Events } from 'ionic-angular';
+import { Tabs } from 'ionic-angular';
 
 @Component({
   templateUrl: "tabs.html"
