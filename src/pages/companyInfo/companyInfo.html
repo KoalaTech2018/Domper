@@ -1,0 +1,93 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>
+            {{ 'company' | translate }}
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+                <span ion-text> {{ 'cancel' | translate }}</span>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngFor="let company of companies$ | async;">
+    <ion-card>
+
+    </ion-card>
+
+    <!-- <h4 [ngStyle]="{'font-size': '17px'}">{{ 'description' | translate }}</h4> -->
+    <ion-card>
+
+        <ion-item>
+            <img src="{{company.imgUrl}}" />
+        </ion-item>
+
+        <ion-item [ngStyle]="{'font-size': '14px'}">
+            <!-- <ion-icon class="fa fa-commenting-o" aria-hidden="true" item-start small color="primary"></ion-icon> -->
+            <div item-end class="grey">{{company.desc}}</div>
+        </ion-item>
+    </ion-card>
+
+    <h4 [ngStyle]="{'font-size': '17px'}">{{ 'contact' | translate }}</h4>
+
+    <ion-card *ngFor="let branch of company.branches">
+
+        <ion-item [ngStyle]="{'font-size': '14px'}">
+            <ion-icon class="fa fa-location-arrow" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <div item-end class="grey">{{branch.address}}</div>
+        </ion-item>
+
+        <ion-item [ngStyle]="{'font-size': '14px'}">
+            <ion-icon class="fa fa-envelope-o" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>{{ 'email' | translate }}</ion-label>
+            <div item-end class="grey">{{branch.email}}</div>
+        </ion-item>
+
+        <ion-item [ngStyle]="{'font-size': '14px'}">
+            <ion-icon class="fa fa-phone" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>{{ 'tele1' | translate }}</ion-label>
+            <div item-end class="grey">
+                <!-- <button type="button" ion-button color="primary" (click)="contactCompanyByPhoneNo(company.tele_1)">{{company.tele_1}}</button> -->
+                <a herf (click)="contactCompanyByPhoneNo(branch.tele_1)">{{branch.tele_1}}</a>
+            </div>
+        </ion-item>
+
+        <ion-item [ngStyle]="{'font-size': '14px'}">
+            <ion-icon class="fa fa-mobile" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label>{{ 'tele2' | translate }}</ion-label>
+            <div item-end class="grey">
+                <!-- <button type="button" ion-button color="primary" (click)="contactCompanyByPhoneNo(company.tele_2)">{{company.tele_2}}</button> -->
+                <a herf (click)="contactCompanyByPhoneNo(branch.tele_2)">{{branch.tele_2}}</a>
+            </div>
+        </ion-item>
+
+
+
+        <!-- </ion-item> -->
+    </ion-card>
+
+    <ion-card>
+        <div class="services_header_padding">
+            <h4 [ngStyle]="{'font-size': '17px'}">{{ 'feeInclude' | translate }}</h4>
+        </div>
+        <ion-item *ngFor="let ser of company.ser_content" no-margin [ngStyle]="{'font-size': '14px'}">
+            <div>
+                {{ 'feeInclude' | translate }}
+            </div>
+            <ion-icon class="fa fa-check-square-o" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label item-end class="grey" text-wrap>{{ser}}</ion-label>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <div class="services_header_padding">
+            <h4 [ngStyle]="{'font-size': '17px'}">{{ 'specialSer' | translate }}</h4>
+        </div>
+        <ion-item *ngFor="let special of company.special_ser" no-margin [ngStyle]="{'font-size': '14px'}">
+            <ion-icon class="fa fa-check-square-o" aria-hidden="true" item-start small color="primary"></ion-icon>
+            <ion-label item-end class="grey" text-wrap>{{special}}</ion-label>
+        </ion-item>
+    </ion-card>
+
+</ion-content>

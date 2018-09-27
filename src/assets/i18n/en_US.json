@@ -38,4 +38,15 @@
 "fee" : "Cost",
 "addToCollection" : "Add To Collection",
 "contactCompany" : "Contact Company",
+"company" : "Company",
+"feeInclude" : "Fee Include",
+"specialSer" : "Addition star Services",
+"contact" : "Contact",
+"address" : "Address",
+"email" : "E-mail"
+"tele1" : "Tel.",
+"tele2" : "Cell Phone",
+"home" : "Main page",
+"collection" : "Collection",
+"setting" : "Setting"
 }

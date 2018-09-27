@@ -86,4 +86,5 @@
         <variable name="WEB_APPLICATION_CLIENT_ID" value="1098406345864-nv33p7ol23grcqvrmtfpkb48207o6lqp.apps.googleusercontent.com" />
     </plugin>
     <engine name="android" spec="^7.0.0" />
+    <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
 </widget>

@@ -158,7 +158,9 @@
     <ion-grid class= "gridFooter">
         <ion-row>
             <ion-col >
-                <button ion-button round outline class = "center">{{ 'contactCompany' | translate }}</button>
+                <button ion-button round outline class = "center"
+                 (click)="redirectToCompanyInfo(maid.companyName)"
+                >{{ 'contactCompany' | translate }}</button>
             </ion-col>
            
             <ion-col >

@@ -11,7 +11,7 @@
    
     <ion-card>
       <div class="container" *ngIf="downloadURL | async; let url">
-          <img [src]="url" alt="Image from AngularFireStorage">
+          <img [src]="url" alt="Image from AngularFireStorage" (click)="openCompanyByUrl(url)">
       </div>
     </ion-card>
 

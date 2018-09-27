@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs/Observable';
 import { ModalContentPage } from '../maid/detail';
+import { CompanyInfoPage } from "../companyInfo/companyInfo";
 
 @Component({
   selector: "page-maid",
@@ -39,7 +40,7 @@ export class MaidPage {
         this.maids = item;
       });
     } else if (this.countryCode != null) {
-      console.log('From country');
+      console.log("From country");
       this.getMaidDataFromFireBase(this.countryCode);
     } else {
       this.getDataFromFireBase();
@@ -58,6 +59,11 @@ export class MaidPage {
     this.maids$.subscribe(item => {
       this.maids = item;
     });
+  }
+
+  openCompanyByUrl(url) {
+    console.log(" ===> "+ url);
+    this.navCtrl.push(CompanyInfoPage, { urlString: url });
   }
 
   openModal(index) {
