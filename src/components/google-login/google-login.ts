@@ -62,7 +62,7 @@ export class GoogleLoginComponent {
   async webGoogleLogin(): Promise<void> {
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
-      const credential = await this.afAuth.auth.signInWithPopup(provider);
+      await this.afAuth.auth.signInWithPopup(provider);
   
     } catch(err) {
       console.log(err)

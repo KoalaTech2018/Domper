@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -15,19 +14,17 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-
-
-.buttonStyle{
-    background: rgba(255,255,255,0.0);
-    color: rgba(255,255,255,0.0);
+.buttonStyle {
+  background: rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0);
 }
 
 .button-img {
-    display: inline-block;
-    min-width: 20px;
-    min-height: 20px;
-    background: rgba(255,255,255,0.0);
-    contain: strict;
+  display: inline-block;
+  min-width: 20px;
+  min-height: 20px;
+  background: rgba(255, 255, 255, 0);
+  contain: strict;
 }
 
 //Hidden Scroll bar
@@ -37,70 +34,75 @@
 }
 
 @font-face {
-  font-family: 'Humanst';
-  src: url('../assets/fonts/roboto-light.woff2') format('woff2'), url('../assets/fonts/roboto-light.woff') format('woff');
+  font-family: "Humanst";
+  src: url("../assets/fonts/roboto-light.woff2") format("woff2"),
+    url("../assets/fonts/roboto-light.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 * {
-  font-family: 'Humanst';
+  font-family: "Humanst";
 }
 // For tab icon setting -- start
- .fa-icons-general {
-        display: inline-block;
-        font: normal normal normal 14px/1 FontAwesome;
-        font-size: inherit;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        transform: translate(0, 0);
-    }
+.fa-icons-general {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
 
-    .ion-ios-fa-home::before,
-    .ion-ios-fa-home-outline::before,
-    .ion-md-fa-home::before {
-        @extend .fa-icons-general;
-        content: "\f015";
-    }
+.ion-ios-fa-home::before,
+.ion-ios-fa-home-outline::before,
+.ion-md-fa-home::before {
+  @extend .fa-icons-general;
+  content: "\f015";
+}
 
-    .ion-ios-fa-address-book::before,
-    .ion-ios-fa-address-book-outline::before,
-    .ion-md-fa-address-book::before {
-        @extend .fa-icons-general;
-        content: "\f2b9";
-    }
+.ion-ios-fa-address-book::before,
+.ion-ios-fa-address-book-outline::before,
+.ion-md-fa-address-book::before {
+  @extend .fa-icons-general;
+  content: "\f2b9";
+}
 
- .ion-ios-fa-shopping-basket::before,
-    .ion-ios-fa-shopping-basket-outline::before,
-    .ion-md-fa-shopping-basket::before {
-        @extend .fa-icons-general;
-        content: "\f291";
-    }
+.ion-ios-fa-shopping-basket::before,
+.ion-ios-fa-shopping-basket-outline::before,
+.ion-md-fa-shopping-basket::before {
+  @extend .fa-icons-general;
+  content: "\f291";
+}
 
-    .ion-ios-fa-list-alt::before,
-    .ion-ios-fa-list-alt-outline::before,
-    .ion-md-fa-list-alt::before {
-        @extend .fa-icons-general;
-        content: "\f022";
-    }
+.ion-ios-fa-list-alt::before,
+.ion-ios-fa-list-alt-outline::before,
+.ion-md-fa-list-alt::before {
+  @extend .fa-icons-general;
+  content: "\f022";
+}
 // For tab icon setting -- end
-    
 
-h2 {
-    color: #5C272D;
+.ios,
+.md,
+.wp {
+  h2 {
+    color: #5c272d;
     text-align: center;
-}
+  }
 
-h3{
-    text-align:center;
-}
+  h3 {
+    text-align: center;
+  }
 
-h4{
-    color: #5C272D;
-    text-align:center;
-}
+  h4 {
+    color: #5c272d;
+    text-align: center;
+  }
 
-h6{
-    color: #5C272D;
+  h6 {
+    color: #5c272d;
+  }
+
 }

@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SettingPage } from "../pages/setting/setting";
 import { ModalContentPage } from '../pages/maid/detail';
+import { CompanyInfoPage } from '../pages/companyInfo/companyInfo';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,6 +26,9 @@ import { GoogleLoginComponent } from "../components/google-login/google-login";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+
+import { CallNumber } from "@ionic-native/call-number";
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -47,6 +51,7 @@ var config = {
     SettingPage,
     TabsPage,
     ModalContentPage,
+    CompanyInfoPage,
     GoogleLoginComponent
   ],
   imports: [
@@ -74,13 +79,15 @@ var config = {
     HomePage,
     SettingPage,
     TabsPage,
-    ModalContentPage
+    ModalContentPage,
+    CompanyInfoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     GooglePlus,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    CallNumber
   ]
 })
 export class AppModule {}

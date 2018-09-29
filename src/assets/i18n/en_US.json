@@ -10,6 +10,7 @@
 "exp": "Exp.",
 "language": "Lang.",
 "years": "year(s)",
+"maid": "Maid",
 "maidDetail": "Maid details",
 "nowAt": "Now @",
 "ttlWorkExp": "Total Working Exp.",
@@ -33,5 +34,19 @@
 "status": "Status",
 "children": "No. of Children",
 "skill": "Skill",
-"cancel": "Cancel"
+"cancel": "Cancel",
+"fee" : "Cost",
+"addToCollection" : "Add To Collection",
+"contactCompany" : "Contact Company",
+"company" : "Company",
+"feeInclude" : "Fee Include",
+"specialSer" : "Addition star Services",
+"contact" : "Contact",
+"address" : "Address",
+"email" : "E-mail"
+"tele1" : "Tel.",
+"tele2" : "Cell Phone",
+"home" : "Main page",
+"collection" : "Collection",
+"setting" : "Setting"
 }

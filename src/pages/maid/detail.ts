@@ -1,30 +1,36 @@
 import { Component, OnInit } from "@angular/core";
-import { Platform, NavParams, ViewController } from 'ionic-angular';
+import { Platform, NavParams, NavController, ModalController, ViewController } from 'ionic-angular';
+
+import { CompanyInfoPage } from "../companyInfo/companyInfo";
 
 @Component({
   selector: "page-maid",
   templateUrl: "detail.html"
 })
 export class ModalContentPage implements OnInit {
-
-
   public maid;
 
   constructor(
     public platform: Platform,
     public params: NavParams,
-    public viewCtrl: ViewController
+    public viewCtrl: ViewController,
+    public navCtrl: NavController,
+    public modalCtrl: ModalController
   ) {
     console.log("I am created");
     this.maid = this.params.get("obj");
     console.log(this.maid.working_exps);
-
   }
 
   dismiss() {
     this.viewCtrl.dismiss();
   }
   ngOnInit() {}
+
+  redirectToCompanyInfo(companyName) {
+    console.log("Deatil page trigger :"+companyName);
+    this.navCtrl.push(CompanyInfoPage, { objString: companyName });
+  }
 }
 
 

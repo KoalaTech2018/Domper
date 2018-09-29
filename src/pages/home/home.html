@@ -1,15 +1,10 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>{{ 'appName' | translate }}</ion-title>
+  <ion-navbar color="primary" >
+    <ion-title >{{ 'appName' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
-<button ion-button block color="danger" (click)="loginUser()" *ngIf="!userProfile">
-  <ion-icon name="logo-googleplus"></ion-icon>
-  Login with Google
-</button>
 
 <ion-item *ngIf="userProfile">
   <ion-avatar item-left>
@@ -82,7 +77,7 @@
           <h6 [ngStyle]="{'font-size': '10px'}">{{ 'exp' | translate }}: {{maid.working_exp_yr}} yr(s)</h6>
           <h6 [ngStyle]="{'font-size': '10px'}">{{ 'language' | translate }}:
             <br>{{maid.language}}</h6>
-
+          <h6 [ngStyle]="{'font-size': '10px'}">{{ 'fee' | translate }}: <br>HKD($) {{maid.fee}} </h6>
         </ion-item>
       </ion-card>
     </ion-slide>
@@ -110,6 +105,8 @@
           <h6 [ngStyle]="{'font-size': '10px'}">{{ 'exp' | translate }}: {{maid.working_exp_yr}} {{ 'years' | translate }}</h6>
           <h6 [ngStyle]="{'font-size': '10px'}">{{ 'language' | translate }}:
             <br>{{maid.language}}</h6>
+            <h6 [ngStyle]="{'font-size': '10px'}">{{ 'fee' | translate }}:
+              <br>HKD($) {{maid.fee}} </h6> 
         </ion-item>
       </ion-card>
     </ion-slide>
