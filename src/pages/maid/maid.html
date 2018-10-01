@@ -3,11 +3,16 @@
     <ion-title>
        {{ 'maid' | translate }}
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openSearchBox()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> -->
    
     <ion-card>
       <div class="container" *ngIf="downloadURL | async; let url">

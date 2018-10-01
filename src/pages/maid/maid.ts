@@ -5,6 +5,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs/Observable';
 import { ModalContentPage } from '../maid/detail';
 import { CompanyInfoPage } from "../companyInfo/companyInfo";
+import { SearchBox } from "../maid/searchBox";
 
 @Component({
   selector: "page-maid",
@@ -78,14 +79,6 @@ export class MaidPage {
     return this.promoteCompany;
   }
 
-  getItems($event) {
-    let q = $event.target.value;
-    this.maids$ = this.afd
-      .list("maids", ref => ref.orderByChild("age").startAt(+q))
-      .valueChanges();
-    console.log(q);
-  }
-
   getMaidDataFromFireBase(country) {
     this.maids$ = this.afd
       .list("maids", ref => ref.orderByChild("country").equalTo(country))
@@ -94,5 +87,22 @@ export class MaidPage {
     this.maids$.subscribe(item => {
       this.maids = item;
     });
+  }
+
+  openSearchBox() {
+    let modal = this.modalCtrl.create(SearchBox, {
+      obj: ""
+    });
+    modal.onDidDismiss(data => {
+      if(data!=null){
+          this.maids$ = this.afd
+          .list("maids", ref =>
+            ref.orderByChild("age").startAt(+data)
+          )
+          .valueChanges();
+      }
+    });
+    modal.present();
+ 
   }
 }
