@@ -23,7 +23,7 @@
             <img src="{{company.imgUrl}}" />
         </ion-item>
 
-        <ion-item [ngStyle]="{'font-size': '14px'}">
+        <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
             <!-- <ion-icon class="fa fa-commenting-o" aria-hidden="true" item-start small color="primary"></ion-icon> -->
             <div item-end class="grey">{{company.desc}}</div>
         </ion-item>
@@ -33,18 +33,18 @@
 
     <ion-card *ngFor="let branch of company.branches">
 
-        <ion-item [ngStyle]="{'font-size': '14px'}">
+        <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
             <ion-icon class="fa fa-location-arrow" aria-hidden="true" item-start small color="primary"></ion-icon>
             <div item-end class="grey">{{branch.address}}</div>
         </ion-item>
 
-        <ion-item [ngStyle]="{'font-size': '14px'}">
+        <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
             <ion-icon class="fa fa-envelope-o" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'email' | translate }}</ion-label>
             <div item-end class="grey">{{branch.email}}</div>
         </ion-item>
 
-        <ion-item [ngStyle]="{'font-size': '14px'}">
+        <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
             <ion-icon class="fa fa-phone" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'tele1' | translate }}</ion-label>
             <div item-end class="grey">
@@ -53,7 +53,7 @@
             </div>
         </ion-item>
 
-        <ion-item [ngStyle]="{'font-size': '14px'}">
+        <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
             <ion-icon class="fa fa-mobile" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'tele2' | translate }}</ion-label>
             <div item-end class="grey">
@@ -71,7 +71,7 @@
         <div class="services_header_padding">
             <h4 [ngStyle]="{'font-size': '17px'}">{{ 'feeInclude' | translate }}</h4>
         </div>
-        <ion-item *ngFor="let ser of company.ser_content" no-margin [ngStyle]="{'font-size': '14px'}">
+        <ion-item *ngFor="let ser of company.ser_content" no-margin [ngStyle]="{'font-size': '14px'}" class="grey">
             <div>
                 {{ 'feeInclude' | translate }}
             </div>
@@ -84,7 +84,7 @@
         <div class="services_header_padding">
             <h4 [ngStyle]="{'font-size': '17px'}">{{ 'specialSer' | translate }}</h4>
         </div>
-        <ion-item *ngFor="let special of company.special_ser" no-margin [ngStyle]="{'font-size': '14px'}">
+        <ion-item *ngFor="let special of company.special_ser" no-margin [ngStyle]="{'font-size': '14px'}" class="grey">
             <ion-icon class="fa fa-check-square-o" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label item-end class="grey" text-wrap>{{special}}</ion-label>
         </ion-item>

@@ -43,10 +43,23 @@
 "specialSer" : "Addition star Services",
 "contact" : "Contact",
 "address" : "Address",
-"email" : "E-mail"
+"email" : "E-mail",
 "tele1" : "Tel.",
 "tele2" : "Cell Phone",
 "home" : "Main page",
 "collection" : "Collection",
-"setting" : "Setting"
+"setting" : "Setting",
+"personalAcc" : " Personal Account",
+"login" : "Login",
+"loginAcc" : "Login Account",
+"google" : "Google",
+"english" : "English",
+"chinese" : "繁體中文(香港)",
+"ok" : "Confirm",
+"problem" : "Common Issue",
+"aboutDomper" : "About Domper",
+"contactUs" : "Contact Us",
+"terms" : "Terms & Conditions",
+"privacy" : "Privacy statement"
+
 }

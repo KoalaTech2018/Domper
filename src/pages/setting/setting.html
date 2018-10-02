@@ -1,17 +1,54 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Setting
+      {{ 'setting' | translate }}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>test</ion-list-header>
+
+  <h4>{{ 'personalAcc' | translate }}</h4>
+  <ion-card>
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+      <h6>{{ 'loginAcc' | translate }}</h6>
+    </ion-item>
+    <google-login></google-login>
+
+  </ion-card>
+
+  <ion-list>
+    <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
+      <ion-label>{{ 'language' | translate }}</ion-label>
+      <ion-select [(ngModel)]="language" (ionChange)="changeLanguage()" okText="{{ 'ok' | translate }}" cancelText="{{ 'cancel' | translate }}">
+        <ion-option value="en_US">{{ 'english' | translate }}</ion-option>
+        <ion-option value="zh-TW">{{ 'chinese' | translate }}</ion-option>
+      </ion-select>
     </ion-item>
   </ion-list>
+
+  <ion-card>
+
+
+    <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
+      <ion-label>{{ 'problem' | translate }}</ion-label>
+    </ion-item>
+    <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
+      <ion-label>{{ 'aboutDomper' | translate }}</ion-label>
+    </ion-item>
+    <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
+      <ion-label>{{ 'contactUs' | translate }}</ion-label>
+    </ion-item>
+    <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
+      <ion-label>{{ 'terms' | translate }}</ion-label>
+    </ion-item>
+    <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
+      <ion-label>{{ 'privacy' | translate }}</ion-label>
+    </ion-item>
+  </ion-card>
+
+
+
+
+
 </ion-content>

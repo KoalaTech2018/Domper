@@ -48,5 +48,19 @@
 "tele2" : "手提電話",
 "home" : "主頁",
 "collection" : "我的最愛",
-"setting" : "設定"
+"setting" : "設定",
+"personalAcc" : "個人帳戶",
+"login" : "登入",
+"loginAcc" : "登入帳戶",
+"google" : "Google",
+"english" : "英文",
+"chinese" : "中文",
+"ok" : "確定",
+"problem" : "常見問題",
+"aboutDomper" : "關於僱傭易",
+"contactUs" : "聯絡我們",
+"terms" : "條款和細則",
+"privacy" : "私隱權聲明"
+
+
 }
