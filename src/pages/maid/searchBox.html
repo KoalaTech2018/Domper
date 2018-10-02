@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Search
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()" >
+          <span ion-text > {{ 'cancel' | translate }}</span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-item>
+    <ion-label floating>Age</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-icon name="globe" item-start small color="primary"></ion-icon>
+    <ion-label>{{ 'nationality' | translate }}</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item> -->
+
+  <div class="search-form" text-center>
+      <input [(ngModel)]="search_age" type="text" name="age" placeholder="Age">
+      <button ion-button round outline (click)="search()">Search</button>
+  </div>
+  
+
+</ion-content>

@@ -31,7 +31,7 @@
     "@ngx-translate/http-loader": "^3.0.1",
     "angularfire2": "^5.0.0-rc.11",
     "call-number": "^1.0.1",
-    "cordova-android": "7.0.0",
+    "cordova-android": "^7.1.1",
     "cordova-browser": "5.0.4",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-file": "^6.0.1",
@@ -50,7 +50,8 @@
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.26"
+    "zone.js": "0.8.26",
+    "mx.ferreyra.callnumber": "~0.0.2"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.3.1",
@@ -66,23 +67,16 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "1098406345864-2fh06bjrgntkb2h3gt5g6lsg9jt9opbl.apps.googleusercontent.com",
-        "WEB_APPLICATION_CLIENT_ID": "1098406345864-2fh06bjrgntkb2h3gt5g6lsg9jt9opbl.apps.googleusercontent.com"
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.1098406345864-dtkob4b9ipniucrfhunigpkooobklqf1",
+        "WEB_APPLICATION_CLIENT_ID": "1098406345864-nv33p7ol23grcqvrmtfpkb48207o6lqp.apps.googleusercontent.com"
       },
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {},
-      "mx.ferreyra.callnumber": {},
-      "cordova-plugin-ionic": {
-        "APP_ID": "ceee121e",
-        "CHANNEL_NAME": "Master",
-        "UPDATE_METHOD": "background",
-        "UPDATE_API": "https://api.ionicjs.com",
-        "MAX_STORE": "2",
-        "MIN_BACKGROUND_DURATION": "30"
-      }
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
+      "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
       "browser",

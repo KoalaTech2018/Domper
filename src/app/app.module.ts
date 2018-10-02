@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { SettingPage } from "../pages/setting/setting";
 import { ModalContentPage } from '../pages/maid/detail';
 import { CompanyInfoPage } from '../pages/companyInfo/companyInfo';
+import { SearchBox } from '../pages/maid/searchBox';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -52,6 +53,7 @@ var config = {
     TabsPage,
     ModalContentPage,
     CompanyInfoPage,
+    SearchBox,
     GoogleLoginComponent
   ],
   imports: [
@@ -80,7 +82,8 @@ var config = {
     SettingPage,
     TabsPage,
     ModalContentPage,
-    CompanyInfoPage
+    CompanyInfoPage,
+    SearchBox
   ],
   providers: [
     StatusBar,
