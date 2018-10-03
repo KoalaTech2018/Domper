@@ -15,4 +15,19 @@ page-searchBox {
         margin-left:auto;
         margin-right:auto;
     }
+    .skillTag {
+        background: #bbb;
+        margin-right: 7px;
+        color: #fff;
+        padding: 4px 7px;
+        border-radius: 20px;
+    }
+
+    .skillTag_clicked {
+        background: rgb(214, 16, 188);
+        margin-right: 7px;
+        color: #fff;
+        padding: 4px 7px;
+        border-radius: 20px;
+    }
 }

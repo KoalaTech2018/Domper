@@ -31,6 +31,10 @@ export class ModalContentPage implements OnInit {
     console.log("Deatil page trigger :"+companyName);
     this.navCtrl.push(CompanyInfoPage, { objString: companyName });
   }
+
+  split(stringList){
+    return stringList.split(",");
+  }
 }
 
 

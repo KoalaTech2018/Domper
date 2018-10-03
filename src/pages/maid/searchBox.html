@@ -24,20 +24,16 @@
 
   <div class="search-form" text-center>
       <input [(ngModel)]="search_age" type="text" name="age" placeholder="Age">
+        <br/><br/>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick1]" contenteditable="false" (click)="tagClick1()">Cantonese</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick2]" contenteditable="false" (click)="tagClick2()">Chinese Food</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick3]" contenteditable="false" (click)="tagClick3()">Care Babies</span>
+
+        <br/><br/>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick4]" contenteditable="false" (click)="tagClick4()">Care Elderly</span>
+        <br/><br/>
       <button ion-button round outline (click)="search()">Search</button>
   </div>
-
-  <ion-item>
-    <ion-label>Toppings</ion-label>
-    <ion-select [(ngModel)]="toppings" multiple="true">
-      <ion-option>Bacon</ion-option>
-      <ion-option>Black Olives</ion-option>
-      <ion-option>Extra Cheese</ion-option>
-      <ion-option>Mushrooms</ion-option>
-      <ion-option>Pepperoni</ion-option>
-      <ion-option>Sausage</ion-option>
-    </ion-select>
-  </ion-item>
   
 
 </ion-content>

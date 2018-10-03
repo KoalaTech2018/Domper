@@ -147,7 +147,7 @@
     <!-- Skill -->
     <h4 [ngStyle]="{'font-size': '17px'}">{{ 'skill' | translate }}</h4>
     <ion-card>
-        <ion-item *ngFor="let skill of maid.skills" no-margin [ngStyle]="{'font-size': '14px'}" class="grey">
+        <ion-item *ngFor="let skill of split(maid.skills)" no-margin [ngStyle]="{'font-size': '14px'}" class="grey">
             <ion-icon class="fa fa-check-square-o" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label item-end >{{skill}}</ion-label>
         </ion-item>
