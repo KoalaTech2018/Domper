@@ -96,4 +96,5 @@
     </plugin>
     <engine name="browser" spec="5.0.4" />
     <engine name="android" spec="^7.1.1" />
+    <plugin name="cordova-plugin-email-composer" spec="0.8.15" />
 </widget>

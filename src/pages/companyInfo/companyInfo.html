@@ -41,7 +41,9 @@
         <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
             <ion-icon class="fa fa-envelope-o" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'email' | translate }}</ion-label>
-            <div item-end class="grey">{{branch.email}}</div>
+            <div item-end class="grey" >
+                <a herf (click)="sendEmail(branch.email)">{{branch.email}}</a>
+            </div>
         </ion-item>
 
         <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
