@@ -29,6 +29,7 @@ import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
 import { CallNumber } from "@ionic-native/call-number";
+import { EmailComposer } from "@ionic-native/email-composer";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -89,6 +90,7 @@ var config = {
     StatusBar,
     SplashScreen,
     GooglePlus,
+    EmailComposer,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     CallNumber
   ]
