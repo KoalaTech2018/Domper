@@ -164,7 +164,10 @@
             </ion-col>
            
             <ion-col >
-                <button ion-button round outline class = "center" >{{ 'addToCollection' | translate }}</button>
+                <button ion-button round outline class = "center" 
+                (click)="addToCollection()" >
+                    {{ 'addToCollection' | translate }}
+                </button>
             </ion-col>
 
         </ion-row>

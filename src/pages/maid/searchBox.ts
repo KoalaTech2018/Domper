@@ -7,11 +7,13 @@ import { NavController, ViewController } from 'ionic-angular';
 })
 export class SearchBox {
   search_age;
-  isClick1 = false;
-  isClick2 = false;
-  isClick3 = false;
-  isClick4 = false;
-  
+  search_height;
+  search_weight;
+
+  isClick = [false,false,false,false,false
+            ,false,false,false,false,false,false
+            ,false,false,false,false,false,false];
+
   constructor(public navCtrl: NavController,
               public viewCtrl: ViewController) {
     
@@ -21,31 +23,22 @@ export class SearchBox {
     this.viewCtrl.dismiss();
   }
   search(){
-    this.viewCtrl.dismiss(this.search_age);
+    var obj = {
+      age: <number> null,
+      height: <number> null,
+      weight: <number> null
+    };
+    obj.age = this.search_age;
+    obj.height = this.search_height;
+    obj.weight = this.search_weight;
+    this.viewCtrl.dismiss(obj);
   }
-  tagClick1(){
-     if(this.isClick1) 
-        this.isClick1 = false;
+
+  tagClick(num){
+     if(this.isClick[num]) 
+        this.isClick[num] = false;
      else
-        this.isClick1 = true;
-  }
-  tagClick2(){
-     if(this.isClick2) 
-        this.isClick2= false;
-     else
-        this.isClick2 = true;
-  }
-  tagClick3(){
-     if(this.isClick3) 
-        this.isClick3 = false;
-     else
-        this.isClick3 = true;
-  }
-  tagClick4(){
-     if(this.isClick4) 
-        this.isClick4 = false;
-     else
-        this.isClick4 = true;
+        this.isClick[num] = true;
   }
 
 }

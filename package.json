@@ -34,8 +34,9 @@
     "call-number": "^1.0.1",
     "cordova-android": "^7.1.1",
     "cordova-browser": "5.0.4",
+    "cordova-ios": "4.5.5",
     "cordova-plugin-device": "^2.0.2",
-    "cordova-plugin-email-composer": "0.8.15",
+    "cordova-plugin-email-composer": "^0.8.15",
     "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-file-transfer": "^1.7.1",
     "cordova-plugin-googleplus": "^5.3.2",
@@ -48,7 +49,7 @@
     "font-awesome": "^4.7.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
-    "mx.ferreyra.callnumber": "~0.0.2",
+    "mx.ferreyra.callnumber": "0.0.2",
     "promise-polyfill": "^8.0.0",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
@@ -87,11 +88,14 @@
         "MAX_STORE": "2",
         "MIN_BACKGROUND_DURATION": "30"
       },
-      "cordova-plugin-email-composer": {}
+      "cordova-plugin-email-composer": {},
+      "mx.ferreyra.callnumber": {},
+      "call-number": {}
     },
     "platforms": [
       "browser",
-      "android"
+      "android",
+      "ios"
     ]
   }
 }

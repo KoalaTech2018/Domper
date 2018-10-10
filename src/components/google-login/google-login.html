@@ -1,11 +1,18 @@
 <!-- Generated template for the GoogleLoginComponent component -->
 
-
-  <ion-item no-margin [ngStyle]="{'font-size': '14px'}" (tap) = "googleLogin()">
-    <ion-icon class="fa fa-google" aria-hidden="true" item-start small color="primary"></ion-icon>
-    <ion-label>{{ 'google' | translate }}</ion-label>
-    <!-- <div class="fa fa-chevron-right" aria-hidden="true" item-start small color="primary"></div> -->
-  </ion-item>
+  <div *ngIf="enableLogin()">
+    <ion-item no-margin [ngStyle]="{'font-size': '14px'}" (tap) = "googleLogin()">
+      <ion-icon class="fa fa-google" aria-hidden="true" item-start small color="primary"></ion-icon>
+      <ion-label>{{ 'google' | translate }}</ion-label>
+      <!-- <div class="fa fa-chevron-right" aria-hidden="true" item-start small color="primary"></div> -->
+    </ion-item>
+  </div>
+  <div *ngIf="!enableLogin()">
+    <button ion-button (tap) = "signOut()">Sign Out</button>
+    <ion-item>
+      My User ID is: {{userId}}
+    </ion-item>
+  </div>
   <!-- <button ion-button (tap) = "googleLogin2()">
       Native Login with Google
   </button>

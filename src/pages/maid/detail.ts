@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Platform, NavParams, NavController, ModalController, ViewController } from 'ionic-angular';
-
+import { AngularFireAuth } from 'angularfire2/auth';
 import { CompanyInfoPage } from "../companyInfo/companyInfo";
 
 @Component({
@@ -15,7 +15,8 @@ export class ModalContentPage implements OnInit {
     public params: NavParams,
     public viewCtrl: ViewController,
     public navCtrl: NavController,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    private afAuth: AngularFireAuth, 
   ) {
     console.log("I am created");
     this.maid = this.params.get("obj");
@@ -34,6 +35,10 @@ export class ModalContentPage implements OnInit {
 
   split(stringList){
     return stringList.split(",");
+  }
+  
+  addToCollection(){
+    
   }
 }
 
