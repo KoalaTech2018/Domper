@@ -29,8 +29,20 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
       statusBar.styleDefault();
       splashScreen.hide();
     });
+  }
+
+  private _initTranslate() { 
+    // Set the default language for translation strings, and the current language.
+    this.translate.setDefaultLang(this.lang);
+
+    if (this.translate.getBrowserLang() !== undefined) {
+      this.translate.use(this.translate.getBrowserLang());
+    } else {
+      this.translate.use(this.lang); // Set your language here
+    }
   }
 }

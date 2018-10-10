@@ -79,12 +79,10 @@ export class CompanyInfoPage implements OnInit {
 
   sendEmail(emailAddress) {
     console.log(emailAddress);
-    let email = {
-      to: "KoalaTech2018@gmail.com", 
+    let email = { to: emailAddress, 
       subject: "My Cool Image", 
       body: "Hey Simon, what do you thing about this image?", 
-      isHtml: true
-    };
+      isHtml: true };
 
     this.emailComposer.open(email);
   }
