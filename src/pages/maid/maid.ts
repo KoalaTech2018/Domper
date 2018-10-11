@@ -39,6 +39,7 @@ export class MaidPage {
         .valueChanges();
       this.maids$.subscribe(item => {
         this.maids = item;
+        this.fullMaids = item;
       });
     } else if (this.countryCode != null) {
       console.log("From country");
@@ -53,12 +54,14 @@ export class MaidPage {
     // });
   }
   public maids$: Observable<any[]>;
+  fullMaids = new Array<any>();
   maids = new Array<any>();
 
   getDataFromFireBase() {
     this.maids$ = this.afd.list("maids").valueChanges();
     this.maids$.subscribe(item => {
       this.maids = item;
+      this.fullMaids = item;
     });
   }
 
@@ -86,6 +89,7 @@ export class MaidPage {
 
     this.maids$.subscribe(item => {
       this.maids = item;
+      this.fullMaids = item;
     });
   }
 
@@ -94,10 +98,29 @@ export class MaidPage {
       obj: ""
     });
     modal.onDidDismiss(data => {
-      if (data!=null) {
-        this.maids$ = this.afd
-          .list("maids", ref => ref.orderByChild("age").startAt(+data))
-          .valueChanges();
+      if(data!=null){
+          // this.maids$ = this.afd
+          // .list("maids", ref =>
+          //   ref.orderByChild("age").startAt(+data)
+          // )
+          // .valueChanges();
+          console.log("HIT");
+          console.log(this.fullMaids);
+          var newList = new Array<any>();
+          for(var i in this.fullMaids){
+            if(data.height!=null && this.fullMaids[i].height==data.height){
+              newList.push(this.fullMaids[i]);
+            }else if(data.weight!=null && this.fullMaids[i].weight==data.weight){
+              newList.push(this.fullMaids[i]);
+            }else if(data.age!=null && this.fullMaids[i].age==data.age){
+              newList.push(this.fullMaids[i]);
+            }
+          }
+          if(newList.length>0){
+            this.maids = newList;
+          }else{
+            this.maids = this.fullMaids;
+          }
       }
     });
     modal.present();

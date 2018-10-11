@@ -14,6 +14,8 @@ import { Platform } from 'ionic-angular';
 export class GoogleLoginComponent {
 
   user: Observable<firebase.User>;
+  userId;
+  userObj;
 
   constructor(private afAuth: AngularFireAuth, 
               private gplus: GooglePlus,
@@ -22,12 +24,19 @@ export class GoogleLoginComponent {
     this.user = this.afAuth.authState;
     this.afAuth.auth.onAuthStateChanged(user => {
       if (user) {
-        console.log(user.uid);
+        this.userId = user.uid;
       } else {
-        console.log("No login session");
+        this.userId = null;
       }
     });
 
+  }
+
+  enableLogin(){
+    if(this.userId==null)
+      return true;
+    else 
+      return false;
   }
 
   /// Our login Methods will go here

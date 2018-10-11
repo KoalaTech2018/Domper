@@ -24,15 +24,36 @@
 
   <div class="search-form" text-center>
       <input [(ngModel)]="search_age" type="text" name="age" placeholder="Age">
+      <input [(ngModel)]="search_height" type="text" name="age" placeholder="Height (cm)">
+      <input [(ngModel)]="search_weight" type="text" name="age" placeholder="Weight (kg)">
         <br/><br/>
-        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick1]" contenteditable="false" (click)="tagClick1()">Cantonese</span>
-        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick2]" contenteditable="false" (click)="tagClick2()">Chinese Food</span>
-        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick3]" contenteditable="false" (click)="tagClick3()">Care Babies</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[0]]" contenteditable="false" (click)="tagClick(0)">Chinese Food</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[1]]" contenteditable="false" (click)="tagClick(1)">Indian Food</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[2]]" contenteditable="false" (click)="tagClick(2)">Japanese Food</span>
 
         <br/><br/>
-        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick4]" contenteditable="false" (click)="tagClick4()">Care Elderly</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[3]]" contenteditable="false" (click)="tagClick(3)">Korean Food</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[4]]" contenteditable="false" (click)="tagClick(4)">Western Food</span>
         <br/><br/>
-      <button ion-button round outline (click)="search()">Search</button>
+        <br/><br/>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[5]]" contenteditable="false" (click)="tagClick(5)">Care New-born</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[6]]" contenteditable="false" (click)="tagClick(6)">Care Todlers</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[7]]" contenteditable="false" (click)="tagClick(7)">Care Kids</span>
+        <br/><br/>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[8]]" contenteditable="false" (click)="tagClick(8)">Care Elderly</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[9]]" contenteditable="false" (click)="tagClick(9)">Care Disabled</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[10]]" contenteditable="false" (click)="tagClick(10)">Care Pets</span>
+        <br/><br/>
+        <br/><br/>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[11]]" contenteditable="false" (click)="tagClick(11)">House Cleaning</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[12]]" contenteditable="false" (click)="tagClick(12)">Ironing</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[13]]" contenteditable="false" (click)="tagClick(13)">Car Washing</span>
+        <br/><br/>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[14]]" contenteditable="false" (click)="tagClick(14)">Grocery Shopping</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[15]]" contenteditable="false" (click)="tagClick(15)">Laundry</span>
+        <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[16]]" contenteditable="false" (click)="tagClick(16)">Gardening</span>
+        <br/><br/>
+        <button ion-button round outline (click)="search()">Search</button>
   </div>
   
 
