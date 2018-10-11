@@ -9,7 +9,7 @@ import { CompanyInfoPage } from "../companyInfo/companyInfo";
 })
 export class ModalContentPage implements OnInit {
   public maid;
-
+  
   constructor(
     public platform: Platform,
     public params: NavParams,

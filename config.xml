@@ -94,7 +94,7 @@
         <variable name="MAX_STORE" value="2" />
         <variable name="MIN_BACKGROUND_DURATION" value="30" />
     </plugin>
+    <plugin name="cordova-plugin-email-composer" spec="0.8.15" />
     <engine name="browser" spec="5.0.4" />
     <engine name="android" spec="^7.1.1" />
-    <plugin name="cordova-plugin-email-composer" spec="0.8.15" />
 </widget>

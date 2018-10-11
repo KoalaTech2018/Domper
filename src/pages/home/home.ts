@@ -11,13 +11,20 @@ import { ModalContentPage } from "../maid/detail";
 
 import { MaidPage } from "../maid/maid";
 
+
+import * as firebase from "firebase/app";
+import { AngularFireAuth } from "angularfire2/auth";
+
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
+  user: Observable<firebase.User>;
+
   userProfile: any = null;
   constructor(
+    private afAuth: AngularFireAuth,
     public navCtrl: NavController,
     public afd: AngularFireDatabase,
     public modalCtrl: ModalController,
@@ -25,8 +32,16 @@ export class HomePage {
   ) {
     this.getMaidDataFromFireBase();
     this.getCompanyiesFromFireBase();
-  }
 
+    this.user = this.afAuth.authState;
+    this.afAuth.auth.onAuthStateChanged(user => {
+      if (user) {
+        console.log(user.uid);
+      } else {
+        console.log("No login session");
+      }
+    });
+  }
 
   public companies$: Observable<any[]>;
   companys = new Array<any>();
@@ -101,6 +116,4 @@ export class HomePage {
     //Used to Pass parameters to other tabs
     //this.events.publish('change-tab', 1, this.companys[index]);
   }
-  
-  
 }

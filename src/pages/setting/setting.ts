@@ -20,6 +20,7 @@ export class SettingPage {
 
   changeLanguage() {
     console.log(this.language);
+    this.translate.setDefaultLang(this.language);
     this.translate.use(this.language);
   }
 

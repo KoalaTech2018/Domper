@@ -94,15 +94,12 @@ export class MaidPage {
       obj: ""
     });
     modal.onDidDismiss(data => {
-      if(data!=null){
-          this.maids$ = this.afd
-          .list("maids", ref =>
-            ref.orderByChild("age").startAt(+data)
-          )
+      if (data!=null) {
+        this.maids$ = this.afd
+          .list("maids", ref => ref.orderByChild("age").startAt(+data))
           .valueChanges();
       }
     });
     modal.present();
- 
   }
 }

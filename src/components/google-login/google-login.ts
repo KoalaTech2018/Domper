@@ -24,7 +24,7 @@ export class GoogleLoginComponent {
       if (user) {
         console.log(user.uid);
       } else {
-        console.log("Nothing");
+        console.log("No login session");
       }
     });
 
@@ -71,6 +71,7 @@ export class GoogleLoginComponent {
   }
   
   signOut() {
+    console.log("logout");
     this.afAuth.auth.signOut();
   }
 
