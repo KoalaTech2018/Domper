@@ -5,6 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 
 import { GooglePlus } from '@ionic-native/google-plus';
+import { Facebook } from '@ionic-native/facebook';
 import { Platform } from 'ionic-angular';
 
 @Component({
@@ -19,6 +20,7 @@ export class GoogleLoginComponent {
 
   constructor(private afAuth: AngularFireAuth, 
               private gplus: GooglePlus,
+              private facebook: Facebook,
               private platform: Platform) {
 
     this.user = this.afAuth.authState;
@@ -65,6 +67,21 @@ export class GoogleLoginComponent {
   
     } catch(err) {
       console.log(err)
+    }
+  }
+
+  async facebookLogin(): Promise<any> {
+    try {
+      const response = await this.facebook.login(['email']);
+      const facebookCredential = firebase.auth.FacebookAuthProvider
+        .credential(response.authResponse.accessToken);
+      this.afAuth.auth.signInWithCredential(facebookCredential)
+        .then(success => {
+          console.log("Firebase success: " + JSON.stringify(success));
+        });
+    }
+    catch (error) {
+      console.log(error);
     }
   }
 

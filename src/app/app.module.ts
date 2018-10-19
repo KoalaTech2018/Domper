@@ -22,6 +22,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { GooglePlus } from "@ionic-native/google-plus";
 import { GoogleLoginComponent } from "../components/google-login/google-login";
+import { Facebook } from '@ionic-native/facebook'
 
 
 import { HttpClientModule, HttpClient } from "@angular/common/http";
@@ -90,6 +91,7 @@ var config = {
     StatusBar,
     SplashScreen,
     GooglePlus,
+    Facebook,
     EmailComposer,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     CallNumber

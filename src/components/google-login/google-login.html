@@ -7,6 +7,11 @@
       <!-- <div class="fa fa-chevron-right" aria-hidden="true" item-start small color="primary"></div> -->
     </ion-item>
   </div>
+  <div *ngIf="enableLogin()">
+    <div class="btn_container">
+      <button ion-button full (click)="facebookLogin();">Login with Facebook</button>
+    </div>
+  </div>
   <div *ngIf="!enableLogin()">
     <button ion-button (tap) = "signOut()">Sign Out</button>
     <ion-item>
