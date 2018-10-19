@@ -32,6 +32,7 @@ export class ModalContentPage implements OnInit {
         this.userId = user.uid;
         console.log(this.userId);
       } else {
+        
         this.userId = null;
       }
     });
@@ -55,26 +56,17 @@ export class ModalContentPage implements OnInit {
   public collections$: Observable<any[]>;
   collections = new Array<any>();
   addMaidToUserCollection() {
+    this.afd .list("users/" + this.userId + "/collection").push(this.maid.name);
 
-    // this.collections$ = this.afd
-    //   .list("myCollection", ref =>
-    //     ref.orderByChild("uuid").equalTo(this.userId)
-    //   )
-    //   .valueChanges();
-
-    // this.collections$.subscribe(item => {
-    //   this.collections = item;
-    // });
-    // console.log("====>"+this.collections$);
-
-    firebase
-      .database()
-      .ref("myCollection/" + this.userId)
-      .set({
-        uuid: this.userId,
-        maid_ids: this.maid.name
-      });
+    firebase.database().ref("/users/" + this.userId + "/collection")
+      .once("value")
+      .then(function(snapshot) {
+        var username = snapshot.val(); 
+        console.log(username);
+      }); 
+   
   }
+
 }
 
 

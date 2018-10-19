@@ -11,6 +11,8 @@ import { Observable } from "rxjs/Observable";
 export class CollectionPage {
   user: Observable<firebase.User>;
   userId;
+  public collection;
+
 
   constructor(private afAuth: AngularFireAuth, 
     public navCtrl: NavController) {
@@ -25,4 +27,14 @@ export class CollectionPage {
       }
     });
   }
+
+  // getMyCollection() {
+  //   this.maids$ = this.afd.list("maids").valueChanges();
+  //   this.maids$.subscribe(item => {
+  //     console.log(item);
+
+  //     this.maids = item;
+  //     this.fullMaids = item;
+  //   });
+  // }
 }

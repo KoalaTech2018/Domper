@@ -60,6 +60,8 @@ export class MaidPage {
   getDataFromFireBase() {
     this.maids$ = this.afd.list("maids").valueChanges();
     this.maids$.subscribe(item => {
+      console.log(item);
+
       this.maids = item;
       this.fullMaids = item;
     });

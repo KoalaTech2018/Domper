@@ -3,14 +3,18 @@ page-home {
     .avatars{
         height: 100%;
         width: 100%;
-        padding-top: 3px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+
         img{
             padding-top: 0px;
             margin: auto;
-            width: 60px;
-            height: 60px;
+            width: 110px;
+            height: 110px;
             object-fit: cover;
-            box-shadow: 0 0 8px #52B6BC;
+            border-radius: 10px;
+
+            box-shadow: 0 0 8px gray;
         }   
     }
     .avatars-detail {
@@ -23,7 +27,8 @@ page-home {
             // width: 60px;
             // height: 60px;
             object-fit: cover;
-            box-shadow: 0 0 8px gray;
+            box-shadow: 0 0 8px rgb(253, 152, 152);
+
         }
     }
 
@@ -60,4 +65,82 @@ page-home {
         padding: 5px; 
         opacity: 1.0;    //Can be used to adjust the opacity
     }  
+
+
+
+
+
+
+
+
+
+
+    ion-card.blurred-title-card {
+  position: relative;
+
+  .card-image {
+    width: 100%;
+    height: 60vw;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .card-title-background,
+  .card-title {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .card-title-background span{
+    position: absolute;
+    width: 100%;
+    height: 60vw;
+    bottom: 0;
+    left: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+  }
+
+  .card-title {
+    padding: 10px;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+
+    p {
+     line-height: 100%;
+     font-size: 1em;
+     font-weight: normal;
+     width: 100%;
+     color: #fff !important;
+   }
+  }
+}
 }

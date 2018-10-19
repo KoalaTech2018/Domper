@@ -1,29 +1,32 @@
 <!-- Generated template for the GoogleLoginComponent component -->
 
-  <div *ngIf="enableLogin()">
-    <ion-item no-margin [ngStyle]="{'font-size': '14px'}" (tap) = "googleLogin()">
-      <ion-icon class="fa fa-google" aria-hidden="true" item-start small color="primary"></ion-icon>
-      <ion-label>{{ 'google' | translate }}</ion-label>
-      <!-- <div class="fa fa-chevron-right" aria-hidden="true" item-start small color="primary"></div> -->
-    </ion-item>
-  </div>
-  <div *ngIf="enableLogin()">
-    <div class="btn_container">
-      <button ion-button full (click)="facebookLogin();">Login with Facebook</button>
+<div *ngIf="enableLogin()">
+
+  <ion-item no-margin [ngStyle]="{'font-size': '14px'}">
+    <div >
+      <button class="loginBtn loginBtn--google" (click)="googleLogin()">
+        {{ 'google' | translate }}
+      </button>
     </div>
-  </div>
-  <div *ngIf="!enableLogin()">
-    <button ion-button (tap) = "signOut()">Sign Out</button>
-    <ion-item>
-      My User ID is: {{userId}}
-    </ion-item>
-  </div>
-  <!-- <button ion-button (tap) = "googleLogin2()">
+    <div>
+      <button class="loginBtn loginBtn--facebook" (click)="facebookLogin()">
+        {{ 'facebook' | translate }}
+      </button>
+    </div>
+  </ion-item>
+</div>
+
+
+<div *ngIf="!enableLogin()">
+  <button ion-button (tap)="signOut()">Sign Out</button>
+  <ion-item>
+    My User ID is: {{userId}}
+  </ion-item>
+</div>
+<!-- <button ion-button (tap) = "googleLogin2()">
       Native Login with Google
   </button>
     -->
-  <!-- <button ion-button (tap) = "signOut()">
+<!-- <button ion-button (tap) = "signOut()">
     Signout
   </button> -->
-
-

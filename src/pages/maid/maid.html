@@ -23,20 +23,18 @@
     <ion-row>
       <ion-col *ngFor="let maid of maids; let i = index" (click)="openModal(i)" col-6 no-padding>
         <ion-card>
-          <ion-item>
-            <img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
-          </ion-item>
           <ion-item center>
+            <img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
            
             <ion-avatar class="avatars">
               <img src="{{maid.imgUrl}}">
             </ion-avatar>
             <br>
-            <h4 [ngStyle]="{'font-size': '15px'}">{{maid.name}}, {{maid.age}}</h4>
-            <h6 [ngStyle]="{'font-size': '10px'}">{{ 'exp' | translate }}: {{maid.working_exp_yr}} yr(s)</h6>
-            <h6 [ngStyle]="{'font-size': '10px'}">{{ 'language' | translate }}:
+            <h4 [ngStyle]="{'font-size': '18px'}">{{maid.name}}, {{maid.age}}</h4>
+            <h6 [ngStyle]="{'font-size': '14px'}">{{ 'exp' | translate }}: {{maid.working_exp_yr}} yr(s)</h6>
+            <h6 [ngStyle]="{'font-size': '14px'}">{{ 'language' | translate }}:
               <br>{{maid.language}}</h6>
-            <h6 [ngStyle]="{'font-size': '10px'}">{{ 'fee' | translate }}:
+            <h6 [ngStyle]="{'font-size': '14px'}">{{ 'fee' | translate }}:
               <br>HKD($) {{maid.fee}} </h6>
           </ion-item>
         </ion-card>
