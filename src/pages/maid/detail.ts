@@ -32,10 +32,11 @@ export class ModalContentPage implements OnInit {
         this.userId = user.uid;
         console.log(this.userId);
       } else {
-        
+
         this.userId = null;
       }
     });
+    
   }
 
   dismiss() {
@@ -52,18 +53,41 @@ export class ModalContentPage implements OnInit {
     return stringList.split(",");
   }
 
-  addToCollection() {}
+  
   public collections$: Observable<any[]>;
   collections = new Array<any>();
   addMaidToUserCollection() {
-    this.afd .list("users/" + this.userId + "/collection").push(this.maid.name);
 
-    firebase.database().ref("/users/" + this.userId + "/collection")
-      .once("value")
-      .then(function(snapshot) {
-        var username = snapshot.val(); 
-        console.log(username);
-      }); 
+    // var maidsInfoList;
+    // maidsInfoList = this.maid.id + "," + this.maid.imgUrl + "," +
+    //   this.maid.country + "," + this.maid.age + "," + this.maid.name + "," +this.maid.fee;
+    // this.afd
+    //   .list("users/" + this.userId + "/collection")
+    //   .push(maidsInfoList);
+
+    firebase
+      .database()
+      .ref("/users/" + this.userId + "/collection")
+      .push()
+      .set({
+        id: this.maid.id,
+        name: this.maid.name,
+        age: this.maid.age,
+        imgUrl: this.maid.imgUrl,
+        country: this.maid.country,
+        fee: this.maid.fee,
+        working_exp_yr: this.maid.working_exp_yr,
+        language: this.maid.language
+
+      });
+
+
+    // firebase.database().ref("/users/" + this.userId + "/collection")
+    //   .once("value")
+    //   .then(function(snapshot) {
+    //     var username = snapshot.val(); 
+    //     console.log(username);
+    //   }); 
    
   }
 

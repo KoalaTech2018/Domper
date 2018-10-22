@@ -55,7 +55,7 @@
 
   <br>
 
-  <h5>{{ 'bestChoice' | translate }}</h5>
+  <h5>{{ 'bestChoice' | translate }}</h5> 
   <h6>{{ 'philippines' | translate }}</h6>
   <ion-slides slidesPerView="2.75">
     <ion-slide *ngFor="let maid of maids_ph$ | async; let i = index" (click)="openPhMaidModal(i)" style="width:20%">
@@ -70,6 +70,7 @@
             <h4 [ngStyle]="{'font-size': '15px'}"><img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
               {{maid.name}}, {{maid.age}}</h4>
         </div> -->
+        
       </div>
 
     

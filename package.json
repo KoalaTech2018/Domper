@@ -23,7 +23,7 @@
     "@ionic-native/call-number": "^4.15.0",
     "@ionic-native/core": "~4.10.0",
     "@ionic-native/email-composer": "^4.15.0",
-    "@ionic-native/facebook": "^4.15.0",
+    "@ionic-native/facebook": "^4.16.0",
     "@ionic-native/google-plus": "^4.14.0",
     "@ionic-native/splash-screen": "~4.10.0",
     "@ionic-native/status-bar": "~4.10.0",

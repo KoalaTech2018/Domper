@@ -71,9 +71,9 @@
 
     <ion-card>
         <div class="services_header_padding">
-            <h4 [ngStyle]="{'font-size': '17px'}">{{ 'feeInclude' | translate }}</h4>
+            <h4 [ngStyle]="{'font-size': '18px'}">{{ 'feeInclude' | translate }}</h4>
         </div>
-        <ion-item *ngFor="let ser of company.ser_content" no-margin [ngStyle]="{'font-size': '14px'}" class="grey">
+        <ion-item *ngFor="let ser of company.ser_content" no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
             <div>
                 {{ 'feeInclude' | translate }}
             </div>
@@ -84,9 +84,9 @@
 
     <ion-card>
         <div class="services_header_padding">
-            <h4 [ngStyle]="{'font-size': '17px'}">{{ 'specialSer' | translate }}</h4>
+            <h4 [ngStyle]="{'font-size': '18px'}">{{ 'specialSer' | translate }}</h4>
         </div>
-        <ion-item *ngFor="let special of company.special_ser" no-margin [ngStyle]="{'font-size': '14px'}" class="grey">
+        <ion-item *ngFor="let special of company.special_ser" no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
             <ion-icon class="fa fa-check-square-o" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label item-end class="grey" text-wrap>{{special}}</ion-label>
         </ion-item>
