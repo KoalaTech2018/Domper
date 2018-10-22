@@ -7,5 +7,49 @@
 </ion-header>
 
 <ion-content>
+<!-- (click)="openModal(i)" -->
+  <ion-row>
+    <ion-col *ngFor="let userCollection of userCollections; let i = index" col-12 no-padding>
+      <ion-card>
+        <ion-item  >
+  
+          <ion-row>
+            <ion-col col-4 no-padding><img class="countryFlagImage" src="{{'../../assets/imgs/' + userCollection.country.toLowerCase() + '.png'}}" /></ion-col>
+  
+            <ion-col col-8 no-padding>
+              <h4 [ngStyle]="{'font-size': '18px'}">{{userCollection.name}}, {{userCollection.age}}</h4>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4 no-padding>
+  
+              <ion-row>
+                <ion-avatar class="avatars">
+                  <img src="{{userCollection.imgUrl}}"> 
+                </ion-avatar>
+              </ion-row>
+  
+            </ion-col>
+  
+            <ion-col col-8 no-padding>
+              <h6 [ngStyle]="{'font-size': '16px'}">{{ 'exp' | translate }}: {{userCollection.working_exp_yr}} yr(s)</h6>
+              <h6 [ngStyle]="{'font-size': '16px'}">{{ 'language' | translate }}:{{userCollection.language}}</h6>
+              <h6 [ngStyle]="{'font-size': '16px'}">{{ 'fee' | translate }}:{{ 'hkd' | translate }}($) {{userCollection.fee}} </h6>
+             
+            </ion-col>
+  
+          </ion-row>
+
+  
+        </ion-item>
+
+        <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey" (click)="removeUserCollection(userCollection.id)">
+          <ion-icon class="fa fa-trash-o" aria-hidden="true" item-start small color="primary"></ion-icon>
+          <ion-label>Remove</ion-label>
+         
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
   
 </ion-content>

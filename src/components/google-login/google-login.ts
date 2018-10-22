@@ -31,6 +31,7 @@ export class GoogleLoginComponent {
         this.userId = null;
       }
     });
+    
 
   }
 
@@ -88,7 +89,17 @@ export class GoogleLoginComponent {
   async webGoogleLogin(): Promise<void> {
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
-      await this.afAuth.auth.signInWithPopup(provider);
+      // await this.afAuth.auth.signInWithPopup(provider);
+      await this.afAuth.auth.signInWithPopup(provider).then(success => {
+        //console.log("Firebase success: " + JSON.stringify(success));
+        console.log(" >>>>> google-login.ts <<<<< success user displayName: " + success.user.displayName);
+        console.log(" >>>>> google-login.ts <<<<< success user email: " + success.user.email);
+        firebase.database().ref("users/" + success.user.uid).update(
+          {
+            username: success.user.displayName,
+            email: success.user.email
+          });
+      });
   
     } catch(err) {
       console.log(err)
