@@ -14,6 +14,7 @@ export class ModalContentPage implements OnInit {
   public maid;
   user: Observable<firebase.User>;
   userId;
+  maidId;
 
   constructor(
     public platform: Platform,
@@ -25,18 +26,23 @@ export class ModalContentPage implements OnInit {
     private afAuth: AngularFireAuth
   ) {
     this.maid = this.params.get("obj");
-    console.log(this.maid);
+    this.maidId = this.params.get("maidId");
+    console.log("********"+this.maidId);
     this.user = this.afAuth.authState;
     this.afAuth.auth.onAuthStateChanged(user => {
       if (user) {
         this.userId = user.uid;
         console.log(this.userId);
+       
       } else {
-
         this.userId = null;
       }
     });
-    
+
+    if (this.maidId != null) {
+      console.log(this.maidId);
+      this.getMaidById(this.maidId);
+    }
   }
 
   dismiss() {
@@ -53,22 +59,26 @@ export class ModalContentPage implements OnInit {
     return stringList.split(",");
   }
 
-  
-  public collections$: Observable<any[]>;
-  collections = new Array<any>();
+  public maids$: Observable<any[]>;
+  maids = new Array<any>();
+
+  getMaidById(maidId) {
+    this.maids$ = this.afd
+      .list("maids", ref => ref.orderByChild("id").equalTo(maidId))
+      .valueChanges();
+
+    this.maids$.subscribe(item => {
+      console.log(">>>>> test <<<<<" + item[0]);
+      this.maid = item[0];
+    });
+    
+  }
+
   addMaidToUserCollection() {
-
-    // var maidsInfoList;
-    // maidsInfoList = this.maid.id + "," + this.maid.imgUrl + "," +
-    //   this.maid.country + "," + this.maid.age + "," + this.maid.name + "," +this.maid.fee;
-    // this.afd
-    //   .list("users/" + this.userId + "/collection")
-    //   .push(maidsInfoList);
-
     firebase
       .database()
       .ref("/users/" + this.userId + "/collection")
-      .push()
+      .child(this.maid.id)
       .set({
         id: this.maid.id,
         name: this.maid.name,
@@ -78,19 +88,19 @@ export class ModalContentPage implements OnInit {
         fee: this.maid.fee,
         working_exp_yr: this.maid.working_exp_yr,
         language: this.maid.language
-
       });
 
+    firebase
+      .database()
+      .ref("/users/" + this.userId + "/collection")
+      .once("value")
+      .then(function(snapshot) {
+        console.log(snapshot);
+        var username = snapshot.val();
 
-    // firebase.database().ref("/users/" + this.userId + "/collection")
-    //   .once("value")
-    //   .then(function(snapshot) {
-    //     var username = snapshot.val(); 
-    //     console.log(username);
-    //   }); 
-   
+        console.log(username);
+      });
   }
-
 }
 
 

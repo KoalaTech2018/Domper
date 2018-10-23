@@ -66,4 +66,20 @@ google-login {
 .loginBtn--google:focus {
   background: #E74B37;
 }
+
+.center{
+    margin-left: auto;
+    // margin-right: auto;
+    display: block !important;
+    background-color: #52B6BC;
+   -webkit-text-fill-color: #fff;
+    // border-radius: 30px;
+    // width: 30px;
+    // height: 30px;
+	  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2),0 2px 4px 0 rgba(0,0,0,0.19) !important;
+    }
+    .gridFooter {
+        padding: 0px;
+        border: none;
+    }
 }

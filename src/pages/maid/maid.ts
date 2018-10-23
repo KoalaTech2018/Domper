@@ -14,7 +14,8 @@ import { SearchBox } from "../maid/searchBox";
 export class MaidPage {
   promoteCompany;
   downloadURL;
-  countryCode;
+  countryCode; 
+
   constructor(
     public navCtrl: NavController,
     public afd: AngularFireDatabase,
@@ -44,7 +45,7 @@ export class MaidPage {
     } else if (this.countryCode != null) {
       console.log("From country");
       this.getMaidDataFromFireBase(this.countryCode);
-    } else {
+    } else{
       this.getDataFromFireBase();
     }
 
@@ -94,6 +95,8 @@ export class MaidPage {
       this.fullMaids = item;
     });
   }
+
+ 
 
   openSearchBox() {
     let modal = this.modalCtrl.create(SearchBox, {

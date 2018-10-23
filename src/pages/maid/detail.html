@@ -14,6 +14,7 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
+    <div *ngIf = "maid!=null">
     <ion-card>
         <ion-item>
             <img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
@@ -152,6 +153,7 @@
             <ion-label item-end >{{skill}}</ion-label>
         </ion-item>
     </ion-card>
+    </div>
 </ion-content>
 
 <ion-footer no-border >

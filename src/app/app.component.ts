@@ -35,14 +35,14 @@ export class MyApp {
     });
   }
 
-  private _initTranslate() {
-    // Set the default language for translation strings, and the current language.
-    this.translate.setDefaultLang(this.lang);
+  // private _initTranslate() {
+  //   // Set the default language for translation strings, and the current language.
+  //   this.translate.setDefaultLang(this.lang);
 
-    if (this.translate.getBrowserLang() !== undefined) {
-      this.translate.use(this.translate.getBrowserLang());
-    } else {
-      this.translate.use(this.lang); // Set your language here
-    }
-  }
+  //   if (this.translate.getBrowserLang() !== undefined) {
+  //     this.translate.use(this.translate.getBrowserLang());
+  //   } else {
+  //     this.translate.use(this.lang); // Set your language here
+  //   }
+  // }
 }

@@ -1,7 +1,8 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Collection
+      {{ 'collection' | translate }}
+      
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -14,14 +15,19 @@
         <ion-item  >
   
           <ion-row>
-            <ion-col col-4 no-padding><img class="countryFlagImage" src="{{'../../assets/imgs/' + userCollection.country.toLowerCase() + '.png'}}" /></ion-col>
-  
+            <ion-col col-3 no-padding><img class="countryFlagImage" src="{{'../../assets/imgs/' + userCollection.country.toLowerCase() + '.png'}}" /></ion-col>
+             
             <ion-col col-8 no-padding>
-              <h4 [ngStyle]="{'font-size': '18px'}">{{userCollection.name}}, {{userCollection.age}}</h4>
+              <h6 [ngStyle]="{'font-size': '18px'}">{{userCollection.name}}, {{userCollection.age}}</h6>
             </ion-col>
+
+            <ion-col col-1 no-padding (click)="removeUserCollection(userCollection.id)">
+              <ion-icon class="fa fa-trash-o" aria-hidden="true" color="primary"></ion-icon>
+            </ion-col>
+
           </ion-row>
-          <ion-row>
-            <ion-col col-4 no-padding>
+          <ion-row (click)="redirectToMaidDetail(userCollection.id)">
+            <ion-col col-3 no-padding>
   
               <ion-row>
                 <ion-avatar class="avatars">
@@ -31,23 +37,15 @@
   
             </ion-col>
   
-            <ion-col col-8 no-padding>
+            <ion-col col-9 no-padding>
               <h6 [ngStyle]="{'font-size': '16px'}">{{ 'exp' | translate }}: {{userCollection.working_exp_yr}} yr(s)</h6>
               <h6 [ngStyle]="{'font-size': '16px'}">{{ 'language' | translate }}:{{userCollection.language}}</h6>
               <h6 [ngStyle]="{'font-size': '16px'}">{{ 'fee' | translate }}:{{ 'hkd' | translate }}($) {{userCollection.fee}} </h6>
              
             </ion-col>
-  
           </ion-row>
-
-  
         </ion-item>
 
-        <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey" (click)="removeUserCollection(userCollection.id)">
-          <ion-icon class="fa fa-trash-o" aria-hidden="true" item-start small color="primary"></ion-icon>
-          <ion-label>Remove</ion-label>
-         
-        </ion-item>
       </ion-card>
     </ion-col>
   </ion-row>

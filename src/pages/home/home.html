@@ -14,37 +14,6 @@
     <h3>{{ userProfile.email }}</h3>
   </ion-item>
 
-  <div align="center">
-    <button class="buttonStyle" (click)="redirectToMaidFrCountry('Philippines')">
-      <ion-img class="button-img" width="49" height="49" src="../../assets/icon/Philippines.ico"></ion-img>
-      <h6 [ngStyle]="{'font-size': '10px'}">{{ 'philippines' | translate }}</h6>
-    </button>
-    <button class="buttonStyle" (click)="redirectToMaidFrCountry('Indonesia')">
-      <ion-img class="button-img" width="51" height="51" src="../../assets/icon/Indonesia.ico"></ion-img>
-      <h6 [ngStyle]="{'font-size': '10px'}">{{ 'indonesia' | translate }}</h6>
-    </button>
-
-    <button class="buttonStyle" (click)="redirectToMaidFrCountry('Mynamay')">
-      <ion-img class="button-img" width="53" height="53" src="../../assets/icon/mynamay.ico"></ion-img>
-      <h6 [ngStyle]="{'font-size': '10px'}">{{ 'mynamay' | translate }}</h6>
-    </button>
-
-    <button class="buttonStyle" (click)="redirectToMaidFrCountry('Other')">
-      <ion-img class="button-img" width="47" height="47" src="../../assets/icon/other.ico"></ion-img>
-
-      <h6 [ngStyle]="{'font-size': '10px'}">{{ 'others' | translate }}</h6>
-    </button>
-  </div>
-  <br>
-
-  <!-- <ion-slides autoplay="5000" loop="true" speed="2000">
-    <ion-slide *ngFor="let slide of image">
-      <button class="buttonStyle">
-        <ion-img class="button-img" width="50" height="50" src={{slide.image}}></ion-img>
-      </button>
-    </ion-slide>
-  </ion-slides> -->
-
   <h5>{{ 'bestCompany' | translate }}</h5>
   <ion-slides slidesPerView="2.2">
     <ion-slide *ngFor="let company of companies$ | async; let i = index" (click)="redirectToMaid(i)" class="card-slide">
@@ -53,13 +22,12 @@
     </ion-slide>
   </ion-slides>
 
-  <br>
 
-  <h5>{{ 'bestChoice' | translate }}</h5> 
+  <h5>{{ 'bestChoice' | translate }}</h5>
   <h6>{{ 'philippines' | translate }}</h6>
   <ion-slides slidesPerView="2.75">
     <ion-slide *ngFor="let maid of maids_ph$ | async; let i = index" (click)="openPhMaidModal(i)" style="width:20%">
-      <div >
+      <div>
         <div>
           <div class="avatars">
             <img src="{{maid.imgUrl}}">
@@ -70,10 +38,10 @@
             <h4 [ngStyle]="{'font-size': '15px'}"><img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
               {{maid.name}}, {{maid.age}}</h4>
         </div> -->
-        
+
       </div>
 
-    
+
     </ion-slide>
   </ion-slides>
 
@@ -86,7 +54,7 @@
           <div class="avatars">
             <img src="{{maid.imgUrl}}">
           </div>
-      
+
         </div>
         <!-- <div>
                   <h4 [ngStyle]="{'font-size': '15px'}"><img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
@@ -98,15 +66,27 @@
   </ion-slides>
   <br>
 
+  <div align="center">
+    <button class="buttonStyle" (click)="redirectToMaidFrCountry('Philippines')">
+      <ion-img class="button-img" width="49" height="49" src="../../assets/icon/Philippines.ico"></ion-img>
+      <h4 [ngStyle]="{'font-size': '10px'}">{{ 'philippines' | translate }}</h4>
+    </button>
+    <button class="buttonStyle" (click)="redirectToMaidFrCountry('Indonesia')">
+      <ion-img class="button-img" width="51" height="51" src="../../assets/icon/Indonesia.ico"></ion-img>
+      <h4 [ngStyle]="{'font-size': '10px'}">{{ 'indonesia' | translate }}</h4>
+    </button>
 
+    <button class="buttonStyle" (click)="redirectToMaidFrCountry('Mynamay')">
+      <ion-img class="button-img" width="53" height="53" src="../../assets/icon/mynamay.ico"></ion-img>
+      <h4 [ngStyle]="{'font-size': '10px'}">{{ 'mynamay' | translate }}</h4>
+    </button>
 
+    <button class="buttonStyle" (click)="redirectToMaidFrCountry('Other')">
+      <ion-img class="button-img" width="47" height="47" src="../../assets/icon/other.ico"></ion-img>
 
-  <!-- <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the
-    <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.
-  </p> -->
+      <h4 [ngStyle]="{'font-size': '10px'}">{{ 'others' | translate }}</h4>
+    </button>
+  </div>
+  <br>
+
 </ion-content>
