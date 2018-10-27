@@ -3,7 +3,7 @@
 <div *ngIf="enableLogin()">
 
   <ion-item no-margin [ngStyle]="{'font-size': '14px'}">
-    <div >
+    <div>
       <button class="loginBtn loginBtn--google" (click)="googleLogin()">
         {{ 'google' | translate }}
       </button>
@@ -18,10 +18,19 @@
 
 
 <div *ngIf="!enableLogin()">
-  <button ion-button (tap)="signOut()">Sign Out</button>
+
   <ion-item>
-    My User ID is: {{userId}}
+    <ion-row>
+      <ion-col>
+        {{userId}}
+      </ion-col>
+      <ion-col>
+        <button ion-button round outline class="center" (tap)="signOut()">{{ 'logout' | translate }}</button>
+      </ion-col>
+    </ion-row>
   </ion-item>
+
+
 </div>
 <!-- <button ion-button (tap) = "googleLogin2()">
       Native Login with Google
