@@ -15,7 +15,7 @@ export class SettingPage {
     public translate: TranslateService,
     private emailComposer: EmailComposer
   ) {
-    this.language = navigator.language;
+      this.language = this.translate.getDefaultLang();
   }
 
   changeLanguage() {

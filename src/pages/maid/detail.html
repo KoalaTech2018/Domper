@@ -150,7 +150,7 @@
     <ion-card>
         <ion-item *ngFor="let skill of split(maid.skills)" no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
             <ion-icon class="fa fa-check-square-o" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label item-end >{{skill}}</ion-label>
+            <ion-label item-end >{{skill | translate}}</ion-label>
         </ion-item>
     </ion-card>
     </div>
