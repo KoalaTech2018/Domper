@@ -115,10 +115,21 @@ export class MaidPage {
           for(var i in this.fullMaids){
             if(data.height!=null && this.fullMaids[i].height==data.height){
               newList.push(this.fullMaids[i]);
-            }else if(data.weight!=null && this.fullMaids[i].weight==data.weight){
+              continue;
+            }
+            if(data.weight!=null && this.fullMaids[i].weight==data.weight){
               newList.push(this.fullMaids[i]);
-            }else if(data.age!=null && this.fullMaids[i].age==data.age){
+              continue;
+            }
+            if(data.age!=null && this.fullMaids[i].age==data.age){
               newList.push(this.fullMaids[i]);
+              continue;
+            }
+            for(var j in data.skillList){
+              if(this.fullMaids[i].skills.includes(data.skillList[j])){
+                newList.push(this.fullMaids[i]);
+                break;
+              }
             }
           }
           if(newList.length>0){
