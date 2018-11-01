@@ -10,6 +10,14 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { SettingPage } from "../pages/setting/setting";
 import { ModalContentPage } from '../pages/maid/detail';
 import { CompanyInfoPage } from '../pages/companyInfo/companyInfo';
+import { PrivatePolicyPage } from '../pages/privacyPolicy/privacyPolicy';
+import { PrivatePolicyEnPage } from "../pages/privacyPolicy/privacyPolicyEn";
+import { TermsAndConditionsCnPage } from "../pages/termsAndConditions/termsAndConditionsCn";
+import { TermsAndConditionsEnPage } from "../pages/termsAndConditions/termsAndConditionsEn";
+import { QuestionCnPage } from "../pages/question/questionCn";
+import { QuestionEnPage } from "../pages/question/questionEn";
+import { AboutDomperCnPage } from "../pages/aboutDomper/aboutDomperCn";
+import { AboutDomperEnPage } from "../pages/aboutDomper/aboutDomperEn";
 import { SearchBox } from '../pages/maid/searchBox';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -55,6 +63,14 @@ var config = {
     TabsPage,
     ModalContentPage,
     CompanyInfoPage,
+    PrivatePolicyPage,
+    PrivatePolicyEnPage,
+    TermsAndConditionsCnPage,
+    TermsAndConditionsEnPage,
+    QuestionCnPage,
+    QuestionEnPage,
+    AboutDomperEnPage,
+    AboutDomperCnPage,
     SearchBox,
     GoogleLoginComponent
   ],
@@ -85,6 +101,14 @@ var config = {
     TabsPage,
     ModalContentPage,
     CompanyInfoPage,
+    PrivatePolicyPage,
+    PrivatePolicyEnPage,
+    TermsAndConditionsCnPage,
+    TermsAndConditionsEnPage,
+    QuestionCnPage,
+    QuestionEnPage,
+    AboutDomperEnPage,
+    AboutDomperCnPage,
     SearchBox
   ],
   providers: [
