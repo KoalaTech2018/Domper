@@ -15,18 +15,30 @@
   </ion-item>
 
   <h5>{{ 'bestCompany' | translate }}</h5>
-  <ion-slides slidesPerView="2.2">
-    <ion-slide *ngFor="let company of companies$ | async; let i = index" (click)="redirectToMaid(i)" class="card-slide">
-      <!-- <h1 [ngStyle]="{'font-size': '15px'}">{{company.name}}</h1> -->
+  <!-- <ion-slides slidesPerView="2.2">
+    <ion-slide *ngFor="let company of companies$ | async; let i = index" (click)="redirectToMaid(i)" class="card-slide" style="width:20%">
+    
       <img class="card-img" src="{{company.imgUrl}}" />
+
     </ion-slide>
   </ion-slides>
+ -->
+
+  <ion-slides slidesPerView="2.2">
+    <ion-slide *ngFor="let company of companys; let i = index" (click)="redirectToMaid(i)" class="card-slide"
+      style="width:20%">
+      <!-- <h1 [ngStyle]="{'font-size': '15px'}">{{company.name}}</h1> -->
+      <img class="card-img" src="{{company.imgUrl}}" />
+  
+    </ion-slide>
+  </ion-slides>
+
 
 
   <h5>{{ 'bestChoice' | translate }}</h5>
   <h6>{{ 'philippines' | translate }}</h6>
   <ion-slides slidesPerView="2.75">
-    <ion-slide *ngFor="let maid of maids_ph$ | async; let i = index" (click)="openPhMaidModal(i)" style="width:20%">
+    <ion-slide *ngFor="let maid of maids_ph; let i = index" (click)="openPhMaidModal(i)" style="width:20%">
       <div>
         <div>
           <div class="avatars">
@@ -48,7 +60,7 @@
 
   <h6>{{ 'indonesia' | translate }}</h6>
   <ion-slides slidesPerView="2.75">
-    <ion-slide *ngFor="let maid of maids_in$ | async; let i = index" (click)="openInMaidModal(i)" style="width:20%">
+    <ion-slide *ngFor="let maid of maids_in; let i = index" (click)="openInMaidModal(i)" style="width:20%">
       <div>
         <div>
           <div class="avatars">

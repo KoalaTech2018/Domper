@@ -22,32 +22,32 @@
         <ion-item>
             <ion-avatar class="avatars-detail">
                 <img src="{{maid.imgUrl}}">
-            </ion-avatar>
+            </ion-avatar><br/>
             <h2>{{maid.name}}</h2>
         </ion-item>
 
         <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey"> 
             <ion-icon class="fa fa-money" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'fee' | translate }}</ion-label>
-            <div item-end >HKD {{maid.fee}}</div>
+            <div item-end >{{'hkd' | translate}} {{maid.fee | translate}}</div>
         </ion-item>
 
         <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey"> 
             <ion-icon name="pin" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'nowAt' | translate }}</ion-label>
-            <div item-end >{{maid.now_at}}</div>
+            <div item-end >{{maid.now_at | translate}}</div>
         </ion-item>
 
-        <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey"> 
+        <ion-item  no-margin [ngStyle]="{'font-size': '16px'}" class="grey"> 
             <ion-icon class="fa fa-language" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'language' | translate }}</ion-label>
-            <div item-end >{{maid.language}}</div>
+            <div item-end *ngFor="let lang of split(maid.language)">{{lang | translate}}</div>
         </ion-item>
 
         <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey"> 
             <ion-icon class="fa fa-id-card-o" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'ttlWorkExp' | translate }}</ion-label>
-            <div item-end >{{maid.working_exp_yr}} Year(s)</div>
+            <div item-end >{{maid.working_exp_yr}} {{ 'years' | translate }}</div>
         </ion-item>
 
         <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey"> 
@@ -70,7 +70,7 @@
 
         <ion-item *ngFor="let exp of maid.working_exps" no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
             <ion-icon class="fa fa-briefcase" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label item-end >{{exp.location}}</ion-label>
+            <ion-label item-end >{{exp.location | translate}}</ion-label>
             <ion-label item-end >
                 <div>{{ 'from' | translate }} {{exp.from}}</div>
                 <br/>
@@ -96,12 +96,12 @@
         <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
             <ion-icon name="globe" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'nationality' | translate }}</ion-label>
-            <div item-end >{{maid.nationality}}</div>
+            <div item-end >{{maid.nationality | translate}}</div>
         </ion-item>
         <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
             <ion-icon class="fa fa-venus-mars" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'gender' | translate }}</ion-label>
-            <div item-end >{{maid.sex}}</div>
+            <div item-end >{{ maid.sex | translate }}</div>
         </ion-item>
         <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
 
@@ -127,7 +127,7 @@
         <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
             <ion-icon class="fa fa-book" aria-hidden="true" item-start small color="primary"></ion-icon>
             <ion-label>{{ 'religion' | translate }}</ion-label>
-            <div item-end >{{maid.religion}}</div>
+            <div item-end >{{maid.religion | translate}}</div>
         </ion-item>
     </ion-card>
     <!-- marital -->
@@ -137,7 +137,7 @@
         <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
             <ion-icon name="heart" item-start small color="primary"></ion-icon> {{maid.marital_status}}
             <ion-label>{{ 'status' | translate }}</ion-label>
-            <div item-end >{{maid.marital_status}}</div>
+            <div item-end >{{maid.marital_status | translate}}</div>
         </ion-item>
         <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
             <ion-icon class="fa fa-child" aria-hidden="true" item-start small color="primary"></ion-icon> {{maid.no_of_children}}

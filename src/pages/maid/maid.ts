@@ -58,13 +58,24 @@ export class MaidPage {
   fullMaids = new Array<any>();
   maids = new Array<any>();
 
+  shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+    }
+    return a;
+  }
+
   getDataFromFireBase() {
     this.maids$ = this.afd.list("maids").valueChanges();
     this.maids$.subscribe(item => {
       console.log(item);
 
-      this.maids = item;
-      this.fullMaids = item;
+      this.maids = this.shuffle(item);
+      this.fullMaids = this.shuffle(item);
     });
   }
 
@@ -91,12 +102,14 @@ export class MaidPage {
       .valueChanges();
 
     this.maids$.subscribe(item => {
-      this.maids = item;
-      this.fullMaids = item;
+      this.maids = this.shuffle(item);
+      this.fullMaids = this.shuffle(item);
     });
   }
 
- 
+  split(stringList) {
+    return stringList.split(",");
+  }
 
   openSearchBox() {
     let modal = this.modalCtrl.create(SearchBox, {

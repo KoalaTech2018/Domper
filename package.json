@@ -55,6 +55,7 @@
     "promise-polyfill": "^8.0.0",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
+    "shuffle-array": "^1.0.1",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
   },

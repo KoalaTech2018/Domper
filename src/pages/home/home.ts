@@ -46,13 +46,28 @@ export class HomePage {
   public companies$: Observable<any[]>;
   companys = new Array<any>();
   getCompanyiesFromFireBase() {
-    this.companies$ = this.afd.list("companies").valueChanges();
+    this.companies$ = this.afd
+      .list("companies", ref =>
+        ref.orderByChild("special_highlight").equalTo("Y")
+      )
+      .valueChanges();
     // for detail page
     this.companies$.subscribe(item => {
-      this.companys = item;
+      // this.companys = item;
+      this.companys = this.shuffle(item);
     });
   }
 
+  shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+    }
+    return a;
+  }
   public maids_in$: Observable<any[]>;
   public maids_ph$: Observable<any[]>;
   maids_in = new Array<any>();
@@ -66,7 +81,7 @@ export class HomePage {
       .valueChanges();
 
     this.maids_ph$.subscribe(item => {
-      this.maids_ph = item;
+      this.maids_ph = this.shuffle(item);
     });
 
     this.maids_in$ = this.afd
@@ -75,7 +90,7 @@ export class HomePage {
       )
       .valueChanges();
     this.maids_in$.subscribe(item => {
-      this.maids_in = item;
+      this.maids_in = this.shuffle(item);
     });
   }
 
