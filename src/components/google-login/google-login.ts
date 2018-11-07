@@ -110,6 +110,7 @@ export class GoogleLoginComponent {
   signOut() {
     console.log("logout");
     this.afAuth.auth.signOut();
+    window.localStorage.setItem("countAddedColection", "");
   }
 
 }
