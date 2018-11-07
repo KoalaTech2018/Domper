@@ -1,11 +1,11 @@
 <ion-header>
-    <ion-toolbar  color="primary">
+    <ion-toolbar color="primary">
         <ion-title>
             {{ 'maidDetail' | translate }}
         </ion-title>
         <ion-buttons start>
-            <button ion-button (click)="dismiss()" >
-                <span ion-text > {{ 'cancel' | translate }}</span>
+            <button ion-button (click)="dismiss()">
+                <span ion-text> {{ 'cancel' | translate }}</span>
                 <!-- Below codes may deprecated after Ionic Update(It is not workin for ionic lab)-->
                 <!-- <span ion-text color="primary" showWhen="ios">Cancel</span>
                 <ion-icon name="md-close" showWhen="android, windows"></ion-icon> -->
@@ -14,163 +14,163 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <div *ngIf = "maid!=null">
-    <ion-card>
-        <ion-item>
-            <img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
-        </ion-item>
-        <ion-item>
-            <ion-avatar class="avatars-detail">
-                <img src="{{maid.imgUrl}}">
-            </ion-avatar><br/>
-            <h2>{{maid.name}}</h2>
-        </ion-item>
+    <div *ngIf="maid!=null">
+        <ion-card>
+            <ion-item>
+                <img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
+            </ion-item>
+            <ion-item>
+                <ion-avatar class="avatars-detail">
+                    <img src="{{maid.imgUrl}}">
+                </ion-avatar><br />
+                <h2>{{maid.name}}</h2>
+            </ion-item>
 
-        <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey"> 
-            <ion-icon class="fa fa-money" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'fee' | translate }}</ion-label>
-            <div item-end >{{'hkd' | translate}} {{maid.fee | translate}}</div>
-        </ion-item>
+            <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-money" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'fee' | translate }}</ion-label>
+                <div item-end>{{'hkd' | translate}} {{maid.fee | translate}}</div>
+            </ion-item>
 
-        <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey"> 
-            <ion-icon name="pin" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'nowAt' | translate }}</ion-label>
-            <div item-end >{{maid.now_at | translate}}</div>
-        </ion-item>
+            <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon name="pin" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'nowAt' | translate }}</ion-label>
+                <div item-end>{{maid.now_at | translate}}</div>
+            </ion-item>
 
-        <ion-item  no-margin [ngStyle]="{'font-size': '16px'}" class="grey"> 
-            <ion-icon class="fa fa-language" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'language' | translate }}</ion-label>
-            <div item-end *ngFor="let lang of split(maid.language)">{{lang | translate}}</div>
-        </ion-item>
+            <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-language" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'language' | translate }}</ion-label>
+                <div item-end *ngFor="let lang of split(maid.language)">{{lang | translate}}</div>
+            </ion-item>
 
-        <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey"> 
-            <ion-icon class="fa fa-id-card-o" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'ttlWorkExp' | translate }}</ion-label>
-            <div item-end >{{maid.working_exp_yr}} {{ 'years' | translate }}</div>
-        </ion-item>
+            <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-id-card-o" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'ttlWorkExp' | translate }}</ion-label>
+                <div item-end>{{maid.working_exp_yr}} {{ 'years' | translate }}</div>
+            </ion-item>
 
-        <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey"> 
-            <ion-icon class="fa fa-building-o" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'belongTo' | translate }}</ion-label>
-            <div item-end >{{maid.companyName}}</div>
-        </ion-item>
+            <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-building-o" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'belongTo' | translate }}</ion-label>
+                <div item-end>{{maid.companyName}}</div>
+            </ion-item>
 
-        <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey"> 
-            <ion-icon class="fa fa-calendar" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'avaDate' | translate }}</ion-label>
-            <div item-end >{{maid.available_work_date}}</div>
-        </ion-item>
+            <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-calendar" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'avaDate' | translate }}</ion-label>
+                <div item-end>{{maid.available_work_date}}</div>
+            </ion-item>
 
-    </ion-card>
+        </ion-card>
 
-    <!-- Working exp info -->
-    <h4 [ngStyle]="{'font-size': '17px'}"> {{ 'expInfo' | translate }}</h4>
-    <ion-card>
+        <!-- Working exp info -->
+        <h4 [ngStyle]="{'font-size': '17px'}"> {{ 'expInfo' | translate }}</h4>
+        <ion-card>
 
-        <ion-item *ngFor="let exp of maid.working_exps" no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
-            <ion-icon class="fa fa-briefcase" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label item-end >{{exp.location | translate}}</ion-label>
-            <ion-label item-end >
-                <div>{{ 'from' | translate }} {{exp.from}}</div>
-                <br/>
-                <div>{{ 'to' | translate }} {{exp.to}}</div>
-            </ion-label>
+            <ion-item *ngFor="let exp of maid.working_exps" no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-briefcase" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <ion-label item-end>{{exp.location | translate}}</ion-label>
+                <ion-label item-end>
+                    <div>{{ 'from' | translate }} {{exp.from}}</div>
+                    <br />
+                    <div>{{ 'to' | translate }} {{exp.to}}</div>
+                </ion-label>
 
-            <div item-end >{{exp.year}} {{ 'years' | translate }}</div>
-        </ion-item>
-    </ion-card>
+                <div item-end>{{exp.year}} {{ 'years' | translate }}</div>
+            </ion-item>
+        </ion-card>
 
-    <!-- Self Description -->
-    <h4 [ngStyle]="{'font-size': '17px'}">{{ 'description' | translate }}</h4>
-    <ion-card>
-        <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
-            <ion-icon class="fa fa-commenting-o" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <div item-end >{{maid.intro}}</div>
-        </ion-item>
-    </ion-card>
+        <!-- Self Description -->
+        <h4 [ngStyle]="{'font-size': '17px'}">{{ 'description' | translate }}</h4>
+        <ion-card>
+            <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-commenting-o" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <div item-end>{{maid.intro}}</div>
+            </ion-item>
+        </ion-card>
 
-    <!-- Personal Info -->
-    <h4 [ngStyle]="{'font-size': '17px'}">{{ 'personInfo' | translate }}</h4>
-    <ion-card>
-        <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
-            <ion-icon name="globe" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'nationality' | translate }}</ion-label>
-            <div item-end >{{maid.nationality | translate}}</div>
-        </ion-item>
-        <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
-            <ion-icon class="fa fa-venus-mars" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'gender' | translate }}</ion-label>
-            <div item-end >{{ maid.sex | translate }}</div>
-        </ion-item>
-        <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
+        <!-- Personal Info -->
+        <h4 [ngStyle]="{'font-size': '17px'}">{{ 'personInfo' | translate }}</h4>
+        <ion-card>
+            <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon name="globe" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'nationality' | translate }}</ion-label>
+                <div item-end>{{maid.nationality | translate}}</div>
+            </ion-item>
+            <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-venus-mars" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'gender' | translate }}</ion-label>
+                <div item-end>{{ maid.sex | translate }}</div>
+            </ion-item>
+            <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
 
-            <ion-icon class="fa fa-calendar" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'age' | translate }}</ion-label>
-            <div item-end >{{maid.age}}</div>
-        </ion-item>
-        <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
-            <ion-icon class="fa fa-birthday-cake" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'birthday' | translate }}</ion-label>
-            <div item-end >{{maid.birthday}}</div>
-        </ion-item>
-        <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
-            <ion-icon class="fa fa-universal-access" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'height' | translate }}</ion-label>
-            <div item-end >{{maid.height}}{{ 'cm' | translate }}</div>
-        </ion-item>
-        <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
-            <ion-icon name="speedometer" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'weight' | translate }}</ion-label>
-            <div item-end >{{maid.weight}}{{ 'kg' | translate }}</div>
-        </ion-item>
-        <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
-            <ion-icon class="fa fa-book" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label>{{ 'religion' | translate }}</ion-label>
-            <div item-end >{{maid.religion | translate}}</div>
-        </ion-item>
-    </ion-card>
-    <!-- marital -->
+                <ion-icon class="fa fa-calendar" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'age' | translate }}</ion-label>
+                <div item-end>{{maid.age}}</div>
+            </ion-item>
+            <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-birthday-cake" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'birthday' | translate }}</ion-label>
+                <div item-end>{{maid.birthday}}</div>
+            </ion-item>
+            <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-universal-access" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'height' | translate }}</ion-label>
+                <div item-end>{{maid.height}}{{ 'cm' | translate }}</div>
+            </ion-item>
+            <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon name="speedometer" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'weight' | translate }}</ion-label>
+                <div item-end>{{maid.weight}}{{ 'kg' | translate }}</div>
+            </ion-item>
+            <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-book" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'religion' | translate }}</ion-label>
+                <div item-end>{{maid.religion | translate}}</div>
+            </ion-item>
+        </ion-card>
+        <!-- marital -->
 
-    <h4 [ngStyle]="{'font-size': '17px'}">{{ 'marital' | translate }}</h4>
-    <ion-card>
-        <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
-            <ion-icon name="heart" item-start small color="primary"></ion-icon> {{maid.marital_status}}
-            <ion-label>{{ 'status' | translate }}</ion-label>
-            <div item-end >{{maid.marital_status | translate}}</div>
-        </ion-item>
-        <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
-            <ion-icon class="fa fa-child" aria-hidden="true" item-start small color="primary"></ion-icon> {{maid.no_of_children}}
-            <ion-label>{{ 'children' | translate }}</ion-label>
-            <div item-end >{{maid.no_of_children}}</div>
-        </ion-item>
-    </ion-card>
-    <!-- Skill -->
-    <h4 [ngStyle]="{'font-size': '17px'}">{{ 'skill' | translate }}</h4>
-    <ion-card>
-        <ion-item *ngFor="let skill of split(maid.skills)" no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
-            <ion-icon class="fa fa-check-square-o" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label item-end >{{skill | translate}}</ion-label>
-        </ion-item>
-    </ion-card>
+        <h4 [ngStyle]="{'font-size': '17px'}">{{ 'marital' | translate }}</h4>
+        <ion-card>
+            <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon name="heart" item-start small color="primary"></ion-icon> {{maid.marital_status}}
+                <ion-label>{{ 'status' | translate }}</ion-label>
+                <div item-end>{{maid.marital_status | translate}}</div>
+            </ion-item>
+            <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-child" aria-hidden="true" item-start small color="primary"></ion-icon>
+                {{maid.no_of_children}}
+                <ion-label>{{ 'children' | translate }}</ion-label>
+                <div item-end>{{maid.no_of_children}}</div>
+            </ion-item>
+        </ion-card>
+        <!-- Skill -->
+        <h4 [ngStyle]="{'font-size': '17px'}">{{ 'skill' | translate }}</h4>
+        <ion-card>
+            <ion-item *ngFor="let skill of split(maid.skills)" no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-check-square-o" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <ion-label item-end>{{skill | translate}}</ion-label>
+            </ion-item>
+        </ion-card>
     </div>
 </ion-content>
 
-<ion-footer no-border >
-    <ion-grid class= "gridFooter">
+<ion-footer no-border>
+    <ion-grid class="gridFooter">
         <ion-row>
-            <ion-col >
-                <button ion-button round outline class = "center"
-                 (click)="redirectToCompanyInfo(maid.companyName)"
-                >{{ 'contactCompany' | translate }}</button>
+            <ion-col>
+                <button ion-button round outline class="center" (click)="redirectToCompanyInfo(maid.companyName)">{{
+                    'contactCompany' | translate }}</button>
             </ion-col>
-           
-            <ion-col >
-                <button ion-button round outline class = "center" 
-                (click)="addMaidToUserCollection()" >
+
+            <ion-col *ngIf="isDisplay">
+                <button ion-button round outline class="center" (click)="addMaidToUserCollection()">
                     {{ 'addToCollection' | translate }}
                 </button>
             </ion-col>
+
 
         </ion-row>
     </ion-grid>

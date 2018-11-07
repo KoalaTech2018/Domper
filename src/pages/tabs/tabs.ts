@@ -12,13 +12,23 @@ import { Tabs } from 'ionic-angular';
   templateUrl: "tabs.html"
 })
 export class TabsPage {
-  @ViewChild(Tabs) tabs: Tabs;
+  @ViewChild(Tabs)
+  tabs: Tabs;
 
   tab1Root = HomePage;
   tab2Root = MaidPage;
   tab3Root = CollectionPage;
   tab4Root = SettingPage;
   tabParams = {};
+
+  countAddedColection(){
+    // window.localStorage.setItem("countAddedColection", "");
+    return window.localStorage.getItem("countAddedColection") != null
+      ? window.localStorage.getItem("countAddedColection")
+      : ""
+  }
+
+  
 
   //Used to Pass parameters to other tabs
   // constructor(private events: Events) {

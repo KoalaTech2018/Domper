@@ -14,7 +14,7 @@
     <h3>{{ userProfile.email }}</h3>
   </ion-item>
 
-  <h5>{{ 'bestCompany' | translate }}</h5>
+
   <!-- <ion-slides slidesPerView="2.2">
     <ion-slide *ngFor="let company of companies$ | async; let i = index" (click)="redirectToMaid(i)" class="card-slide" style="width:20%">
     
@@ -25,17 +25,55 @@
  -->
 
   <ion-slides slidesPerView="2.2">
-    <ion-slide *ngFor="let company of companys; let i = index" (click)="redirectToMaid(i)" class="card-slide"
-      style="width:20%">
+    <ion-slide *ngFor="let company of companys; let i = index" (click)="redirectToMaid(i)" class="card-slide" style="width:20%">
       <!-- <h1 [ngStyle]="{'font-size': '15px'}">{{company.name}}</h1> -->
       <img class="card-img" src="{{company.imgUrl}}" />
-  
+
     </ion-slide>
   </ion-slides>
 
+  <ion-row >
+    <ion-col>
+      <button class="buttonStyle" (click)="redirectToMaidFrCountry('Philippines')">
+        <ion-img class="button-img" width="49" height="49" src="../../assets/icon/Philippines.ico"></ion-img>
+      </button>
+    </ion-col>
 
+    <ion-col>
+      <button class="buttonStyle" (click)="redirectToMaidFrCountry('Indonesia')">
+        <ion-img class="button-img" width="51" height="51" src="../../assets/icon/Indonesia.ico"></ion-img>
+      </button>
+    </ion-col>
 
-  <h5>{{ 'bestChoice' | translate }}</h5>
+    <ion-col>
+      <button class="buttonStyle" (click)="redirectToMaidFrCountry('Mynamay')">
+        <ion-img class="button-img" width="53" height="53" src="../../assets/icon/mynamay.ico"></ion-img>
+      </button>
+    </ion-col>
+
+    <ion-col>
+      <button class="buttonStyle" (click)="redirectToMaidFrCountry('Other')">
+        <ion-img class="button-img" width="47" height="47" src="../../assets/icon/other.ico"></ion-img>
+      </button>
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <h4 [ngStyle]="{'font-size': '10px'}">{{ 'philippines' | translate }}</h4>
+    </ion-col>
+    <ion-col>
+      <h4 [ngStyle]="{'font-size': '10px'}">{{ 'indonesia' | translate }}</h4>
+    </ion-col>
+    <ion-col>
+      <h4 [ngStyle]="{'font-size': '10px'}">{{ 'mynamay' | translate }}</h4>
+    </ion-col>
+    <ion-col>
+      <h4 [ngStyle]="{'font-size': '10px'}">{{ 'others' | translate }}</h4>
+    </ion-col>
+  </ion-row>
+
   <h6>{{ 'philippines' | translate }}</h6>
   <ion-slides slidesPerView="2.75">
     <ion-slide *ngFor="let maid of maids_ph; let i = index" (click)="openPhMaidModal(i)" style="width:20%">
@@ -78,27 +116,6 @@
   </ion-slides>
   <br>
 
-  <div align="center">
-    <button class="buttonStyle" (click)="redirectToMaidFrCountry('Philippines')">
-      <ion-img class="button-img" width="49" height="49" src="../../assets/icon/Philippines.ico"></ion-img>
-      <h4 [ngStyle]="{'font-size': '10px'}">{{ 'philippines' | translate }}</h4>
-    </button>
-    <button class="buttonStyle" (click)="redirectToMaidFrCountry('Indonesia')">
-      <ion-img class="button-img" width="51" height="51" src="../../assets/icon/Indonesia.ico"></ion-img>
-      <h4 [ngStyle]="{'font-size': '10px'}">{{ 'indonesia' | translate }}</h4>
-    </button>
 
-    <button class="buttonStyle" (click)="redirectToMaidFrCountry('Mynamay')">
-      <ion-img class="button-img" width="53" height="53" src="../../assets/icon/mynamay.ico"></ion-img>
-      <h4 [ngStyle]="{'font-size': '10px'}">{{ 'mynamay' | translate }}</h4>
-    </button>
-
-    <button class="buttonStyle" (click)="redirectToMaidFrCountry('Other')">
-      <ion-img class="button-img" width="47" height="47" src="../../assets/icon/other.ico"></ion-img>
-
-      <h4 [ngStyle]="{'font-size': '10px'}">{{ 'others' | translate }}</h4>
-    </button>
-  </div>
-  <br>
 
 </ion-content>

@@ -72,7 +72,7 @@ export class MaidPage {
   getDataFromFireBase() {
     this.maids$ = this.afd.list("maids").valueChanges();
     this.maids$.subscribe(item => {
-      console.log(item);
+      console.log("total item queried" + item);
 
       this.maids = this.shuffle(item);
       this.fullMaids = this.shuffle(item);

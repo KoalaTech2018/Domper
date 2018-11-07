@@ -11,6 +11,19 @@
 </div>
 <br/>
 
+<ion-list>
+  <ion-item class="item-text-wrap item-icon-right">
+    <!-- chapter content -->
+    <p class="item-text-wrap" style="font-size: 20px">{{chapterId}}</p>
+    <button class="button button-clear icon ion-star button-assertive" ng-click="toggleStar(contentId,chapterId)"
+      ng-show="star"></button>
+a
+    <!-- <ion-option-button class="button-dark" ng-click="toggleStar(contentId,chapterId)">
+      <i class="icon ion-star"></i>
+    </ion-option-button> -->
+  </ion-item>
+</ion-list>
+
 
 
 </ion-content>

@@ -16,6 +16,8 @@ export class CollectionPage {
   user: Observable<firebase.User>;
   userId;
 
+  counter: number;
+
   public maids$: Observable<any[]>;
   maids = new Array<any>();
 
@@ -48,41 +50,41 @@ export class CollectionPage {
       .valueChanges();
 
     this.collection$.subscribe(item => {
-      console.log(item);
+
+      this.counter = parseInt(
+        window.localStorage.getItem("countAddedColection") != null
+          ? window.localStorage.getItem("countAddedColection")
+          : "0");
+      console.log(item.length);
+      if (item.length != this.counter) {
+        window.localStorage.setItem("countAddedColection", item.length.toString());
+      }
+
+      console.log(item.length);
       this.userCollections = item;
     });
   }
 
-  removeUserCollection(collectionId){
-
-    // let confirm = this.alertCtrl.create({
-    //   title: 'Delete file?',
-    //   message: 'Do you want to delete?',
-    //   buttons: [
-    //     {
-    //       text: 'Cancel',
-    //       handler: () => {
-    //         console.log('Cancel clicked');
-    //       }
-    //     },
-    //     {
-    //       text: 'Yes',
-    //       handler: () => {
-    //         console.log('Yes clicked');
-    //       }
-    //     }
-    //   ]
-    //   });
-
+  removeUserCollection(collectionId) {
     console.log(this.userId);
     console.log("/users/" + this.userId + "/collection/" + collectionId + "/");
-    this.afd.object("/users/" + this.userId + "/collection/" + collectionId).remove();
-    // firebase
-    //   .database()
-    //   .ref("/users/" + this.userId + "/collection/")
-    //   .child(collectionId)
-    //   .remove();
+    this.afd
+      .object("/users/" + this.userId + "/collection/" + collectionId)
+      .remove();
 
+    this.counter = parseInt(
+      window.localStorage.getItem("countAddedColection") != null
+        ? window.localStorage.getItem("countAddedColection")
+        : "0"
+    );
+    this.counter = this.counter - 1;
+    if (this.counter==0){
+      window.localStorage.setItem("countAddedColection","");
+    }else{
+      window.localStorage.setItem("countAddedColection", this.counter.toString());
+    }
+    console.log("remove counter" + this.counter);
+    
   }
   redirectToMaidDetail(maidIdFrUi) {
     console.log(maidIdFrUi);
@@ -94,6 +96,8 @@ export class CollectionPage {
     //Used to Pass parameters to other tabs
     //this.events.publish('change-tab', 1, this.companys[index]);
   }
-  
 
+  split(stringList) {
+    return stringList.split(",");
+  }
 }

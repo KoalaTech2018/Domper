@@ -20,15 +20,17 @@
     </div>
   </ion-card>
 
-  <ion-row >
+  <ion-row>
     <ion-col *ngFor="let maid of maids; let i = index" (click)="openModal(i)" col-12 no-padding>
-      <ion-card >
+      <ion-card>
         <ion-item>
 
           <ion-row>
             <ion-col col-4 no-padding><img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" /></ion-col>
 
-            <ion-col col-8 no-padding> <h4 [ngStyle]="{'font-size': '18px'}">{{maid.name}}, {{maid.age}}</h4></ion-col>
+            <ion-col col-8 no-padding>
+              <h4 [ngStyle]="{'font-size': '18px'}">{{maid.name}}, {{maid.age}}</h4>
+            </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-4 no-padding>
@@ -41,9 +43,24 @@
             </ion-col>
 
             <ion-col col-8 no-padding>
-              <h6 [ngStyle]="{'font-size': '16px'}">{{ 'exp' | translate }}: {{maid.working_exp_yr}} {{ 'years' | translate }}</h6>
-              <h6 [ngStyle]="{'font-size': '16px'}" *ngFor="let lang of split(maid.language)">{{ 'language' | translate }}:{{lang | translate}}</h6>
-              <h6 [ngStyle]="{'font-size': '16px'}">{{ 'fee' | translate }}:{{ 'hkd' | translate }}($) {{maid.fee | translate}} </h6> 
+                <ion-row>
+                    <h6 [ngStyle]="{'font-size': '16px'}">{{ 'exp' | translate }}: {{maid.working_exp_yr}} {{ 'years' |
+                      translate }}</h6>
+                    
+
+                    <h6 [ngStyle]="{'font-size': '16px'}">{{ 'fee' | translate }}:{{ 'hkd' | translate }}($) {{maid.fee |
+                      translate}} </h6>
+                </ion-row>
+                <ion-row >
+                  <ion-col no-padding >
+                    <h6 [ngStyle]="{'font-size': '16px'}">{{ 'language' | translate }}:</h6>
+                  </ion-col>
+                
+                  <ion-col  no-padding *ngFor="let lang of split(maid.language)" pull-0> 
+                    <h6 [ngStyle]="{'font-size': '16px'}">{{lang | translate}}</h6>
+                  </ion-col>
+                </ion-row>
+             
             </ion-col>
           </ion-row>
 

@@ -15,6 +15,8 @@ export class ModalContentPage implements OnInit {
   user: Observable<firebase.User>;
   userId;
   maidId;
+  isDisplay;
+  counter: number;
 
   constructor(
     public platform: Platform,
@@ -42,6 +44,9 @@ export class ModalContentPage implements OnInit {
     if (this.maidId != null) {
       console.log(this.maidId);
       this.getMaidById(this.maidId);
+      this.isDisplay = false;
+    }else{
+      this.isDisplay = true;
     }
   }
 
@@ -100,6 +105,18 @@ export class ModalContentPage implements OnInit {
 
         console.log(username);
       });
+
+    var tmp = window.localStorage.getItem("countAddedColection");
+    console.log("tmp ounter" + tmp);
+    if (tmp==""){
+      this.counter = 0;
+    }else{
+      this.counter = parseInt(window.localStorage.getItem("countAddedColection"));
+    }
+    this.counter = this.counter+1;
+    console.log("counter" + this.counter);
+    window.localStorage.setItem("countAddedColection", this.counter.toString());
+
   }
 }
 

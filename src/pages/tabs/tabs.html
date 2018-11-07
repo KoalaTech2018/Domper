@@ -1,6 +1,8 @@
 <ion-tabs >
   <ion-tab [root]="tab1Root" tabTitle=" {{ 'home' | translate }} " tabIcon="fa-home" [rootParams]="tabParams"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle=" {{ 'maid' | translate }} " tabIcon="fa-address-book" [rootParams]="tabParams"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle=" {{ 'collection' | translate }} " tabIcon="fa-shopping-basket" [rootParams]="tabParams"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle=" {{ 'collection' | translate }} " tabIcon="fa-shopping-basket" [rootParams]="tabParams"
+  tabBadge={{countAddedColection()}} tabBadgeStyle="danger"
+  ></ion-tab>
   <ion-tab [root]="tab4Root" tabTitle=" {{ 'setting' | translate }} " tabIcon="fa-list-alt" [rootParams]="tabParams"></ion-tab>
 </ion-tabs>
