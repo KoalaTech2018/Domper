@@ -3,8 +3,8 @@ import { NavController } from 'ionic-angular';
 import { TranslateService } from "@ngx-translate/core";
 import { EmailComposer } from "@ionic-native/email-composer";
 
-import { PrivatePolicyPage } from "../privacyPolicy/privacyPolicy";
-import { PrivatePolicyEnPage } from "../privacyPolicy/privacyPolicyEn";
+import { PrivatePolicyPage } from "../PrivacyPolicy/privacyPolicy";
+import { PrivatePolicyEnPage } from "../PrivacyPolicy/privacyPolicyEn";
 
 import { TermsAndConditionsCnPage } from "../termsAndConditions/termsAndConditionsCn";
 import { TermsAndConditionsEnPage } from "../termsAndConditions/termsAndConditionsEn";
