@@ -1,10 +1,8 @@
-import { NgModule } from '@angular/core';
-import { GoogleLoginComponent } from './google-login/google-login';
-@NgModule({
-	declarations: [GoogleLoginComponent,
-    GoogleLoginComponent],
-	imports: [],
-	exports: [GoogleLoginComponent,
-    GoogleLoginComponent]
-})
+// import { NgModule } from '@angular/core';
+// import { GoogleLoginComponent } from './google-login/google-login';
+// @NgModule({
+// 	declarations: [GoogleLoginComponent],
+// 	imports: [],
+// 	exports: [GoogleLoginComponent]
+// })
 export class ComponentsModule {}

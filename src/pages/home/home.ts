@@ -34,8 +34,8 @@ export class HomePage {
     this.getCompanyiesFromFireBase();
 
     this.user = this.afAuth.authState;
-    this.afAuth.auth.onAuthStateChanged(user => {
-      if (user) {
+    this.afAuth.auth.onAuthStateChanged(user => { 
+      if (user) { 
         console.log(user.uid);
       } else {
         console.log("No login session");
