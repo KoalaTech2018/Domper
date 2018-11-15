@@ -1,6 +1,12 @@
-<ion-header>
-  <ion-navbar color="primary">
-    <ion-title>{{ 'appName' | translate }}</ion-title>
+<ion-header no-border>
+  <ion-navbar no-padding color="white" style="border-bottom: 1px solid #52B6BC;">
+    <br />
+    <br />
+    <ion-title>
+        <img style="width:65px;" src="../../assets/imgs/domper_icon.png"/>
+        <img style="width:105px;" src="../../assets/imgs/domper_word.png"/>
+    </ion-title>
+    <br />
   </ion-navbar>
 </ion-header>
 
@@ -23,43 +29,43 @@
     </ion-slide>
   </ion-slides>
  -->
-
-  <ion-slides slidesPerView="1.15">
-    <ion-slide *ngFor="let company of companys; let i = index" (click)="redirectToMaid(i)" class="card-slide" style="width:20%">
+  <h6>🔥 熱門公司</h6>
+  <ion-slides slidesPerView="2.1">
+    <ion-slide *ngFor="let company of companys; let i = index" (click)="redirectToMaid(i)" class="card-slide">
       <!-- <h1 [ngStyle]="{'font-size': '15px'}">{{company.name}}</h1> -->
-      <img class="card-img" src="{{company.imgUrl}}" />
-
+      <div class="card-div">
+        <img class="card-img" src="{{company.imgUrl}}" />
+      </div>
     </ion-slide>
   </ion-slides>
-
-  <ion-row >
+  <!-- <ion-row >
     <ion-col>
       <button class="buttonStyle" (click)="redirectToMaidFrCountry('Philippines')">
-        <ion-img class="button-img" width="49" height="49" src="../../assets/icon/Philippines.ico"></ion-img>
+        <ion-img class="button-img" width="48" height="48" src="../../assets/icon/Philippines.ico"></ion-img>
       </button>
     </ion-col>
 
     <ion-col>
       <button class="buttonStyle" (click)="redirectToMaidFrCountry('Indonesia')">
-        <ion-img class="button-img" width="51" height="51" src="../../assets/icon/Indonesia.ico"></ion-img>
+        <ion-img class="button-img" width="50" height="50" src="../../assets/icon/Indonesia.ico"></ion-img>
       </button>
     </ion-col>
 
     <ion-col>
       <button class="buttonStyle" (click)="redirectToMaidFrCountry('Mynamay')">
-        <ion-img class="button-img" width="53" height="53" src="../../assets/icon/mynamay.ico"></ion-img>
+        <ion-img class="button-img" width="52" height="52" src="../../assets/icon/mynamay.ico"></ion-img>
       </button>
     </ion-col>
 
     <ion-col>
       <button class="buttonStyle" (click)="redirectToMaidFrCountry('Other')">
-        <ion-img class="button-img" width="47" height="47" src="../../assets/icon/other.ico"></ion-img>
+        <ion-img class="button-img" width="44" height="44" src="../../assets/icon/other.ico"></ion-img>
       </button>
     </ion-col>
 
-  </ion-row>
+  </ion-row> -->
 
-  <ion-row>
+  <!-- <ion-row>
     <ion-col>
       <h4 [ngStyle]="{'font-size': '10px'}">{{ 'philippines' | translate }}</h4>
     </ion-col>
@@ -72,9 +78,45 @@
     <ion-col>
       <h4 [ngStyle]="{'font-size': '10px'}">{{ 'others' | translate }}</h4>
     </ion-col>
-  </ion-row>
+  </ion-row> -->
+<h6>🏃🏻 公司地區</h6>
+  <ion-slides slidesPerView="4.5">
+    <ion-slide class="region-slide">
+      附近
+    </ion-slide>
+    <ion-slide class="region-slide">
+      石峽尾
+    </ion-slide>
+    <ion-slide class="region-slide">
+      太子
+    </ion-slide>
+    <ion-slide class="region-slide">
+      長沙灣
+    </ion-slide>
+    <ion-slide class="region-slide">
+      深水涉
+    </ion-slide>
+    <ion-slide class="region-slide">
+      旺角
+    </ion-slide>
+    <ion-slide class="region-slide">
+      炮台山
+    </ion-slide>
+    <ion-slide class="region-slide">
+      青衣
+    </ion-slide>
+    <ion-slide class="region-slide">
+      上水
+    </ion-slide>
+    <ion-slide class="region-slide">
+      沙田
+    </ion-slide>
+    <ion-slide class="region-slide">
+      大埔
+    </ion-slide>
+ </ion-slides>
 
-  <h6>{{ 'philippines' | translate }}</h6>
+  <h6>🇵🇭 {{ 'philippines' | translate }}</h6>
   <ion-slides slidesPerView="2.75">
     <ion-slide *ngFor="let maid of maids_ph; let i = index" (click)="openPhMaidModal(i)" style="width:20%">
       <div>
@@ -82,6 +124,7 @@
           <div class="avatars">
             <img src="{{maid.imgUrl}}">
           </div>
+          {{maid.working_exp_yr}} Years
         </div>
         <!-- <div>
             <h4 [ngStyle]="{'font-size': '15px'}"><img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
@@ -93,7 +136,7 @@
   </ion-slides>
 
 
-  <h6>{{ 'indonesia' | translate }}</h6>
+  <h6>🇲🇨 {{ 'indonesia' | translate }}</h6>
   <ion-slides slidesPerView="2.75">
     <ion-slide *ngFor="let maid of maids_in; let i = index" (click)="openInMaidModal(i)" style="width:20%">
       <div>

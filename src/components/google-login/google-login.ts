@@ -55,7 +55,7 @@ export class GoogleLoginComponent {
       this.nativeGoogleLogin();
   }
 
-  async nativeGoogleLogin(): Promise<firebase.User> {
+  async nativeGoogleLogin(): Promise<any> {
     try {
   
       const gplusUser = await this.gplus.login({
@@ -64,7 +64,13 @@ export class GoogleLoginComponent {
         'scopes': 'profile email'
       })
 
-      return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
+      const googleCredential = firebase.auth.GoogleAuthProvider
+        .credential(gplusUser.idToken);
+
+      this.afAuth.auth.signInWithCredential(googleCredential)
+      .then(success => {
+        console.log("Google Firebase success: " + JSON.stringify(success));
+      });
   
     } catch(err) {
       console.log(err)
@@ -78,7 +84,7 @@ export class GoogleLoginComponent {
         .credential(response.authResponse.accessToken);
       this.afAuth.auth.signInWithCredential(facebookCredential)
         .then(success => {
-          console.log("Firebase success: " + JSON.stringify(success));
+          console.log("Facebook Firebase success: " + JSON.stringify(success));
         });
     }
     catch (error) {
