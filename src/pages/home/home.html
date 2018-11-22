@@ -122,11 +122,11 @@
       </ion-slide>
     </ion-slides>
 
-    <ion-slides slidesPerView="4.8" (click)="redirectToCompanyByDistrict('tsuenWan')">
+    <ion-slides slidesPerView="4.8" >
       <ion-slide class="region-label">
         {{ 'newTerritories' | translate }}
       </ion-slide>
-      <ion-slide class="region-slide">
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('tsuenWan')">
         {{ 'tsuenWan' | translate }}
       </ion-slide>
       <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('kwaiTsing')">
