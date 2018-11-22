@@ -8,6 +8,8 @@ import {
 import { AngularFireDatabase } from "angularfire2/database";
 import { Observable } from "rxjs/Observable";
 import { ModalContentPage } from "../maid/detail";
+import { BranchListPage } from "../companyInfo/branchList";
+
 
 import { MaidPage } from "../maid/maid";
 
@@ -115,7 +117,9 @@ export class HomePage {
     // this.navParams = this.companys[index];
     // var t: Tabs = this.navCtrl.parent;
     // t.select(1);
-    this.navCtrl.push(MaidPage, { obj: this.companys[index] });
+    this.navCtrl.push(MaidPage, {
+      obj: this.companys[index]
+    });
 
     //Used to Pass parameters to other tabs
     //this.events.publish('change-tab', 1, this.companys[index]);
@@ -130,5 +134,12 @@ export class HomePage {
 
     //Used to Pass parameters to other tabs
     //this.events.publish('change-tab', 1, this.companys[index]);
+  }
+
+  redirectToCompanyByDistrict(district) {
+    console.log(district);
+
+    this.navCtrl.push(BranchListPage, { objString: district });
+
   }
 }

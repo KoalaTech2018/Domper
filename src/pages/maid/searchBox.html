@@ -1,7 +1,8 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Search
+      {{ 'search' | translate}}
+      
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()" >
@@ -26,7 +27,7 @@
       <input [(ngModel)]="search_age" type="text" name="age" placeholder="Age">
       <input [(ngModel)]="search_height" type="text" name="age" placeholder="Height (cm)">
       <input [(ngModel)]="search_weight" type="text" name="age" placeholder="Weight (kg)">
-        <br/><br/>
+        <br/>
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[0]]" contenteditable="false" (click)="tagClick(0)">{{skillSet[0] | translate}}</span>
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[1]]" contenteditable="false" (click)="tagClick(1)">{{skillSet[1] | translate}}</span>
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[2]]" contenteditable="false" (click)="tagClick(2)">{{skillSet[2] | translate}}</span>
@@ -53,11 +54,12 @@
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[14]]" contenteditable="false" (click)="tagClick(14)">{{skillSet[14] | translate}}</span>
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[15]]" contenteditable="false" (click)="tagClick(15)">{{skillSet[15] | translate}}</span>
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[16]]" contenteditable="false" (click)="tagClick(16)">{{skillSet[16] | translate}}</span>
-                <br /><br />
+        <br /><br />
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[17]]" contenteditable="false" (click)="tagClick(17)">{{skillSet[17] | translate}}</span>
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[18]]" contenteditable="false" (click)="tagClick(18)">{{skillSet[18] | translate}}</span>
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[19]]" contenteditable="false" (click)="tagClick(19)">{{skillSet[19] |translate}}</span>
         <br/><br/><br />
+
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[20]]" contenteditable="false" (click)="tagClick(20)">{{skillSet[20] | translate}}</span>
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[21]]" contenteditable="false" (click)="tagClick(21)">{{skillSet[21] | translate}}</span>
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[22]]" contenteditable="false" (click)="tagClick(22)">{{skillSet[22] |translate}}</span>

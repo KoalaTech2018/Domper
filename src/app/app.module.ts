@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { SettingPage } from "../pages/setting/setting";
 import { ModalContentPage } from '../pages/maid/detail';
 import { CompanyInfoPage } from '../pages/companyInfo/companyInfo';
+import { BranchListPage } from '../pages/companyInfo/branchList';
 import { PrivatePolicyPage } from '../pages/PrivacyPolicy/privacyPolicy';
 import { PrivatePolicyEnPage } from "../pages/PrivacyPolicy/privacyPolicyEn";
 import { TermsAndConditionsCnPage } from "../pages/termsAndConditions/termsAndConditionsCn";
@@ -63,6 +64,7 @@ var config = {
     TabsPage,
     ModalContentPage,
     CompanyInfoPage,
+    BranchListPage,
     PrivatePolicyPage,
     PrivatePolicyEnPage,
     TermsAndConditionsCnPage,
@@ -101,6 +103,7 @@ var config = {
     TabsPage,
     ModalContentPage,
     CompanyInfoPage,
+    BranchListPage,
     PrivatePolicyPage,
     PrivatePolicyEnPage,
     TermsAndConditionsCnPage,

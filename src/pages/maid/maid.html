@@ -15,8 +15,8 @@
   <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> -->
 
   <ion-card>
-    <div class="container" *ngIf="downloadURL | async; let url">
-      <img [src]="url" alt="Image from AngularFireStorage" (click)="openCompanyByUrl(url)">
+    <div class="container" *ngIf="downloadURL">
+      <img [src]="downloadURL" (click)="openCompanyByUrl(downloadURL)">
     </div>
   </ion-card>
 

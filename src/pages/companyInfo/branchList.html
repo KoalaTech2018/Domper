@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title >
+            {{ 'company' | translate }} @ {{district | translate}}
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+                <span ion-text> {{ 'cancel' | translate }}</span>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-row *ngFor="let branch of branches" (click)="redirectToMaid(branch.name, branch.imgUrl)">
+    <ion-col  col-12 no-padding>
+        <ion-card [ngStyle]="{'font-size': '16px'}" class="grey">
+            <ion-item>
+                <img [src]=branch.imgUrl>
+            </ion-item>
+        </ion-card>
+    </ion-col>
+</ion-row>
+
+
+</ion-content>

@@ -49,6 +49,7 @@
 "children": "擁有孩子",
 "skill": "技能",
 "cancel": "取消",
+"search" : "搜尋",
 "fee" : "中介費用",
 "Negotiate": "商議",
 "addToCollection" : "加到我的最愛",
@@ -99,7 +100,27 @@
 "indianFood": "印度菜",
 "homeFood": "家鄉菜",
 "female" : "女",
-"male" : "男"
-
+"male" : "男",
+"hongKongIsland":"港島",
+"centralWestern":"中西區",
+"wanchai":"灣仔",
+"eastern":"東區",
+"southern":"南區",
+"kowloon":"九龍",
+"kowloonCity":"九龍城",
+"wongTaiSin":"黃大仙",
+"kuwnTong":"觀塘",
+"yauTsimMong":"油尖旺",
+"shamShuiPo":"深水埗",
+"newTerritories":"新界",
+"tsuenWan":"荃灣",
+"kwaiTsing":"葵青",
+"saiKung":"西貢",
+"shatin":"沙田",
+"taiPo":"大埔",
+"northern":"北區",
+"tuenMun":"屯門",
+"yuenLong":"元朗",
+"islands":"離島區"
 
 }

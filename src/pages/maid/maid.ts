@@ -12,9 +12,12 @@ import { SearchBox } from "../maid/searchBox";
   templateUrl: "maid.html"
 })
 export class MaidPage {
+  companyNameFmBr;
+  branchUrl;
+  companyName;
   promoteCompany;
   downloadURL;
-  countryCode; 
+  countryCode;
 
   constructor(
     public navCtrl: NavController,
@@ -25,17 +28,31 @@ export class MaidPage {
     events: Events
   ) {
     console.log("Passed params", navParams.data);
+    this.companyNameFmBr = navParams.get("companyName");
+    this.branchUrl = navParams.get("branchUrl");
     this.promoteCompany = navParams.get("obj");
     this.countryCode = navParams.get("objString");
     console.log(this.countryCode);
 
-    if (this.promoteCompany != null && this.countryCode == null) {
-      this.downloadURL = this.afStorage
-        .ref("/" + this.promoteCompany.img)
-        .getDownloadURL();
+    if (
+      (this.promoteCompany != null || this.companyNameFmBr != null) &&
+      this.countryCode == null
+    ) {
+      if (this.promoteCompany == null) {
+        this.downloadURL = this.branchUrl;
+        this.companyName = this.companyNameFmBr;
+      } else {
+        this.downloadURL = this.promoteCompany.imgUrl;
+        this.companyName = this.promoteCompany.name;
+      }
+
+      // = this.afStorage
+      //   .ref("/" + this.promoteCompany.img)
+      //   .getDownloadURL();
+
       this.maids$ = this.afd
         .list("maids", ref =>
-          ref.orderByChild("companyName").equalTo(this.promoteCompany.name)
+          ref.orderByChild("companyName").equalTo(this.companyName)
         )
         .valueChanges();
       this.maids$.subscribe(item => {
@@ -45,7 +62,7 @@ export class MaidPage {
     } else if (this.countryCode != null) {
       console.log("From country");
       this.getMaidDataFromFireBase(this.countryCode);
-    } else{
+    } else {
       this.getDataFromFireBase();
     }
 
@@ -80,8 +97,11 @@ export class MaidPage {
   }
 
   openCompanyByUrl(url) {
-    console.log(" ===> "+ url);
-    this.navCtrl.push(CompanyInfoPage, { urlString: url });
+    console.log(" ===> " + url);
+    this.navCtrl.push(CompanyInfoPage, {
+      urlString: url,
+      companyName: this.companyName
+    });
   }
 
   openModal(index) {
@@ -116,40 +136,40 @@ export class MaidPage {
       obj: ""
     });
     modal.onDidDismiss(data => {
-      if(data!=null){
-          // this.maids$ = this.afd
-          // .list("maids", ref =>
-          //   ref.orderByChild("age").startAt(+data)
-          // )
-          // .valueChanges();
-          console.log("HIT");
-          console.log(this.fullMaids);
-          var newList = new Array<any>();
-          for(var i in this.fullMaids){
-            if(data.height!=null && this.fullMaids[i].height==data.height){
+      if (data != null) {
+        // this.maids$ = this.afd
+        // .list("maids", ref =>
+        //   ref.orderByChild("age").startAt(+data)
+        // )
+        // .valueChanges();
+        console.log("HIT");
+        console.log(this.fullMaids);
+        var newList = new Array<any>();
+        for (var i in this.fullMaids) {
+          if (data.height != null && this.fullMaids[i].height == data.height) {
+            newList.push(this.fullMaids[i]);
+            continue;
+          }
+          if (data.weight != null && this.fullMaids[i].weight == data.weight) {
+            newList.push(this.fullMaids[i]);
+            continue;
+          }
+          if (data.age != null && this.fullMaids[i].age == data.age) {
+            newList.push(this.fullMaids[i]);
+            continue;
+          }
+          for (var j in data.skillList) {
+            if (this.fullMaids[i].skills.includes(data.skillList[j])) {
               newList.push(this.fullMaids[i]);
-              continue;
-            }
-            if(data.weight!=null && this.fullMaids[i].weight==data.weight){
-              newList.push(this.fullMaids[i]);
-              continue;
-            }
-            if(data.age!=null && this.fullMaids[i].age==data.age){
-              newList.push(this.fullMaids[i]);
-              continue;
-            }
-            for(var j in data.skillList){
-              if(this.fullMaids[i].skills.includes(data.skillList[j])){
-                newList.push(this.fullMaids[i]);
-                break;
-              }
+              break;
             }
           }
-          if(newList.length>0){
-            this.maids = newList;
-          }else{
-            this.maids = this.fullMaids;
-          }
+        }
+        if (newList.length > 0) {
+          this.maids = newList;
+        } else {
+          this.maids = this.fullMaids;
+        }
       }
     });
     modal.present();

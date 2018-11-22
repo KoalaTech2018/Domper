@@ -80,51 +80,92 @@
     </ion-col>
   </ion-row> -->
 <h6>🏃🏻 公司地區</h6>
-  <ion-slides slidesPerView="4.5">
-    <ion-slide class="region-slide">
-      附近
-    </ion-slide>
-    <ion-slide class="region-slide">
-      石峽尾
-    </ion-slide>
-    <ion-slide class="region-slide">
-      太子
-    </ion-slide>
-    <ion-slide class="region-slide">
-      長沙灣
-    </ion-slide>
-    <ion-slide class="region-slide">
-      深水涉
-    </ion-slide>
-    <ion-slide class="region-slide">
-      旺角
-    </ion-slide>
-    <ion-slide class="region-slide">
-      炮台山
-    </ion-slide>
-    <ion-slide class="region-slide">
-      青衣
-    </ion-slide>
-    <ion-slide class="region-slide">
-      上水
-    </ion-slide>
-    <ion-slide class="region-slide">
-      沙田
-    </ion-slide>
-    <ion-slide class="region-slide">
-      大埔
-    </ion-slide>
- </ion-slides>
+
+    <ion-slides slidesPerView="4.8">
+        <ion-slide class="region-label" >
+          {{ 'hongKongIsland' | translate }}
+        </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('centralWestern')">
+        {{ 'centralWestern' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('wanchai')">
+        {{ 'wanchai' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('eastern')">
+        {{ 'eastern' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('southern')">
+        {{ 'southern' | translate }}
+      </ion-slide>
+    </ion-slides>
+
+
+
+    <ion-slides slidesPerView="4.8">
+      <ion-slide class="region-label">
+        {{ 'kowloon' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('kowloonCity')">
+        {{ 'kowloonCity' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('wongTaiSin')">
+        {{ 'wongTaiSin' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('kuwnTong')">
+        {{ 'kuwnTong' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('yauTsimMong')">
+        {{ 'yauTsimMong' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('shamShuiPo')">
+        {{ 'shamShuiPo' | translate }}
+      </ion-slide>
+    </ion-slides>
+
+    <ion-slides slidesPerView="4.8" (click)="redirectToCompanyByDistrict('tsuenWan')">
+      <ion-slide class="region-label">
+        {{ 'newTerritories' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide">
+        {{ 'tsuenWan' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('kwaiTsing')">
+        {{ 'kwaiTsing' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('saiKung')">
+        {{ 'saiKung' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('shatin')">
+        {{ 'shatin' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('taiPo')">
+        {{ 'taiPo' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('northern')">
+        {{ 'northern' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('tuenMun')">
+        {{ 'tuenMun' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('yuenLong')">
+        {{ 'yuenLong' | translate }}
+      </ion-slide>
+      <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('islands')">
+        {{ 'islands' | translate }}
+      </ion-slide>
+    </ion-slides>
+
+ 
 
   <h6>🇵🇭 {{ 'philippines' | translate }}</h6>
   <ion-slides slidesPerView="2.75">
     <ion-slide *ngFor="let maid of maids_ph; let i = index" (click)="openPhMaidModal(i)" style="width:20%">
       <div>
-        <div>
+        <div [ngStyle]="{'font-size': '16px'}" class="grey">
           <div class="avatars">
             <img src="{{maid.imgUrl}}">
           </div>
-          {{maid.working_exp_yr}} Years
+          {{maid.working_exp_yr}} {{ 'years' | translate }}
         </div>
         <!-- <div>
             <h4 [ngStyle]="{'font-size': '15px'}"><img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
@@ -140,11 +181,11 @@
   <ion-slides slidesPerView="2.75">
     <ion-slide *ngFor="let maid of maids_in; let i = index" (click)="openInMaidModal(i)" style="width:20%">
       <div>
-        <div>
+        <div [ngStyle]="{'font-size': '16px'}" class="grey">
           <div class="avatars">
             <img src="{{maid.imgUrl}}">
           </div>
-
+            {{maid.working_exp_yr}} {{ 'years' | translate }}
         </div>
         <!-- <div>
                   <h4 [ngStyle]="{'font-size': '15px'}"><img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />

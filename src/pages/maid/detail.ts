@@ -57,7 +57,7 @@ export class ModalContentPage implements OnInit {
 
   redirectToCompanyInfo(companyName) {
     console.log("Deatil page trigger :" + companyName);
-    this.navCtrl.push(CompanyInfoPage, { objString: companyName });
+    this.navCtrl.push(CompanyInfoPage, { companyName: companyName });
   }
 
   split(stringList) {

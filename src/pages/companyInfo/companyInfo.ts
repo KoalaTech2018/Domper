@@ -23,6 +23,10 @@ export class CompanyInfoPage implements OnInit {
   companies = new Array<any>();
   public company;
   public surveys2: Observable<any>;
+
+  public branches$: Observable<any[]>;
+  branches = new Array<any>();
+
   constructor(
     public platform: Platform,
     public params: NavParams,
@@ -36,7 +40,7 @@ export class CompanyInfoPage implements OnInit {
   ) {
     console.log("Now @ company page");
     // Get company from detail.html by contact company
-    this.companyName = this.params.get("objString");
+    this.companyName = this.params.get("companyName");
     this.companyUrl = this.params.get("urlString");
     console.log(this.companyName);
     console.log(this.companyUrl);
@@ -45,27 +49,43 @@ export class CompanyInfoPage implements OnInit {
       this.getCompanybyName(this.companyName);
     } else if (this.companyUrl != null) {
       console.log("From banner");
-      this.getCompanybyUrl(this.companyUrl);
+      this.getCompanybyUrl(this.companyUrl, this.companyName);
     }
+
+   
   }
 
-  getCompanybyName(compnayName) {
+  getCompanybyName(companyName) {
     this.companies$ = this.afd
-      .list("companies", ref => ref.orderByChild("name").equalTo(compnayName))
+      .list("companies", ref => ref.orderByChild("name").equalTo(companyName))
       .valueChanges();
     this.companies$.subscribe(item => {
       this.company = item;
       console.log(this.company);
     });
+
+    this.getBranchesByCompanyName(companyName);
   }
 
-  getCompanybyUrl(url) {
+  getCompanybyUrl(url, companyName) {
     this.companies$ = this.afd
       .list("companies", ref => ref.orderByChild("imgUrl").equalTo(url))
       .valueChanges();
     this.companies$.subscribe(item => {
       this.company = item;
       console.log(this.company);
+    });
+
+    this.getBranchesByCompanyName(companyName);
+  }
+
+  getBranchesByCompanyName(companyName) {
+    this.branches$ = this.afd
+      .list("branches", ref => ref.orderByChild("name").equalTo(companyName))
+      .valueChanges();
+    this.branches$.subscribe(item => {
+      this.branches = item;
+      console.log("Result" + this.branches);
     });
   }
 
@@ -79,10 +99,12 @@ export class CompanyInfoPage implements OnInit {
 
   sendEmail(emailAddress) {
     console.log(emailAddress);
-    let email = { to: emailAddress, 
-      subject: "My Cool Image", 
-      body: "Hey Simon, what do you thing about this image?", 
-      isHtml: true };
+    let email = {
+      to: emailAddress,
+      subject: "My Cool Image",
+      body: "Hey Simon, what do you thing about this image?",
+      isHtml: true
+    };
 
     this.emailComposer.open(email);
   }
