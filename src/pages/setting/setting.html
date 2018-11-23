@@ -1,57 +1,171 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>
-      {{ 'setting' | translate }}
-    </ion-title>
+    <ion-title> {{ "setting" | translate }} </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-
-  <h4>{{ 'personalAcc' | translate }}</h4>
+  <h4>{{ "personalAcc" | translate }}</h4>
   <ion-card>
-    <ion-item>
-      <h6>{{ 'loginAcc' | translate }}</h6>
-    </ion-item>
-    <google-login></google-login>
+    <div *ngIf="enableLogin()">
+      <form class="form" [formGroup]="loginForm"(ngSubmit)="tryLogin(loginForm.value)">
+        <ion-list inset>
+          <ion-item>
+            <h6>{{ "loginAcc" | translate }}</h6>
+          </ion-item>
 
+          <ion-item>
+            <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="password" placeholder="Password" formControlName="password" class="form-controll"></ion-input>
+          </ion-item>
+        </ion-list>
+
+        <div padding-horizontal>
+          <div><label class="error-message">{{errorMessage}}</label></div>
+
+          <button ion-button full type="submit">Log in</button> 
+          <div class="login-footer">
+            <p><a href="#">Forgot password?</a></p>
+          </div>
+          
+          <ion-list>
+            <button ion-button icon-left block clear (click)="signup()">
+              <ion-icon name="person-add"></ion-icon>
+              Sign up
+            </button>
+          </ion-list>
+        </div>
+      </form>
+
+      <div padding-horizontal>
+        <ion-list>
+          <ion-item no-margin [ngStyle]="{ 'font-size': '14px' }">
+            <div>
+              <button class="loginBtn loginBtn--google" (click)="googleLogin()">
+                {{ "google" | translate }}
+              </button>
+            </div>
+
+            <div>
+              <button
+                class="loginBtn loginBtn--facebook"
+                (click)="facebookLogin()"
+              >
+                {{ "facebook" | translate }}
+              </button>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+
+    <div *ngIf="!enableLogin()">
+      <ion-item>
+        <ion-row>
+          <ion-col> {{ userId }} </ion-col>
+          <ion-col>
+            <button ion-button round outline class="center" (tap)="signOut()">
+              {{ "logout" | translate }}
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
   </ion-card>
 
   <ion-list>
-    <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
-      <ion-label>{{ 'language' | translate }}</ion-label>
-      <ion-select [(ngModel)]="language" (ionChange)="changeLanguage()" okText="{{ 'ok' | translate }}" cancelText="{{ 'cancel' | translate }}">
-        <ion-option value="en">{{ 'english' | translate }}</ion-option>
-        <ion-option value="cht" >{{ 'chinese' | translate }}</ion-option>
+    <ion-item [ngStyle]="{ 'font-size': '14px' }" class="grey">
+      <ion-label>{{ "language" | translate }}</ion-label>
+      <ion-select
+        [(ngModel)]="language"
+        (ionChange)="changeLanguage()"
+        okText="{{ 'ok' | translate }}"
+        cancelText="{{ 'cancel' | translate }}"
+      >
+        <ion-option value="en">{{ "english" | translate }}</ion-option>
+        <ion-option value="cht">{{ "chinese" | translate }}</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
 
   <ion-card>
-    <ion-item [ngStyle]="{'font-size': '14px'}" class="grey" (click)="redirectToQuestion()">
-      <ion-label>{{ 'problem' | translate }}</ion-label>
-      <ion-icon item-end class="fa fa-question" aria-hidden="true" item-start small color="primary"></ion-icon>
+    <ion-item
+      [ngStyle]="{ 'font-size': '14px' }"
+      class="grey"
+      (click)="redirectToQuestion()"
+    >
+      <ion-label>{{ "problem" | translate }}</ion-label>
+      <ion-icon
+        item-end
+        class="fa fa-question"
+        aria-hidden="true"
+        item-start
+        small
+        color="primary"
+      ></ion-icon>
     </ion-item>
-    <ion-item [ngStyle]="{'font-size': '14px'}" class="grey" (click)="redirectToAboutDomper()">
-      <ion-label>{{ 'aboutDomper' | translate }}</ion-label>
-      <ion-icon item-end class="fa fa-newspaper-o" aria-hidden="true" item-start small color="primary"></ion-icon>
+    <ion-item
+      [ngStyle]="{ 'font-size': '14px' }"
+      class="grey"
+      (click)="redirectToAboutDomper()"
+    >
+      <ion-label>{{ "aboutDomper" | translate }}</ion-label>
+      <ion-icon
+        item-end
+        class="fa fa-newspaper-o"
+        aria-hidden="true"
+        item-start
+        small
+        color="primary"
+      ></ion-icon>
     </ion-item>
-    <ion-item [ngStyle]="{'font-size': '14px'}" class="grey" (click)="sendEmail()">
-      <ion-label>{{ 'contactUs' | translate }}</ion-label>
-      <ion-icon item-end class="fa fa-share" aria-hidden="true" item-start small color="primary"></ion-icon>
+    <ion-item
+      [ngStyle]="{ 'font-size': '14px' }"
+      class="grey"
+      (click)="sendEmail()"
+    >
+      <ion-label>{{ "contactUs" | translate }}</ion-label>
+      <ion-icon
+        item-end
+        class="fa fa-share"
+        aria-hidden="true"
+        item-start
+        small
+        color="primary"
+      ></ion-icon>
     </ion-item>
-    <ion-item [ngStyle]="{'font-size': '14px'}" class="grey" (click)="redirectToTermsAndConditions()">
-      <ion-label>{{ 'terms' | translate }}</ion-label>
-      <ion-icon item-end class="fa fa-bars" aria-hidden="true" item-start small color="primary"></ion-icon>
+    <ion-item
+      [ngStyle]="{ 'font-size': '14px' }"
+      class="grey"
+      (click)="redirectToTermsAndConditions()"
+    >
+      <ion-label>{{ "terms" | translate }}</ion-label>
+      <ion-icon
+        item-end
+        class="fa fa-bars"
+        aria-hidden="true"
+        item-start
+        small
+        color="primary"
+      ></ion-icon>
     </ion-item>
-    <ion-item [ngStyle]="{'font-size': '14px'}" class="grey" (click)="redirectToPrivatePolicyPage()">
-      <ion-label>{{ 'privacy' | translate }}</ion-label>
-      <ion-icon item-end class="fa fa-bars" aria-hidden="true" item-start small color="primary"></ion-icon>
+    <ion-item
+      [ngStyle]="{ 'font-size': '14px' }"
+      class="grey"
+      (click)="redirectToPrivatePolicyPage()"
+    >
+      <ion-label>{{ "privacy" | translate }}</ion-label>
+      <ion-icon
+        item-end
+        class="fa fa-bars"
+        aria-hidden="true"
+        item-start
+        small
+        color="primary"
+      ></ion-icon>
     </ion-item>
   </ion-card>
-
-
-
-
-
 </ion-content>

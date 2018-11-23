@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { MaidPage } from '../pages/maid/maid';
 import { CollectionPage } from '../pages/collection/collection';
 import { HomePage } from '../pages/home/home';
+import { SignupPage } from "../pages/signup/signup";
 import { TabsPage } from '../pages/tabs/tabs';
 import { SettingPage } from "../pages/setting/setting";
 import { ModalContentPage } from '../pages/maid/detail';
@@ -30,8 +31,9 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { GooglePlus } from "@ionic-native/google-plus";
-import { GoogleLoginComponent } from "../components/google-login/google-login";
 import { Facebook } from '@ionic-native/facebook'
+
+import { AuthService } from "../pages/svc/auth.service";
 
 
 import { HttpClientModule, HttpClient } from "@angular/common/http";
@@ -60,6 +62,7 @@ var config = {
     MaidPage,
     CollectionPage,
     HomePage,
+    SignupPage,
     SettingPage,
     TabsPage,
     ModalContentPage,
@@ -73,8 +76,7 @@ var config = {
     QuestionEnPage,
     AboutDomperEnPage,
     AboutDomperCnPage,
-    SearchBox,
-    GoogleLoginComponent
+    SearchBox
   ],
   imports: [
     BrowserModule,
@@ -99,6 +101,7 @@ var config = {
     MaidPage,
     CollectionPage,
     HomePage,
+    SignupPage,
     SettingPage,
     TabsPage,
     ModalContentPage,
@@ -120,6 +123,7 @@ var config = {
     GooglePlus,
     Facebook,
     EmailComposer,
+    AuthService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     CallNumber
   ]

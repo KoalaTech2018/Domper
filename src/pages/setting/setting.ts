@@ -15,26 +15,103 @@ import { QuestionEnPage } from "../question/questionEn";
 import { AboutDomperCnPage } from "../aboutDomper/aboutDomperCn";
 import { AboutDomperEnPage } from "../aboutDomper/aboutDomperEn";
 
+import { AngularFireAuth } from "angularfire2/auth";
+import { Observable } from "rxjs/Observable";
+import { AuthService } from "../svc/auth.service";
+
+import { SignupPage } from "../signup/signup";
+
+import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 
 @Component({
   selector: "page-setting",
   templateUrl: "setting.html"
 })
 export class SettingPage {
+  loginForm: FormGroup;
+  errorMessage: string = '';
+
   language: any;
+  user: Observable<firebase.User>;
+  userId;
+  userObj;
 
   constructor(
+    private afAuth: AngularFireAuth,
     public navCtrl: NavController,
     public translate: TranslateService,
-    private emailComposer: EmailComposer
+    private emailComposer: EmailComposer,
+    public formBuilder: FormBuilder,
+    private auth: AuthService
   ) {
     this.language = this.translate.getDefaultLang();
+
+    this.user = this.afAuth.authState;
+    this.afAuth.auth.onAuthStateChanged(user => {
+      if (user) {
+        this.userId = user.uid;
+      } else {
+        this.userId = null;
+      }
+    });
   }
 
+  ionViewWillLoad() {
+    this.loginForm = this.formBuilder.group({
+      email: new FormControl(),
+      password: new FormControl()
+    });
+  }
+
+  resetPassword(email: string) {
+    this.auth.resetPassword(email)
+  }
+
+  enableLogin() {
+    if (this.userId == null) return true;
+    else return false;
+  }
   changeLanguage() {
     console.log(this.language);
     this.translate.setDefaultLang(this.language);
     this.translate.use(this.language);
+  }
+
+  tryLogin(value) {
+    this.auth.doLogin(value).then(res => {
+        console.log(res);
+      }, err => {
+        console.log(err);
+        this.errorMessage = err.message;
+      });
+  }
+
+  signup() {
+    // this.auth.doRegister();
+    this.navCtrl.push(SignupPage);
+  }
+  googleLogin() {
+    this.auth.doGoogleLogin().then(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+      this.errorMessage = err.message;
+    });
+  }
+
+  facebookLogin() {
+    this.auth.doFacebookLogin().then(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+      this.errorMessage = err.message;
+    });
+  }
+
+  signOut() {
+    console.log("logout");
+    this.afAuth.auth.signOut();
+    window.localStorage.setItem("countAddedColection", "");
   }
 
   sendEmail() {

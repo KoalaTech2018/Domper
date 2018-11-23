@@ -18,6 +18,8 @@ export class ModalContentPage implements OnInit {
   isDisplay;
   counter: number;
 
+  public collection$: Observable<any[]>;
+
   constructor(
     public platform: Platform,
     public params: NavParams,
@@ -29,25 +31,39 @@ export class ModalContentPage implements OnInit {
   ) {
     this.maid = this.params.get("obj");
     this.maidId = this.params.get("maidId");
-    console.log("********"+this.maidId);
+    console.log("********" + this.maid.id);
     this.user = this.afAuth.authState;
+
     this.afAuth.auth.onAuthStateChanged(user => {
       if (user) {
         this.userId = user.uid;
         console.log(this.userId);
-       
+        var self= this;
+        firebase
+          .database()
+          .ref("/users/" + this.userId + "/collection/" + this.maid.id)
+          .once("value")
+          .then(function (snapshot) {
+            console.log(snapshot.val());
+            var username = snapshot.val();
+            if (username!=null) {
+              self.isDisplay = false;
+            } else {
+              self.isDisplay = true;
+            }
+          });
+
       } else {
         this.userId = null;
+        this.isDisplay = false;
       }
     });
+  
+  }
 
-    if (this.maidId != null) {
-      console.log(this.maidId);
-      this.getMaidById(this.maidId);
-      this.isDisplay = false;
-    }else{
-      this.isDisplay = true;
-    }
+  needLogin() {
+    if (this.userId == null) return true;
+    else return false;
   }
 
   dismiss() {
@@ -76,7 +92,6 @@ export class ModalContentPage implements OnInit {
       console.log(">>>>> test <<<<<" + item[0]);
       this.maid = item[0];
     });
-    
   }
 
   addMaidToUserCollection() {
@@ -108,15 +123,16 @@ export class ModalContentPage implements OnInit {
 
     var tmp = window.localStorage.getItem("countAddedColection");
     console.log("tmp ounter" + tmp);
-    if (tmp==""){
+    if (tmp == "") {
       this.counter = 0;
-    }else{
-      this.counter = parseInt(window.localStorage.getItem("countAddedColection"));
+    } else {
+      this.counter = parseInt(
+        window.localStorage.getItem("countAddedColection")
+      );
     }
-    this.counter = this.counter+1;
+    this.counter = this.counter + 1;
     console.log("counter" + this.counter);
     window.localStorage.setItem("countAddedColection", this.counter.toString());
-
   }
 }
 
