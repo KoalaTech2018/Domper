@@ -18,8 +18,6 @@ export class ModalContentPage implements OnInit {
   isDisplay;
   counter: number;
 
-  public collection$: Observable<any[]>;
-
   constructor(
     public platform: Platform,
     public params: NavParams,
@@ -31,51 +29,35 @@ export class ModalContentPage implements OnInit {
   ) {
     this.maid = this.params.get("obj");
     this.maidId = this.params.get("maidId");
-    console.log("********" + this.maid.id);
+    console.log("********" + this.maidId);
     this.user = this.afAuth.authState;
-
     this.afAuth.auth.onAuthStateChanged(user => {
       if (user) {
         this.userId = user.uid;
         console.log(this.userId);
-        var self= this;
-        firebase
-          .database()
-          .ref("/users/" + this.userId + "/collection/" + this.maid.id)
-          .once("value")
-          .then(function (snapshot) {
-            console.log(snapshot.val());
-            var username = snapshot.val();
-            if (username!=null) {
-              self.isDisplay = false;
-            } else {
-              self.isDisplay = true;
-            }
-          });
-
       } else {
         this.userId = null;
         this.isDisplay = false;
       }
     });
-  
-  }
 
-  needLogin() {
-    if (this.userId == null) return true;
-    else return false;
+    if (this.maidId != null) {
+      console.log(this.maidId);
+      this.getMaidById(this.maidId);
+      this.isDisplay = false;
+    } else {
+      this.isDisplay = true;
+    }
   }
 
   dismiss() {
     this.viewCtrl.dismiss();
   }
-  ngOnInit() {}
-
+  ngOnInit() { }
   redirectToCompanyInfo(companyName) {
     console.log("Deatil page trigger :" + companyName);
-    this.navCtrl.push(CompanyInfoPage, { companyName: companyName });
+    this.navCtrl.push(CompanyInfoPage, { objString: companyName, companyName: companyName  });
   }
-
   split(stringList) {
     return stringList.split(",");
   }
@@ -92,9 +74,27 @@ export class ModalContentPage implements OnInit {
       console.log(">>>>> test <<<<<" + item[0]);
       this.maid = item[0];
     });
+
   }
 
   addMaidToUserCollection() {
+     var self = this;
+        firebase
+          .database()
+          .ref("/users/" + this.userId + "/collection/" + self.maid.id)
+          .once("value")
+          .then(function(snapshot) {
+            console.log(snapshot.val());
+            var username = snapshot.val();
+            if (username == null) {
+              self.addCollectionToFireBase();
+            } else {
+              console.log("Added Already");
+            }
+          });
+  }
+
+  addCollectionToFireBase(){
     firebase
       .database()
       .ref("/users/" + this.userId + "/collection")
@@ -114,7 +114,7 @@ export class ModalContentPage implements OnInit {
       .database()
       .ref("/users/" + this.userId + "/collection")
       .once("value")
-      .then(function(snapshot) {
+      .then(function (snapshot) {
         console.log(snapshot);
         var username = snapshot.val();
 
@@ -126,16 +126,10 @@ export class ModalContentPage implements OnInit {
     if (tmp == "") {
       this.counter = 0;
     } else {
-      this.counter = parseInt(
-        window.localStorage.getItem("countAddedColection")
-      );
+      this.counter = parseInt(window.localStorage.getItem("countAddedColection"));
     }
     this.counter = this.counter + 1;
     console.log("counter" + this.counter);
     window.localStorage.setItem("countAddedColection", this.counter.toString());
   }
 }
-
-
-
-  
