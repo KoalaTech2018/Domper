@@ -7,6 +7,8 @@ import { MaidPage } from '../pages/maid/maid';
 import { CollectionPage } from '../pages/collection/collection';
 import { HomePage } from '../pages/home/home';
 import { SignupPage } from "../pages/signup/signup";
+import { ResetPwdPage } from "../pages/signup/resetPwd";
+
 import { TabsPage } from '../pages/tabs/tabs';
 import { SettingPage } from "../pages/setting/setting";
 import { ModalContentPage } from '../pages/maid/detail';
@@ -63,6 +65,7 @@ var config = {
     CollectionPage,
     HomePage,
     SignupPage,
+    ResetPwdPage,
     SettingPage,
     TabsPage,
     ModalContentPage,
@@ -102,6 +105,7 @@ var config = {
     CollectionPage,
     HomePage,
     SignupPage,
+    ResetPwdPage,
     SettingPage,
     TabsPage,
     ModalContentPage,

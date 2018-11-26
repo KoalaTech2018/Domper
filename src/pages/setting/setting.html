@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content>
+  
   <h4>{{ "personalAcc" | translate }}</h4>
   <ion-card>
     <div *ngIf="enableLogin()">
@@ -15,26 +16,26 @@
           </ion-item>
 
           <ion-item>
-            <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+            <ion-input type="text" placeholder="{{ 'email' | translate }}" formControlName="email"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input type="password" placeholder="Password" formControlName="password" class="form-controll"></ion-input>
+            <ion-input type="password" placeholder="{{ 'password' | translate }}" formControlName="password" class="form-controll"></ion-input>
           </ion-item>
         </ion-list>
 
         <div padding-horizontal>
           <div><label class="error-message">{{errorMessage}}</label></div>
 
-          <button ion-button full type="submit">Log in</button> 
-          <div class="login-footer">
-            <p><a href="#">Forgot password?</a></p>
+          <button ion-button round full type="submit">{{ "login" | translate }}</button> 
+          <div class="login-footer" (click)="redirectToResetPwd()">
+            <p class="grey"><u>{{ "forgetPassword" | translate }}</u></p>
           </div>
           
           <ion-list>
-            <button ion-button icon-left block clear (click)="signup()">
+            <button ion-button round block clear (click)="signup()">
               <ion-icon name="person-add"></ion-icon>
-              Sign up
+              {{ "regPage" | translate }}
             </button>
           </ion-list>
         </div>
@@ -50,10 +51,7 @@
             </div>
 
             <div>
-              <button
-                class="loginBtn loginBtn--facebook"
-                (click)="facebookLogin()"
-              >
+              <button class="loginBtn loginBtn--facebook" (click)="facebookLogin()">
                 {{ "facebook" | translate }}
               </button>
             </div>

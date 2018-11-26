@@ -20,6 +20,7 @@ import { Observable } from "rxjs/Observable";
 import { AuthService } from "../svc/auth.service";
 
 import { SignupPage } from "../signup/signup";
+import { ResetPwdPage } from "../signup/resetPwd";
 
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 
@@ -167,5 +168,9 @@ export class SettingPage {
       // console.log("2");
       this.navCtrl.push(QuestionEnPage);
     }
+  }
+
+  redirectToResetPwd() {
+    this.navCtrl.push(ResetPwdPage);
   }
 }

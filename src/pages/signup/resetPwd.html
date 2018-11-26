@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      {{ 'forgetPassword' | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="form-content">
+  <form class="form" [formGroup]="registerForm" (ngSubmit)="resetPwd(registerForm.value)">
+
+    <ion-item>
+      <ion-label floating>{{ 'email' | translate }}</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+   
+
+    <button ion-button round block class="submit-button" type="submit">{{ 'ok' | translate }}</button>
+    <label class="error-message">{{errorMessage}}</label>
+    <label class="success-message">{{successMessage}}</label>
+    <br>
+
+  </form>
+</ion-content>

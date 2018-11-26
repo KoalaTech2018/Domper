@@ -10,6 +10,18 @@
 <ion-content>
 <!-- (click)="openModal(i)" -->
   <ion-row>
+    <ion-col *ngIf="showLoginMessage" col-12 no-padding>
+      <ion-card (click)="redirectToSettingPageForLogin()">
+        <ion-item>
+          <div [ngStyle]="{'font-size': '16px'}" class="greyOnMsg">
+            {{ 'showLoginMessage1' | translate }}
+            {{'login' | translate}} <br>
+            {{ 'showLoginMessage2' | translate }}
+          </div>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+
     <ion-col *ngFor="let userCollection of userCollections; let i = index" col-12 no-padding>
       <ion-card>
         <ion-item  >

@@ -7,6 +7,7 @@ import { AngularFireDatabase } from "angularfire2/database";
 import { AlertController } from "ionic-angular";
 
 import { ModalContentPage } from "../maid/detail";
+import { SettingPage } from "../setting/setting";
 
 @Component({
   selector: "page-maid",
@@ -15,7 +16,7 @@ import { ModalContentPage } from "../maid/detail";
 export class CollectionPage {
   user: Observable<firebase.User>;
   userId;
-
+  showLoginMessage;
   counter: number;
 
   public maids$: Observable<any[]>;
@@ -40,6 +41,7 @@ export class CollectionPage {
         this.getUserCollection(this.userId);
       } else {
         this.userId = null;
+        this.showLoginMessage = true;
       }
     });
   }
@@ -50,14 +52,17 @@ export class CollectionPage {
       .valueChanges();
 
     this.collection$.subscribe(item => {
-
       this.counter = parseInt(
         window.localStorage.getItem("countAddedColection") != null
           ? window.localStorage.getItem("countAddedColection")
-          : "0");
+          : "0"
+      );
       console.log(item.length);
       if (item.length != this.counter) {
-        window.localStorage.setItem("countAddedColection", item.length.toString());
+        window.localStorage.setItem(
+          "countAddedColection",
+          item.length.toString()
+        );
       }
 
       console.log(item.length);
@@ -78,13 +83,15 @@ export class CollectionPage {
         : "0"
     );
     this.counter = this.counter - 1;
-    if (this.counter==0){
-      window.localStorage.setItem("countAddedColection","");
-    }else{
-      window.localStorage.setItem("countAddedColection", this.counter.toString());
+    if (this.counter == 0) {
+      window.localStorage.setItem("countAddedColection", "");
+    } else {
+      window.localStorage.setItem(
+        "countAddedColection",
+        this.counter.toString()
+      );
     }
     console.log("remove counter" + this.counter);
-    
   }
   redirectToMaidDetail(maidIdFrUi) {
     console.log(maidIdFrUi);
@@ -95,6 +102,10 @@ export class CollectionPage {
 
     //Used to Pass parameters to other tabs
     //this.events.publish('change-tab', 1, this.companys[index]);
+  }
+
+  redirectToSettingPageForLogin(){
+    this.navCtrl.push(SettingPage);
   }
 
   split(stringList) {

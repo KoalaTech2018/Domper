@@ -66,11 +66,15 @@
 "collection" : "我的最愛",
 "setting" : "設定",
 "personalAcc" : "個人帳戶",
+"regPage" : "注冊",
+"register" : "注冊用戶",
+"password" : "密碼",
+"forgetPassword":"忘記密碼",
 "login" : "登入",
 "loginAcc" : "登入帳戶",
 "logout" : "登出",
-"google" : "Google 登入",
-"facebook" : "Facebook 登入",
+"google" : "Google",
+"facebook" : "Facebook",
 "chinese" : "繁體中文(香港)",
 "ok" : "確定",
 "problem" : "常見問題",
@@ -121,5 +125,8 @@
 "northern":"北區",
 "tuenMun":"屯門",
 "yuenLong":"元朗",
-"islands":"離島區"
+"islands":"離島區",
+"showLoginMessage1":"請先按此處",
+"showLoginMessage2":"再加上喜愛的傭工。謝謝",
+"noResult": "暫沒資料提供!!"
 }

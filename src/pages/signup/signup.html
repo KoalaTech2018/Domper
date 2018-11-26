@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      {{ 'setting' | translate }}
+      {{ 'regPage' | translate }}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,15 +10,15 @@
   <form class="form" [formGroup]="registerForm" (ngSubmit)="tryRegister(registerForm.value)">
 
     <ion-item>
-      <ion-label floating>Email</ion-label>
+      <ion-label floating>{{ 'email' | translate }}</ion-label>
       <ion-input type="text" formControlName="email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Password</ion-label>
+      <ion-label floating>{{ 'password' | translate }}</ion-label>
       <ion-input type="password" formControlName="password" class="form-controll"></ion-input>
     </ion-item>
 
-    <button ion-button block class="submit-button" type="submit">Register</button>
+    <button ion-button round block class="submit-button" type="submit">{{ 'register' | translate }}</button>
     <label class="error-message">{{errorMessage}}</label>
     <label class="success-message">{{successMessage}}</label>
     <br>

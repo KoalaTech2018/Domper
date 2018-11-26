@@ -20,6 +20,19 @@
     </div>
   </ion-card>
 
+
+<ion-row>
+  <ion-col *ngIf="maids==''" col-12 no-padding>
+    <ion-card>
+      <ion-item>
+        <div [ngStyle]="{'font-size': '16px'}" class="greyOnMsg">
+          {{ 'noResult' | translate }}
+        </div>
+      </ion-item>
+    </ion-card>
+  </ion-col>
+</ion-row>
+
   <ion-row>
     <ion-col *ngFor="let maid of maids; let i = index" (click)="openModal(i)" col-12 no-padding>
       <ion-card>

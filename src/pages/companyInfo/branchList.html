@@ -13,9 +13,22 @@
 
 <ion-content>
 
+<ion-row>
+    <ion-col *ngIf="branches==''" col-12 no-padding>
+        <ion-card>
+            <ion-item>
+                <div [ngStyle]="{'font-size': '16px'}" class="greyOnMsg">
+                {{ 'noResult' | translate }}
+                </div>
+            </ion-item>
+        </ion-card>
+    </ion-col>
+</ion-row>
+
+
 <ion-row *ngFor="let branch of branches" (click)="redirectToMaid(branch.name, branch.imgUrl)">
     <ion-col  col-12 no-padding>
-        <ion-card [ngStyle]="{'font-size': '16px'}" class="grey">
+        <ion-card>
             <ion-item>
                 <img [src]=branch.imgUrl>
             </ion-item>
