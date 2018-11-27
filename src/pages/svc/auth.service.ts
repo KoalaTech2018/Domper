@@ -31,6 +31,7 @@ export class AuthService {
   }
 
   doRegister(value) {
+    
     return new Promise<any>((resolve, reject) => {
       firebase
         .auth()
@@ -38,13 +39,24 @@ export class AuthService {
         .then(
           res => {
             resolve(res);
-            firebase
-              .database()
-              .ref("users/" + res.user.uid)
-              .update({
-                username: res.user.displayName,
-                email: res.user.email
+            var splitted = res.user.email.split("@");
+
+            res.user.updateProfile({
+              displayName: splitted[0].toString(),
+              photoURL: ''
+            }).then(function (response) {
+              const displayName = splitted[0].toString();
+              }, function (error) {
+                console.log(error);
               });
+
+             firebase
+               .database()
+               .ref("users/" + res.user.uid)
+               .update({
+                 username: splitted[0],
+                 email: res.user.email
+               });
           },
           err => reject(err)
         );

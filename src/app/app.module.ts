@@ -20,8 +20,8 @@ import { TermsAndConditionsCnPage } from "../pages/termsAndConditions/termsAndCo
 import { TermsAndConditionsEnPage } from "../pages/termsAndConditions/termsAndConditionsEn";
 import { QuestionCnPage } from "../pages/question/questionCn";
 import { QuestionEnPage } from "../pages/question/questionEn";
-import { AboutDomperCnPage } from "../pages/aboutDomper/aboutDomperCn";
-import { AboutDomperEnPage } from "../pages/aboutDomper/aboutDomperEn";
+import { AboutDomperPage } from "../pages/aboutDomper/aboutDomper";
+
 import { SearchBox } from '../pages/maid/searchBox';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -77,8 +77,7 @@ var config = {
     TermsAndConditionsEnPage,
     QuestionCnPage,
     QuestionEnPage,
-    AboutDomperEnPage,
-    AboutDomperCnPage,
+    AboutDomperPage,
     SearchBox
   ],
   imports: [
@@ -117,8 +116,7 @@ var config = {
     TermsAndConditionsEnPage,
     QuestionCnPage,
     QuestionEnPage,
-    AboutDomperEnPage,
-    AboutDomperCnPage,
+    AboutDomperPage,
     SearchBox
   ],
   providers: [

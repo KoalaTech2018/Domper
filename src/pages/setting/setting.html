@@ -63,8 +63,10 @@
     <div *ngIf="!enableLogin()">
       <ion-item>
         <ion-row>
-          <ion-col> {{ userId }} </ion-col>
           <ion-col>
+          <div [ngStyle]="{ 'font-size': '14px' }" class="grey">
+            {{ "hi" | translate }}  {{ userName }}
+          </div> 
             <button ion-button round outline class="center" (tap)="signOut()">
               {{ "logout" | translate }}
             </button>

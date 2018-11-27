@@ -4,7 +4,6 @@ import * as firebase from "firebase/app";
 import { AngularFireAuth } from "angularfire2/auth";
 import { Observable } from "rxjs/Observable";
 import { AngularFireDatabase } from "angularfire2/database";
-import { AlertController } from "ionic-angular";
 
 import { ModalContentPage } from "../maid/detail";
 import { SettingPage } from "../setting/setting";
@@ -28,7 +27,6 @@ export class CollectionPage {
 
   constructor(
     public modalCtrl: ModalController,
-    private alertCtrl: AlertController,
     private afAuth: AngularFireAuth,
     public afd: AngularFireDatabase,
     public navCtrl: NavController

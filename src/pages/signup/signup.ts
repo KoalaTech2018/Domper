@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TranslateService } from "@ngx-translate/core";
-import { AngularFireAuth } from "angularfire2/auth";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 
 import { AuthService } from "../svc/auth.service";
@@ -18,7 +17,6 @@ export class SignupPage {
   constructor(
     public navCtrl: NavController,
     public translate: TranslateService,
-    private afAuth: AngularFireAuth,
     public formBuilder: FormBuilder,
     private auth: AuthService
   ) {}

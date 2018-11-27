@@ -12,8 +12,7 @@ import { TermsAndConditionsEnPage } from "../termsAndConditions/termsAndConditio
 import { QuestionCnPage } from "../question/questionCn";
 import { QuestionEnPage } from "../question/questionEn";
 
-import { AboutDomperCnPage } from "../aboutDomper/aboutDomperCn";
-import { AboutDomperEnPage } from "../aboutDomper/aboutDomperEn";
+import { AboutDomperPage } from "../aboutDomper/aboutDomper";
 
 import { AngularFireAuth } from "angularfire2/auth";
 import { Observable } from "rxjs/Observable";
@@ -31,7 +30,7 @@ import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 export class SettingPage {
   loginForm: FormGroup;
   errorMessage: string = '';
-
+  userName;
   language: any;
   user: Observable<firebase.User>;
   userId;
@@ -51,6 +50,8 @@ export class SettingPage {
     this.afAuth.auth.onAuthStateChanged(user => {
       if (user) {
         this.userId = user.uid;
+        console.log(user.displayName);
+        this.userName = user.displayName; 
       } else {
         this.userId = null;
       }
@@ -149,14 +150,7 @@ export class SettingPage {
   }
 
   redirectToAboutDomper() {
-    // console.log(this.language);
-    if (this.language != "en") {
-      // console.log('1');
-      this.navCtrl.push(AboutDomperCnPage);
-    } else {
-      // console.log("2");
-      this.navCtrl.push(AboutDomperEnPage);
-    }
+      this.navCtrl.push(AboutDomperPage);
   }
 
   redirectToQuestion() {

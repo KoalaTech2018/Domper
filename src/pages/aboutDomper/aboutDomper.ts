@@ -11,9 +11,9 @@ import { EmailComposer } from "@ionic-native/email-composer";
 
 @Component({
   selector: "page-aboutDomper",
-  templateUrl: "aboutDomperEn.html"
+  templateUrl: "aboutDomper.html"
 })
-export class AboutDomperEnPage {
+export class AboutDomperPage {
   constructor(
     private emailComposer: EmailComposer,
     public navCtrl: NavController,
@@ -23,12 +23,7 @@ export class AboutDomperEnPage {
   ) {}
 
   sendEmail() {
-    let email = {
-      to: "KoalaTech2018@gmail.com",
-      subject: "Issue from Domper(Terms And Conditions)",
-      body: "",
-      isHtml: true
-    };
+    let email = { to: "KoalaTech2018@gmail.com", subject: "僱傭易(條款和細則)問題", body: "", isHtml: true };
 
     this.emailComposer.open(email);
   }
