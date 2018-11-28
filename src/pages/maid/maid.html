@@ -35,7 +35,7 @@
 
   <ion-row>
     <ion-col *ngFor="let maid of maids; let i = index" (click)="openModal(i)" col-12 no-padding>
-      <ion-card>
+      <ion-card *ngIf="maid.isEmployed=='N'">
         <ion-item>
 
           <ion-row>

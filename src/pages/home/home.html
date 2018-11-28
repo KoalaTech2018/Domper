@@ -168,41 +168,36 @@
 
   <h6>🇵🇭 {{ 'philippines' | translate }}</h6>
   <ion-slides slidesPerView="2.75">
-    <ion-slide *ngFor="let maid of maids_ph; let i = index" (click)="openPhMaidModal(i)" style="width:20%">
-      <div>
-        <div [ngStyle]="{'font-size': '16px'}" class="grey">
-          <div class="avatars">
-            <img src="{{maid.imgUrl}}">
+    <div *ngFor="let maid of maids_ph; let i = index" (click)="openPhMaidModal(i)" >
+      <ion-slide  *ngIf="maid.isEmployed=='N'" style="width:20%">
+        <div>
+          <div [ngStyle]="{'font-size': '16px'}" class="grey">
+            <div class="avatars">
+              <img src="{{maid.imgUrl}}">
+            </div>
+            {{maid.working_exp_yr}} {{ 'years' | translate }}
           </div>
-          {{maid.working_exp_yr}} {{ 'years' | translate }}
         </div>
-        <!-- <div>
-            <h4 [ngStyle]="{'font-size': '15px'}"><img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
-              {{maid.name}}, {{maid.age}}</h4>
-        </div> -->
-
-      </div>
-    </ion-slide>
+      </ion-slide>
+    </div>
   </ion-slides>
 
 
   <h6>🇲🇨 {{ 'indonesia' | translate }}</h6>
   <ion-slides slidesPerView="2.75">
-    <ion-slide *ngFor="let maid of maids_in; let i = index" (click)="openInMaidModal(i)" style="width:20%">
-      <div>
-        <div [ngStyle]="{'font-size': '16px'}" class="grey">
-          <div class="avatars">
-            <img src="{{maid.imgUrl}}">
+    <div *ngFor="let maid of maids_in; let i = index" (click)="openPhMaidModal(i)" >
+      <ion-slide *ngIf="maid.isEmployed=='N'" style="width:20%">
+        <div>
+          <div [ngStyle]="{'font-size': '16px'}" class="grey">
+            <div class="avatars">
+              <img src="{{maid.imgUrl}}">
+            </div>
+              {{maid.working_exp_yr}} {{ 'years' | translate }}
           </div>
-            {{maid.working_exp_yr}} {{ 'years' | translate }}
         </div>
-        <!-- <div>
-                  <h4 [ngStyle]="{'font-size': '15px'}"><img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
-                    {{maid.name}}, {{maid.age}}</h4>
-              </div> -->
-      </div>
 
-    </ion-slide>
+      </ion-slide>
+    </div>
   </ion-slides>
   <br>
 

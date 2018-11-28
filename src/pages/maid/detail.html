@@ -44,6 +44,12 @@
                 <div item-end *ngFor="let lang of split(maid.language)">{{lang | translate}}</div>
             </ion-item>
 
+             <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
+                <ion-icon class="fa fa-heart" aria-hidden="true" item-start small color="primary"></ion-icon>
+                <ion-label>{{ 'preferJob' | translate }}</ion-label>
+                <div item-end>{{maid.preferJob | translate}}</div>
+            </ion-item>
+
             <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
                 <ion-icon class="fa fa-id-card-o" aria-hidden="true" item-start small color="primary"></ion-icon>
                 <ion-label>{{ 'ttlWorkExp' | translate }}</ion-label>
@@ -68,17 +74,27 @@
         <h4 [ngStyle]="{'font-size': '17px'}"> {{ 'expInfo' | translate }}</h4>
         <ion-card>
 
-            <ion-item *ngFor="let exp of maid.working_exps" no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
-                <ion-icon class="fa fa-briefcase" aria-hidden="true" item-start small color="primary"></ion-icon>
-                <ion-label item-end>{{exp.location | translate}}</ion-label>
-                <ion-label item-end>
-                    <div>{{ 'from' | translate }} {{exp.from}}</div>
-                    <br />
-                    <div>{{ 'to' | translate }} {{exp.to}}</div>
-                </ion-label>
+            <div *ngFor="let exp of maid.working_exps">
+                <ion-item  no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
+        
+                    <ion-icon class="fa fa-briefcase" aria-hidden="true" item-start small color="primary"></ion-icon>
+                    <ion-label item-end>{{exp.location | translate}}</ion-label>
+                    <ion-label item-end>
+                        <div>{{ 'from' | translate }} {{exp.from}}</div>
+                        <br />
+                        <div>{{ 'to' | translate }} {{exp.to}}</div>
+                    </ion-label>
+                    <div item-end>{{exp.year}} {{ 'years' | translate }}</div><br />
+                </ion-item >
 
-                <div item-end>{{exp.year}} {{ 'years' | translate }}</div>
-            </ion-item>
+                <ion-item  no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
+                    <ion-icon  aria-hidden="true" item-start small color="primary"></ion-icon>
+                    <ion-label item-end>{{'majorJobDuty' | translate}}</ion-label>
+                    <div item-end> {{exp.majorJob | translate}}</div>
+                </ion-item>
+
+                  
+            </div>
         </ion-card>
 
         <!-- Self Description -->
