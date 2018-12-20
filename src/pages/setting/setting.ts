@@ -22,6 +22,7 @@ import { SignupPage } from "../signup/signup";
 import { ResetPwdPage } from "../signup/resetPwd";
 
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
+import { Platform } from "ionic-angular";
 
 @Component({
   selector: "page-setting",
@@ -29,12 +30,13 @@ import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 })
 export class SettingPage {
   loginForm: FormGroup;
-  errorMessage: string = '';
+  errorMessage: string = "";
   userName;
   language: any;
   user: Observable<firebase.User>;
   userId;
   userObj;
+  showGoogle;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -42,16 +44,22 @@ export class SettingPage {
     public translate: TranslateService,
     private emailComposer: EmailComposer,
     public formBuilder: FormBuilder,
-    private auth: AuthService
+    private auth: AuthService,
+    public platform: Platform
   ) {
     this.language = this.translate.getDefaultLang();
+    if (this.platform.is("android")) {
+      this.showGoogle = "N";
+    } else {
+      this.showGoogle = "Y";
+    }
 
     this.user = this.afAuth.authState;
     this.afAuth.auth.onAuthStateChanged(user => {
       if (user) {
         this.userId = user.uid;
         console.log(user.displayName);
-        this.userName = user.displayName; 
+        this.userName = user.displayName;
       } else {
         this.userId = null;
       }
@@ -66,7 +74,7 @@ export class SettingPage {
   }
 
   resetPassword(email: string) {
-    this.auth.resetPassword(email)
+    this.auth.resetPassword(email);
   }
 
   enableLogin() {
@@ -80,12 +88,15 @@ export class SettingPage {
   }
 
   tryLogin(value) {
-    this.auth.doLogin(value).then(res => {
+    this.auth.doLogin(value).then(
+      res => {
         console.log(res);
-      }, err => {
+      },
+      err => {
         console.log(err);
         this.errorMessage = err.message;
-      });
+      }
+    );
   }
 
   signup() {
@@ -93,21 +104,27 @@ export class SettingPage {
     this.navCtrl.push(SignupPage);
   }
   googleLogin() {
-    this.auth.doGoogleLogin().then(res => {
-      console.log(res);
-    }, err => {
-      console.log(err);
-      this.errorMessage = err.message;
-    });
+    this.auth.doGoogleLogin().then(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+        this.errorMessage = err.message;
+      }
+    );
   }
 
   facebookLogin() {
-    this.auth.doFacebookLogin().then(res => {
-      console.log(res);
-    }, err => {
-      console.log(err);
-      this.errorMessage = err.message;
-    });
+    this.auth.doFacebookLogin().then(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+        this.errorMessage = err.message;
+      }
+    );
   }
 
   signOut() {
@@ -150,7 +167,7 @@ export class SettingPage {
   }
 
   redirectToAboutDomper() {
-      this.navCtrl.push(AboutDomperPage);
+    this.navCtrl.push(AboutDomperPage);
   }
 
   redirectToQuestion() {

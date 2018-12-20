@@ -44,7 +44,7 @@
       <div padding-horizontal>
         <ion-list>
           <ion-item no-margin [ngStyle]="{ 'font-size': '14px' }">
-            <div>
+            <div *ngIf="showGoogle=='Y'">
               <button class="loginBtn loginBtn--google" (click)="googleLogin()">
                 {{ "google" | translate }}
               </button>
