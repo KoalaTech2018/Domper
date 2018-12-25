@@ -37,6 +37,7 @@ export class CollectionPage {
         this.userId = user.uid;
         console.log(this.userId);
         this.getUserCollection(this.userId);
+        this.showLoginMessage = false;
       } else {
         this.userId = null;
         this.showLoginMessage = true;
