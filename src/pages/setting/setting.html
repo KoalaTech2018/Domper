@@ -31,15 +31,13 @@
           <div class="login-footer" (click)="redirectToResetPwd()">
             <p class="grey"><u>{{ "forgetPassword" | translate }}</u></p>
           </div>
-          
-          <ion-list>
-            <button ion-button round block clear (click)="signup()">
-              <ion-icon name="person-add"></ion-icon>
-              {{ "regPage" | translate }}
-            </button>
-          </ion-list>
         </div>
       </form>
+
+      <button ion-button round block clear (click)="signup()">
+        <ion-icon name="person-add"></ion-icon>
+        {{ "regPage" | translate }}
+      </button>
 
       <div padding-horizontal>
         <ion-list>
