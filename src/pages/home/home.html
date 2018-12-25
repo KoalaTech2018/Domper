@@ -185,7 +185,7 @@
 
   <h6>🇲🇨 {{ 'indonesia' | translate }}</h6>
   <ion-slides slidesPerView="2.75">
-    <div *ngFor="let maid of maids_in; let i = index" (click)="openPhMaidModal(i)" >
+    <div *ngFor="let maid of maids_in; let i = index" (click)="openInMaidModal(i)" >
       <ion-slide *ngIf="maid.isEmployed=='N'" style="width:20%">
         <div>
           <div [ngStyle]="{'font-size': '16px'}" class="grey">
