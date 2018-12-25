@@ -9,8 +9,7 @@ import { PrivatePolicyEnPage } from "../PrivacyPolicy/privacyPolicyEn";
 import { TermsAndConditionsCnPage } from "../termsAndConditions/termsAndConditionsCn";
 import { TermsAndConditionsEnPage } from "../termsAndConditions/termsAndConditionsEn";
 
-import { QuestionCnPage } from "../question/questionCn";
-import { QuestionEnPage } from "../question/questionEn";
+import { QuestionPage } from "../question/question";
 
 import { AboutDomperPage } from "../aboutDomper/aboutDomper";
 
@@ -176,14 +175,7 @@ export class SettingPage {
   }
 
   redirectToQuestion() {
-    // console.log(this.language);
-    if (this.language != "en") {
-      // console.log('1');
-      this.navCtrl.push(QuestionCnPage);
-    } else {
-      // console.log("2");
-      this.navCtrl.push(QuestionEnPage);
-    }
+      this.navCtrl.push(QuestionPage);
   }
 
   redirectToResetPwd() {

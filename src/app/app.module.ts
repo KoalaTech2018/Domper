@@ -18,8 +18,7 @@ import { PrivatePolicyPage } from '../pages/PrivacyPolicy/privacyPolicy';
 import { PrivatePolicyEnPage } from "../pages/PrivacyPolicy/privacyPolicyEn";
 import { TermsAndConditionsCnPage } from "../pages/termsAndConditions/termsAndConditionsCn";
 import { TermsAndConditionsEnPage } from "../pages/termsAndConditions/termsAndConditionsEn";
-import { QuestionCnPage } from "../pages/question/questionCn";
-import { QuestionEnPage } from "../pages/question/questionEn";
+import { QuestionPage } from "../pages/question/question";
 import { AboutDomperPage } from "../pages/aboutDomper/aboutDomper";
 
 import { SearchBox } from '../pages/maid/searchBox';
@@ -75,8 +74,7 @@ var config = {
     PrivatePolicyEnPage,
     TermsAndConditionsCnPage,
     TermsAndConditionsEnPage,
-    QuestionCnPage,
-    QuestionEnPage,
+    QuestionPage,
     AboutDomperPage,
     SearchBox
   ],
@@ -114,8 +112,7 @@ var config = {
     PrivatePolicyEnPage,
     TermsAndConditionsCnPage,
     TermsAndConditionsEnPage,
-    QuestionCnPage,
-    QuestionEnPage,
+    QuestionPage,
     AboutDomperPage,
     SearchBox
   ],
