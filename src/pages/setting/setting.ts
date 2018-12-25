@@ -20,7 +20,7 @@ import { AuthService } from "../svc/auth.service";
 import { SignupPage } from "../signup/signup";
 import { ResetPwdPage } from "../signup/resetPwd";
 
-import { HomePage } from "../home/home";
+// import { HomePage } from "../home/home";
 
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { Platform } from "ionic-angular";
@@ -92,7 +92,7 @@ export class SettingPage {
     this.auth.doLogin(value).then(
       res => {
         console.log(res);
-        this.navCtrl.push(HomePage);
+        // this.navCtrl.push(HomePage);
       },
       err => {
         console.log(err);
@@ -109,7 +109,7 @@ export class SettingPage {
     this.auth.doGoogleLogin().then(
       res => {
         console.log(res);
-        this.navCtrl.push(HomePage);
+        // this.navCtrl.push(HomePage);
       },
       err => {
         console.log(err);
@@ -122,7 +122,7 @@ export class SettingPage {
     this.auth.doFacebookLogin().then(
       res => {
         console.log(res);
-        this.navCtrl.push(HomePage);
+        // this.navCtrl.push(HomePage);
       },
       err => {
         console.log(err);
