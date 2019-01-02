@@ -53,6 +53,7 @@
 "fee" : "Cost",
 "Negotiate": "Negotiate",
 "addToCollection" : "Add Collection",
+"addedToCollection" : "Added to Collection",
 "contactCompany" : "Contact Company",
 "company" : "Company",
 "feeInclude" : "Fee Include",
@@ -149,5 +150,7 @@
 "ans2.4":"4. Click add to collection button.",
 "question3":"Q: How to contact intermediary company?",
 "ans3.4":"4. Click Contact Company button.",
-"ans3.5":"5. Email and telephone no. of intermediary company can be found in company info page."
+"ans3.5":"5. Email and telephone no. of intermediary company can be found in company info page.",
+"deleteMaidCollection":"Delete",
+"deleteInfo":"Do you want to delete this maid info?"
 }

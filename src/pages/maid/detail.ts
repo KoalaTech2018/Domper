@@ -5,6 +5,8 @@ import { CompanyInfoPage } from "../companyInfo/companyInfo";
 import * as firebase from "firebase/app";
 import { Observable } from "rxjs/Observable";
 import { AngularFireDatabase } from "angularfire2/database";
+import { AlertController } from "ionic-angular";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "page-maid",
@@ -25,7 +27,9 @@ export class ModalContentPage implements OnInit {
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public afd: AngularFireDatabase,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private alertCtrl: AlertController,
+    public translate: TranslateService
   ) {
     this.maid = this.params.get("obj");
     this.maidId = this.params.get("maidId");
@@ -50,13 +54,24 @@ export class ModalContentPage implements OnInit {
     }
   }
 
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: this.translate.instant("addedToCollection"),
+      buttons: [this.translate.instant("ok")]
+    });
+    alert.present();
+  }
+
   dismiss() {
     this.viewCtrl.dismiss();
   }
-  ngOnInit() { }
+  ngOnInit() {}
   redirectToCompanyInfo(companyName) {
     console.log("Deatil page trigger :" + companyName);
-    this.navCtrl.push(CompanyInfoPage, { objString: companyName, companyName: companyName  });
+    this.navCtrl.push(CompanyInfoPage, {
+      objString: companyName,
+      companyName: companyName
+    });
   }
   split(stringList) {
     return stringList.split(",");
@@ -74,27 +89,27 @@ export class ModalContentPage implements OnInit {
       console.log(">>>>> test <<<<<" + item[0]);
       this.maid = item[0];
     });
-
   }
 
   addMaidToUserCollection() {
-     var self = this;
-        firebase
-          .database()
-          .ref("/users/" + this.userId + "/collection/" + self.maid.id)
-          .once("value")
-          .then(function(snapshot) {
-            console.log(snapshot.val());
-            var username = snapshot.val();
-            if (username == null) {
-              self.addCollectionToFireBase();
-            } else {
-              console.log("Added Already");
-            }
-          });
+    var self = this;
+    firebase
+      .database()
+      .ref("/users/" + this.userId + "/collection/" + self.maid.id)
+      .once("value")
+      .then(function(snapshot) {
+        console.log(snapshot.val());
+        var username = snapshot.val();
+        if (username == null) {
+          self.addCollectionToFireBase();
+        } else {
+          console.log("Added Already");
+        }
+      });
+    this.presentAlert();
   }
 
-  addCollectionToFireBase(){
+  addCollectionToFireBase() {
     firebase
       .database()
       .ref("/users/" + this.userId + "/collection")
@@ -114,7 +129,7 @@ export class ModalContentPage implements OnInit {
       .database()
       .ref("/users/" + this.userId + "/collection")
       .once("value")
-      .then(function (snapshot) {
+      .then(function(snapshot) {
         console.log(snapshot);
         var username = snapshot.val();
 
@@ -126,7 +141,9 @@ export class ModalContentPage implements OnInit {
     if (tmp == "") {
       this.counter = 0;
     } else {
-      this.counter = parseInt(window.localStorage.getItem("countAddedColection"));
+      this.counter = parseInt(
+        window.localStorage.getItem("countAddedColection")
+      );
     }
     this.counter = this.counter + 1;
     console.log("counter" + this.counter);

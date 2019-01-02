@@ -33,7 +33,7 @@
               <h6 [ngStyle]="{'font-size': '18px'}">{{userCollection.name}}, {{userCollection.age}}</h6>
             </ion-col>
 
-            <ion-col col-1 no-padding (click)="removeUserCollection(userCollection.id)">
+            <ion-col col-1 no-padding (click)="deleteConfirm(userCollection.id)">
               <ion-icon class="fa fa-trash-o" aria-hidden="true" color="primary"></ion-icon>
             </ion-col>
 

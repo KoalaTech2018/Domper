@@ -53,6 +53,7 @@
 "fee" : "中介費用",
 "Negotiate": "商議",
 "addToCollection" : "加到我的最愛",
+"addedToCollection" : "已加到我的最愛",
 "contactCompany" : "聯絡中介公司",
 "company" : "中介公司",
 "feeInclude" : "服務費包括",
@@ -149,5 +150,7 @@
 "ans2.4":"4. 點擊“加到我的最愛”按鈕。",
 "question3":"問:如何聯絡中介公司?",
 "ans3.4":"4. 單擊聯絡中介公司按鈕。",
-"ans3.5":"5. 電子郵件和電話號碼中介公司可以在公司信息頁面找到。"
+"ans3.5":"5. 電子郵件和電話號碼中介公司可以在公司信息頁面找到。",
+"deleteMaidCollection":"刪除",
+"deleteInfo":"你想刪除這個傭工嗎？"
 }
