@@ -9,6 +9,7 @@ export class SearchBox {
   search_age;
   search_height;
   search_weight;
+  search_nationality;
 
   isClick = [
     false,
@@ -37,6 +38,10 @@ export class SearchBox {
   ];
 
   skillSet = [
+    "philippines",
+    "indonesia",
+    "othersCountry",
+
     "takeCareBaby",
     "takeCareKid",
     "takeCareElderly",
@@ -71,15 +76,18 @@ export class SearchBox {
     this.viewCtrl.dismiss();
   }
   search() {
-    var obj = {
-      age: <number>null,
-      height: <number>null,
-      weight: <number>null,
-      skillList: []
-    };
+
+    var obj = { age: <number>(
+        null
+      ), height: <number>(
+        null
+      ), weight: <number>null, nationality: <String>null, skillList: [] };
+    
     obj.age = this.search_age;
     obj.height = this.search_height;
     obj.weight = this.search_weight;
+    obj.nationality = this.search_nationality;
+    
     var skillList = [];
     for (var i in this.isClick) {
       if (this.isClick[i]) {
@@ -87,6 +95,7 @@ export class SearchBox {
       }
     }
     obj.skillList = skillList;
+    console.log(obj);
     this.viewCtrl.dismiss(obj);
   }
 

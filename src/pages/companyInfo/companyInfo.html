@@ -27,6 +27,19 @@
             <!-- <ion-icon class="fa fa-commenting-o" aria-hidden="true" item-start small color="primary"></ion-icon> -->
             <div item-end class="grey">{{company.desc}}</div>
         </ion-item>
+
+        <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
+ 
+            <ion-label>{{ 'licenceNo' | translate }}</ion-label>
+            <div item-end class="grey">{{company.licenceNo}}</div>
+        </ion-item>
+
+        <ion-item [ngStyle]="{'font-size': '14px'}" class="grey">
+
+            <ion-label>{{ 'webSite' | translate }}</ion-label>
+            <div item-end class="grey"><a href = "{{company.webSite}}">{{company.webSite}}</a></div>
+        </ion-item>
+
     </ion-card>
 
     <h4 [ngStyle]="{'font-size': '17px'}">{{ 'contact' | translate }}</h4>
