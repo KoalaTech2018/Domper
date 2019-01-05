@@ -65,12 +65,18 @@ export class ModalContentPage implements OnInit {
   dismiss() {
     this.viewCtrl.dismiss();
   }
-  ngOnInit() {}
+
   redirectToCompanyInfo(companyId) {
     console.log("Deatil page trigger :" + companyId);
-    this.navCtrl.push(CompanyInfoPage, {
+    // this.navCtrl.push(CompanyInfoPage, {
+    //   companyId: companyId
+    // });
+
+
+    let modal = this.modalCtrl.create(CompanyInfoPage, {
       companyId: companyId
     });
+    modal.present();
   }
   split(stringList) {
     return stringList.split(",");

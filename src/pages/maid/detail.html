@@ -175,9 +175,9 @@
 
 <ion-footer no-border>
     <ion-grid class="gridFooter">
-        <ion-row>
+        <ion-row style="padding-bottom:10px;">
             <ion-col>
-                <button ion-button round outline class="center" (click)="redirectToCompanyInfo(maid.companyName)">{{
+                <button ion-button round outline class="center" (click)="redirectToCompanyInfo(maid.companyId)">{{
                     'contactCompany' | translate }}</button>
             </ion-col>
 
@@ -186,8 +186,6 @@
                     {{ 'addToCollection' | translate }}
                 </button>
             </ion-col>
-
-
         </ion-row>
     </ion-grid>
 </ion-footer>
