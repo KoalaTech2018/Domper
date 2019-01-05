@@ -118,7 +118,7 @@ export class HomePage {
     // var t: Tabs = this.navCtrl.parent;
     // t.select(1);
     this.navCtrl.push(MaidPage, {
-      obj: this.companys[index]
+      promoteCompany: this.companys[index]
     });
 
     //Used to Pass parameters to other tabs

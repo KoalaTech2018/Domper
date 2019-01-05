@@ -17,7 +17,7 @@ import { EmailComposer } from "@ionic-native/email-composer";
   templateUrl: "companyInfo.html"
 })
 export class CompanyInfoPage implements OnInit {
-  public companyName;
+  public companyId;
   public companyUrl;
   public companies$: Observable<any[]>;
   companies = new Array<any>();
@@ -40,34 +40,34 @@ export class CompanyInfoPage implements OnInit {
   ) {
     console.log("Now @ company page");
     // Get company from detail.html by contact company
-    this.companyName = this.params.get("companyName");
+    this.companyId = this.params.get("companyId");
     this.companyUrl = this.params.get("urlString");
-    console.log(this.companyName);
+    console.log(this.companyId);
     console.log(this.companyUrl);
-    if (this.companyName != null) {
+    if (this.companyId != null) {
       console.log("From detail");
-      this.getCompanybyName(this.companyName);
+      this.getCompanybyName(this.companyId);
     } else if (this.companyUrl != null) {
       console.log("From banner");
-      this.getCompanybyUrl(this.companyUrl, this.companyName);
+      this.getCompanybyUrl(this.companyUrl, this.companyId);
     }
 
    
   }
 
-  getCompanybyName(companyName) {
+  getCompanybyName(companyId) {
     this.companies$ = this.afd
-      .list("companies", ref => ref.orderByChild("name").equalTo(companyName))
+      .list("companies", ref => ref.orderByChild("id").equalTo(companyId))
       .valueChanges();
     this.companies$.subscribe(item => {
       this.company = item;
       console.log(this.company);
     });
 
-    this.getBranchesByCompanyName(companyName);
+    this.getBranchesByCompanyId(companyId);
   }
 
-  getCompanybyUrl(url, companyName) {
+  getCompanybyUrl(url, companyId) {
     this.companies$ = this.afd
       .list("companies", ref => ref.orderByChild("imgUrl").equalTo(url))
       .valueChanges();
@@ -76,12 +76,12 @@ export class CompanyInfoPage implements OnInit {
       console.log(this.company);
     });
 
-    this.getBranchesByCompanyName(companyName);
+    this.getBranchesByCompanyId(companyId);
   }
 
-  getBranchesByCompanyName(companyName) {
+  getBranchesByCompanyId(companyId) {
     this.branches$ = this.afd
-      .list("branches", ref => ref.orderByChild("name").equalTo(companyName))
+      .list("branches", ref => ref.orderByChild("id").equalTo(companyId))
       .valueChanges();
     this.branches$.subscribe(item => {
       this.branches = item;

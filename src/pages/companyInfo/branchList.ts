@@ -56,7 +56,13 @@ export class BranchListPage implements OnInit {
   redirectToMaid(companyName, url) {
     console.log(">>>>> branchies.ts <<<<< Redirect to Maid list page");
     console.log(url);
-    this.navCtrl.push(MaidPage, { companyName: companyName, branchUrl: url});
+    var branchObj = {
+      companyId: companyName,
+      branchUrl: url
+    }
+    this.navCtrl.push(MaidPage, { 
+      branchObj: branchObj
+    });
   }
 
   dismiss() {

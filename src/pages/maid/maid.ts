@@ -12,12 +12,11 @@ import { SearchBox } from "../maid/searchBox";
   templateUrl: "maid.html"
 })
 export class MaidPage {
-  companyNameFmBr;
-  branchUrl;
-  companyName;
+  companyId;
   promoteCompany;
   downloadURL;
   countryCode;
+  branchObj;
 
   constructor(
     public navCtrl: NavController,
@@ -28,22 +27,21 @@ export class MaidPage {
     events: Events
   ) {
     console.log("Passed params", navParams.data);
-    this.companyNameFmBr = navParams.get("companyName");
-    this.branchUrl = navParams.get("branchUrl");
-    this.promoteCompany = navParams.get("obj");
+    this.branchObj = navParams.get("branchObj");
+    this.promoteCompany = navParams.get("promoteCompany");
     this.countryCode = navParams.get("objString");
     console.log(this.countryCode);
 
     if (
-      (this.promoteCompany != null || this.companyNameFmBr != null) &&
+      (this.promoteCompany != null || this.branchObj != null) &&
       this.countryCode == null
     ) {
       if (this.promoteCompany == null) {
-        this.downloadURL = this.branchUrl;
-        this.companyName = this.companyNameFmBr;
+        this.downloadURL = this.branchObj.branchUrl;
+        this.companyId = this.branchObj.companyId;
       } else {
         this.downloadURL = this.promoteCompany.imgUrl;
-        this.companyName = this.promoteCompany.name;
+        this.companyId = this.promoteCompany.id;
       }
 
       // = this.afStorage
@@ -52,7 +50,7 @@ export class MaidPage {
 
       this.maids$ = this.afd
         .list("maids", ref =>
-          ref.orderByChild("companyName").equalTo(this.companyName)
+          ref.orderByChild("companyId").equalTo(this.companyId)
         )
         .valueChanges();
       this.maids$.subscribe(item => {
@@ -100,7 +98,7 @@ export class MaidPage {
     console.log(" ===> " + url);
     this.navCtrl.push(CompanyInfoPage, {
       urlString: url,
-      companyName: this.companyName
+      companyId: this.companyId
     });
   }
 
