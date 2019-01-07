@@ -53,7 +53,9 @@ export class ModalContentPage implements OnInit {
       this.isDisplay = true;
     }
   }
-
+  ngOnInit(){
+    
+  }
   presentAlert() {
     let alert = this.alertCtrl.create({
       title: this.translate.instant("addedToCollection"),
