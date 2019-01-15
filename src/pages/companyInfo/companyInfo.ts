@@ -45,7 +45,7 @@ export class CompanyInfoPage implements OnInit {
     console.log(this.companyId);
     console.log(this.companyUrl);
     if (this.companyId != null) {
-      console.log("From detail");
+      console.log("From detail:"+this.companyId);
       this.getCompanybyName(this.companyId);
     } else if (this.companyUrl != null) {
       console.log("From banner");
@@ -81,7 +81,7 @@ export class CompanyInfoPage implements OnInit {
 
   getBranchesByCompanyId(companyId) {
     this.branches$ = this.afd
-      .list("branches", ref => ref.orderByChild("id").equalTo(companyId))
+      .list("branches", ref => ref.orderByChild("companyId").equalTo(companyId))
       .valueChanges();
     this.branches$.subscribe(item => {
       this.branches = item;
