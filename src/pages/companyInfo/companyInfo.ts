@@ -56,8 +56,7 @@ export class CompanyInfoPage implements OnInit {
   }
 
   getCompanybyName(companyId) {
-    this.companies$ = this.afd
-      .list("companies", ref => ref.child(companyId))
+    this.companies$ = this.afd.list("companies", ref => ref.orderByChild("id").equalTo(companyId))
       .valueChanges();
     this.companies$.subscribe(item => {
       this.company = item;
