@@ -91,7 +91,7 @@
                 {{ 'feeInclude' | translate }}
             </div>
             <ion-icon class="fa fa-check-square-o" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label item-end class="grey" text-wrap>{{ser}}</ion-label>
+            <ion-label item-end class="grey" text-wrap>{{ser| translate}}</ion-label>
         </ion-item>
     </ion-card>
 
@@ -101,7 +101,7 @@
         </div>
         <ion-item *ngFor="let special of company.special_ser" no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
             <ion-icon class="fa fa-check-square-o" aria-hidden="true" item-start small color="primary"></ion-icon>
-            <ion-label item-end class="grey" text-wrap>{{special}}</ion-label>
+            <ion-label item-end class="grey" text-wrap>{{special|translate}}</ion-label>
         </ion-item>
     </ion-card>
 

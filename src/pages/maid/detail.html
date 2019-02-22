@@ -29,7 +29,7 @@
             <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
                 <ion-icon class="fa fa-money" aria-hidden="true" item-start small color="primary"></ion-icon>
                 <ion-label>{{ 'fee' | translate }}</ion-label>
-                <div item-end>{{'hkd' | translate}} {{maid.fee | translate}}</div>
+                <div item-end>{{'hkd' | translate}} {{maid.fee | translate}} {{ 'approx' | translate }}</div>
             </ion-item>
 
             <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
@@ -112,7 +112,7 @@
             <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
                 <ion-icon name="globe" item-start small color="primary"></ion-icon>
                 <ion-label>{{ 'nationality' | translate }}</ion-label>
-                <div item-end>{{maid.nationality | translate}}</div>
+                <div item-end>{{maid.country | translate}}</div>
             </ion-item>
             <ion-item [ngStyle]="{'font-size': '16px'}" class="grey">
                 <ion-icon class="fa fa-venus-mars" item-start small color="primary"></ion-icon>
