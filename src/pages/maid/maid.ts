@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
-import { NavController, ModalController, NavParams, Events} from 'ionic-angular';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireStorage } from 'angularfire2/storage';
-import { Observable } from 'rxjs/Observable';
-import { ModalContentPage } from '../maid/detail';
+import { Component } from "@angular/core";
+import {
+  NavController,
+  ModalController,
+  NavParams,
+  Events
+} from "ionic-angular";
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
+import { AngularFireStorage } from "angularfire2/storage";
+import { Observable } from "rxjs/Observable";
+import { ModalContentPage } from "../maid/detail";
 import { CompanyInfoPage } from "../companyInfo/companyInfo";
 import { SearchBox } from "../maid/searchBox";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "page-maid",
@@ -17,6 +23,7 @@ export class MaidPage {
   downloadURL;
   countryCode;
   branchObj;
+  itemsRef: AngularFireList<any>;
 
   constructor(
     public navCtrl: NavController,
@@ -85,7 +92,17 @@ export class MaidPage {
   }
 
   getDataFromFireBase() {
-    this.maids$ = this.afd.list("maids").valueChanges();
+
+    this.itemsRef = this.afd.list("maids");
+    // Use snapshotChanges().map() to store the key
+    this.maids$ = this.itemsRef.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c => ({
+          id: c.payload.key,
+          ...c.payload.val()
+        }))
+      )
+    );
     this.maids$.subscribe(item => {
       console.log("total item queried" + item);
 

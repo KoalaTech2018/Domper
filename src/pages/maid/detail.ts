@@ -99,6 +99,7 @@ export class ModalContentPage implements OnInit {
   }
 
   addMaidToUserCollection() {
+    console.log("******** 456" + this.maid.id);
     var self = this;
     firebase
       .database()
@@ -117,6 +118,7 @@ export class ModalContentPage implements OnInit {
   }
 
   addCollectionToFireBase() {
+    console.log("******** 789" + this.maid.id);
     firebase
       .database()
       .ref("/users/" + this.userId + "/collection")
