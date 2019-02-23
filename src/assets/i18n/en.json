@@ -5,6 +5,7 @@
 "indonesia": "Indonesia", 
 "mynamay": "Mynamay", 
 "others": "Others", 
+"other": "Other", 
 "oversea": "Oversea", 
 "othersCountry": "Other Countries", 
 "hongkong" : "Hong Kong",
@@ -41,6 +42,7 @@
 "kg": "kg",
 "religion": "religion",
 "christian" : "Christian",
+"catholic" : "Catholic",
 "islam":"Islam",
 "buddhism":"Buddhism",
 "marital": "Marital",
@@ -172,7 +174,8 @@
 "ser11":"Provide free of local labour insurance. (*First year)",
 "ser12":"Provide one year cuisine course. [total of 12 lessons / 36 side dishes]",
 "ser13":"Document processing fee and procedure fee for the relevant government",
-"specSer1":"The "Chinese Cuisine Cooking Course" is provided free of charge on a regular basis every month. The town gas company's celebrity chefs teach "home-cooked side dishes" a total of 36 dishes.",
+"specSer1":"The 'Chinese Cuisine Cooking Course' is provided free of charge on a regular basis every month. The town gas company's celebrity chefs teach 'home-cooked side dishes' a total of 36 dishes.",
 "specSer2":"Translation service.",
-"specSer3":"First-time maid counselling services (including home counselling)."
+"specSer3":"First-time maid counselling services (including home counselling).",
+"approx": "Approx."
 }
