@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { CompanyInfoPage } from "../companyInfo/companyInfo";
 import * as firebase from "firebase/app";
 import { Observable } from "rxjs/Observable";
+import { database } from 'firebase';
 import { AngularFireDatabase } from "angularfire2/database";
 import { AlertController } from "ionic-angular";
 import { TranslateService } from "@ngx-translate/core";
@@ -88,14 +89,12 @@ export class ModalContentPage implements OnInit {
   maids = new Array<any>();
 
   getMaidById(maidId) {
-    this.maids$ = this.afd
-      .list("maids", ref => ref.orderByChild("id").equalTo(maidId))
-      .valueChanges();
-
-    this.maids$.subscribe(item => {
-      console.log(">>>>> test <<<<<" + item[0]);
-      this.maid = item[0];
-    });
+    console.log("HIHIH:  " + maidId );
+    database().ref("maids/" + maidId).once("value").then(
+        snapshot => {
+            this.maid = snapshot.val();
+        }
+    )
   }
 
   addMaidToUserCollection() {

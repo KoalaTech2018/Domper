@@ -9,7 +9,7 @@ export class SearchBox {
   search_age;
   search_height;
   search_weight;
-  search_nationality;
+  search_country;
 
   isClick = [
     false,
@@ -81,12 +81,12 @@ export class SearchBox {
         null
       ), height: <number>(
         null
-      ), weight: <number>null, nationality: <String>null, skillList: [] };
-    
+      ), weight: <number>null, country: [], skillList: [] };
+    console.log("From Search " + this.search_country);
     obj.age = this.search_age;
     obj.height = this.search_height;
     obj.weight = this.search_weight;
-    obj.nationality = this.search_nationality;
+    obj.country = this.search_country;
     
     var skillList = [];
     for (var i in this.isClick) {
