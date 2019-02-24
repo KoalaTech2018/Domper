@@ -166,47 +166,71 @@ export class MaidPage {
         // .valueChanges();
         console.log("HIT");
         console.log(this.fullMaids);
-        console.log(data.country);
-
+        console.log(data);
+        // search_age_start;
+        // search_age_end;
+        // search_height_start;
+        // search_height_end;
+        // search_weight_start;
+        // search_weight_end;
+        
         //If no input is enter, return full List 
-        if(data.height == null && data.weight == null
-          && data.age == null && data.skillList.length==0
-          && data.country.length==0){
-            this.maids = this.fullMaids;
-        }else{
+        // if(data.height == null && data.weight == null
+        //   && data.age == null && data.skillList.length==0
+        //   && data.country==null){
+        //     this.maids = this.fullMaids;
+        // }else{
           var newList = new Array<any>();
           for (var i in this.fullMaids) {
-            if (data.height != null && this.fullMaids[i].height == data.height) {
-              newList.push(this.fullMaids[i]);
-              continue;
+            var otherFound = false;
+            if (parseInt(data.search_weight_start) <= parseInt(this.fullMaids[i].age )
+              && parseInt(this.fullMaids[i].weight) <=parseInt(data.search_weight_end)) {
+              //newList.push(this.fullMaids[i]);
+              // continue;
+              otherFound = true;
+            }else{
+              otherFound = false;
             }
-            if (data.weight != null && this.fullMaids[i].weight == data.weight) {
-              newList.push(this.fullMaids[i]);
-              continue;
+            if (parseInt(data.search_height_start) <= parseInt(this.fullMaids[i].age )
+              && parseInt(this.fullMaids[i].height) <=parseInt(data.search_height_end)) {
+              //newList.push(this.fullMaids[i]);
+              //continue;
+              otherFound = true;
+            }else{
+              otherFound = false;
             }
-            if (data.age != null && this.fullMaids[i].age == data.age) {
-              newList.push(this.fullMaids[i]);
-              continue;
+            if (parseInt(data.search_age_start) <= parseInt(this.fullMaids[i].age )
+              && parseInt(this.fullMaids[i].age) <=parseInt(data.search_age_end)) {
+              //newList.push(this.fullMaids[i]);
+              //continue;
+              otherFound = true;
+            }else{
+              otherFound = false;
             }
-            for (var k in data.country) {
-              if(this.fullMaids[i].country==data.country[k]){
-                newList.push(this.fullMaids[i]);
-                break;
+            var countryFound = false;
+            if(data.country!=null){
+              for (var k in data.country) {
+                if(this.fullMaids[i].country==data.country[k]){
+                  countryFound = true;
+                  break;
+                }
               }
+            }else{
+              countryFound = true;  
             }
-            var found = false;
+            var skillFound = true;
             for (var j in data.skillList) {
               console.log(data.skillList[j]);
               if (this.fullMaids[i].skills.includes(data.skillList[j])) {
-                found = true;
+                skillFound = true;
               }else{
-                found = false;
+                skillFound = false;
               }
             }
-            if(found) newList.push(this.fullMaids[i]);
+            if(skillFound && otherFound && countryFound) newList.push(this.fullMaids[i]);
           }
           this.maids = newList;
-        }
+        
         
         //if (newList.length > 0) {
           
