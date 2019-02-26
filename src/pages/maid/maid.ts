@@ -183,26 +183,12 @@ export class MaidPage {
           var newList = new Array<any>();
           for (var i in this.fullMaids) {
             var otherFound = false;
-            if (parseInt(data.search_weight_start) <= parseInt(this.fullMaids[i].age )
-              && parseInt(this.fullMaids[i].weight) <=parseInt(data.search_weight_end)) {
-              //newList.push(this.fullMaids[i]);
-              // continue;
-              otherFound = true;
-            }else{
-              otherFound = false;
-            }
-            if (parseInt(data.search_height_start) <= parseInt(this.fullMaids[i].age )
-              && parseInt(this.fullMaids[i].height) <=parseInt(data.search_height_end)) {
-              //newList.push(this.fullMaids[i]);
-              //continue;
-              otherFound = true;
-            }else{
-              otherFound = false;
-            }
-            if (parseInt(data.search_age_start) <= parseInt(this.fullMaids[i].age )
+            if (parseInt(data.search_weight_start) <= parseInt(this.fullMaids[i].weight )
+              && parseInt(this.fullMaids[i].weight) <=parseInt(data.search_weight_end)
+              && parseInt(data.search_height_start) <= parseInt(this.fullMaids[i].height )
+              && parseInt(this.fullMaids[i].height) <=parseInt(data.search_height_end)  
+              && parseInt(data.search_age_start) <= parseInt(this.fullMaids[i].age )
               && parseInt(this.fullMaids[i].age) <=parseInt(data.search_age_end)) {
-              //newList.push(this.fullMaids[i]);
-              //continue;
               otherFound = true;
             }else{
               otherFound = false;

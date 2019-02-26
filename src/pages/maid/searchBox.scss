@@ -30,4 +30,13 @@ page-searchBox {
         padding: 4px 7px;
         border-radius: 20px;
     }
+
+    .range-md .range-knob-handle .range-pin {
+        transform: translate3d(0, 0, 0) scale(1); }
+      
+    .range-md:not(.range-has-pin) .range-knob-handle .range-knob {
+    transform: scale(1); }
+    
+    .range-ios .range-knob-handle .range-pin {
+    transform: translate3d(0, 0, 0) scale(1); }
 }

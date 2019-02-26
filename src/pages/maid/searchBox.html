@@ -22,9 +22,8 @@
     <ion-label>{{ 'nationality' | translate }}</ion-label>
     <ion-input type="text"></ion-input>
   </ion-item> -->
-
   <div class="search-form" text-center>
-      <ion-item>
+      <!-- <ion-item>
           <ion-label>Age</ion-label>
           <ion-input [(ngModel)]="search_age_start" type="number" value="0"></ion-input>
           <ion-input [(ngModel)]="search_age_end" type="number" value="65"></ion-input>
@@ -38,8 +37,22 @@
           <ion-label>Weight(kg)</ion-label>
           <ion-input [(ngModel)]="search_weight_start" type="number" value="0"></ion-input>
           <ion-input [(ngModel)]="search_weight_end" type="number" value="100"></ion-input>
+      </ion-item> -->
+      <ion-item>
+        <ion-range [(ngModel)]="search_age" dualKnobs=true min="18" max="65" pin="true">
+            <ion-label range-left>{{ 'age' | translate }}</ion-label>
+        </ion-range>
       </ion-item>
-     
+      <ion-item>
+        <ion-range [(ngModel)]="search_weight" dualKnobs=true min="0" max="280" pin="true">
+            <ion-label range-left>{{ 'weight' | translate }}</ion-label>
+        </ion-range>
+      </ion-item>
+      <ion-item>
+        <ion-range [(ngModel)]="search_height" dualKnobs=true min="0" max="280" pin="true">
+            <ion-label range-left>{{ 'height' | translate }}</ion-label>
+        </ion-range>
+      </ion-item>
       <!-- <input [(ngModel)]="search_age" type="number" name="age" placeholder="Age">
       <input [(ngModel)]="search_height" type="text" name="height" placeholder="Height (cm)">
       <input [(ngModel)]="search_weight" type="text" name="weight" placeholder="Weight (kg)"> -->

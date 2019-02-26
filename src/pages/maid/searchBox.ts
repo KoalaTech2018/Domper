@@ -6,12 +6,9 @@ import { NavController, ViewController } from 'ionic-angular';
   templateUrl: "searchBox.html"
 })
 export class SearchBox {
-  search_age_start;
-  search_age_end;
-  search_height_start;
-  search_height_end;
-  search_weight_start;
-  search_weight_end;
+  search_age;
+  search_height;
+  search_weight;
   search_country;
 
   isClick = [
@@ -73,7 +70,20 @@ export class SearchBox {
     "mandarin"
   ];
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController) {}
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController) {
+    this.search_age = {
+      upper:65,
+      lower:18
+    };
+    this.search_weight = {
+      upper:280,
+      lower:0
+    };
+    this.search_height = {
+      upper:280,
+      lower:0
+    };
+  }
 
   dismiss() {
     this.viewCtrl.dismiss();
@@ -89,12 +99,12 @@ export class SearchBox {
                 country: [], 
                 skillList: [] };
     console.log("From Search " + this.search_country);
-    obj.search_age_start = this.search_age_start==""? "0": this.search_age_start;
-    obj.search_age_end = this.search_age_end==""? "99": this.search_age_end;
-    obj.search_height_start = this.search_height_start==""? "0": this.search_height_start;
-    obj.search_height_end = this.search_height_end==""? "300": this.search_height_end;
-    obj.search_weight_start = this.search_weight_start==""? "0": this.search_weight_start;
-    obj.search_weight_end = this.search_weight_end==""? "300": this.search_weight_end;
+    obj.search_age_start = this.search_age.lower;
+    obj.search_age_end = this.search_age.upper;
+    obj.search_height_start = this.search_height.lower;
+    obj.search_height_end = this.search_height.upper;
+    obj.search_weight_start = this.search_weight.lower;
+    obj.search_weight_end = this.search_weight.upper;
     obj.country = this.search_country;
 
     var skillList = [];
