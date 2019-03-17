@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { NavController, ViewController } from 'ionic-angular';
+import { NavController, ViewController, NavParams} from 'ionic-angular';
 
 @Component({
   selector: "page-searchBox",
   templateUrl: "searchBox.html"
 })
 export class SearchBox {
+  searchObj;
   search_age;
+  search_work_exp;
+  search_religion;
   search_height;
   search_weight;
   search_country;
@@ -70,19 +73,46 @@ export class SearchBox {
     "mandarin"
   ];
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController) {
-    this.search_age = {
-      upper:65,
-      lower:18
-    };
-    this.search_weight = {
-      upper:280,
-      lower:0
-    };
-    this.search_height = {
-      upper:280,
-      lower:0
-    };
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController, public navParams: NavParams) {
+    this.searchObj = navParams.get("obj");
+    console.log(this.searchObj);
+    if(this.searchObj==null){
+      this.search_age = {
+        upper:65,
+        lower:18
+      };
+      this.search_weight = {
+        upper:280,
+        lower:0
+      };
+      this.search_height = {
+        upper:280,
+        lower:0
+      };
+    }else{
+      this.search_country = this.searchObj.country;
+      this.search_religion = this.searchObj.religion;
+      this.search_age = {
+        upper: this.searchObj.search_age_start,
+        lower: this.searchObj.search_age_end
+      };
+      this.search_weight = {
+        upper: this.searchObj.search_weight_start,
+        lower: this.searchObj.search_weight_end
+      };
+      this.search_height = {
+        upper: this.searchObj.search_height_start,
+        lower: this.searchObj.search_height_end
+      };
+      for(var i in this.searchObj.skillList){
+        for(var j in this.skillSet){
+          if(this.searchObj.skillList[i]==this.skillSet[j]){
+            this.isClick[j] = true;
+            break;
+          }
+        }
+      }
+    }
   }
 
   dismiss() {
@@ -97,7 +127,8 @@ export class SearchBox {
                 search_weight_start: <number>(null),  
                 search_weight_end: <number>null, 
                 country: [], 
-                skillList: [] };
+                skillList: [],
+                religion: []};
     console.log("From Search " + this.search_country);
     obj.search_age_start = this.search_age.lower;
     obj.search_age_end = this.search_age.upper;
@@ -106,6 +137,7 @@ export class SearchBox {
     obj.search_weight_start = this.search_weight.lower;
     obj.search_weight_end = this.search_weight.upper;
     obj.country = this.search_country;
+    obj.religion = this.search_religion;
 
     var skillList = [];
     for (var i in this.isClick) {

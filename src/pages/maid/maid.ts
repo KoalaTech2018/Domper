@@ -24,6 +24,7 @@ export class MaidPage {
   countryCode;
   branchObj;
   itemsRef: AngularFireList<any>;
+  searchData;
 
   constructor(
     public navCtrl: NavController,
@@ -155,7 +156,7 @@ export class MaidPage {
 
   openSearchBox() {
     let modal = this.modalCtrl.create(SearchBox, {
-      obj: ""
+      obj: this.searchData
     });
     modal.onDidDismiss(data => {
       if (data != null) {
@@ -204,6 +205,19 @@ export class MaidPage {
             }else{
               countryFound = true;  
             }
+
+            var religionFound = false;
+            if(data.religion!=null){
+              for (var k in data.religion) {
+                if(this.fullMaids[i].religion==data.religion[k]){
+                  religionFound = true;
+                  break;
+                }
+              }
+            }else{
+              religionFound = true;  
+            }
+
             var skillFound = true;
             for (var j in data.skillList) {
               console.log(data.skillList[j]);
@@ -213,16 +227,10 @@ export class MaidPage {
                 skillFound = false;
               }
             }
-            if(skillFound && otherFound && countryFound) newList.push(this.fullMaids[i]);
+            if(skillFound && otherFound && countryFound && religionFound) newList.push(this.fullMaids[i]);
           }
           this.maids = newList;
-        
-        
-        //if (newList.length > 0) {
-          
-        //} else {
-          //this.maids = this.fullMaids;
-        //}
+        this.searchData = data;
       }
     });
     modal.present();
