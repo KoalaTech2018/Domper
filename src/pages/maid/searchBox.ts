@@ -154,4 +154,5 @@ export class SearchBox {
     if (this.isClick[num]) this.isClick[num] = false;
     else this.isClick[num] = true;
   }
+  openUrl(){ window.open('https://firebasestorage.googleapis.com/v0/b/domper-c6ded.appspot.com/o/video%2FMaid_Test_Video.mp4?alt=media&token=edcfcfbd-8433-4322-b70a-06f45ee0130c', '_system'); }
 }
