@@ -189,7 +189,8 @@ export class MaidPage {
               && parseInt(data.search_height_start) <= parseInt(this.fullMaids[i].height )
               && parseInt(this.fullMaids[i].height) <=parseInt(data.search_height_end)  
               && parseInt(data.search_age_start) <= parseInt(this.fullMaids[i].age )
-              && parseInt(this.fullMaids[i].age) <=parseInt(data.search_age_end)) {
+              && parseInt(this.fullMaids[i].age) <=parseInt(data.search_age_end)
+              && parseInt(this.fullMaids[i].working_exp_yr) >= parseInt(data.search_work_exp)) {
               otherFound = true;
             }else{
               otherFound = false;
