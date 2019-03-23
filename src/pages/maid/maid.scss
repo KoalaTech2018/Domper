@@ -22,20 +22,15 @@ ion-row{
             margin: auto;
             width: 60px;
             height: 60px;
-            object-fit: cover;
+            object-fit: fill;
             box-shadow: 0 0 8px #52B6BC;
         }
     }
-    .avatars-detail {
-            padding-top: 5px;
-    img{
-        margin: auto;
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
+
+    .avatars-detail{
+        border-radius: 8px;
         box-shadow: 0 0 8px #52B6BC;
     }
-}
 
     .detail_font{
         font-size: 15px;

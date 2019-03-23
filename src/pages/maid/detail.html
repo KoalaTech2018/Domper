@@ -20,9 +20,11 @@
                 <img class="countryFlagImage" src="{{'../../assets/imgs/' + maid.country.toLowerCase() + '.png'}}" />
             </ion-item>
             <ion-item>
-                <ion-avatar class="avatars-detail">
-                    <img src="{{maid.imgUrl}}">
-                </ion-avatar><br />
+                <div style="padding-left: 10%;
+                padding-right: 10%;">
+                    <img class="avatars-detail" src="{{maid.imgUrl}}">
+                </div>
+                <br />
                 <h2>{{maid.name}}</h2>
             </ion-item>
 

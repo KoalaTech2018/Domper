@@ -126,6 +126,7 @@ export class SearchBox {
                 search_height_end: <number>(null),
                 search_weight_start: <number>(null),  
                 search_weight_end: <number>null, 
+                search_work_exp: <number>null, 
                 country: [], 
                 skillList: [],
                 religion: []};
@@ -136,6 +137,7 @@ export class SearchBox {
     obj.search_height_end = this.search_height.upper;
     obj.search_weight_start = this.search_weight.lower;
     obj.search_weight_end = this.search_weight.upper;
+    obj.search_work_exp = this.search_work_exp;
     obj.country = this.search_country;
     obj.religion = this.search_religion;
 
