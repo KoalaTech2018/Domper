@@ -112,8 +112,6 @@ export class MaidPage {
       )
     );
     this.maids$.subscribe(item => {
-      console.log("total item queried" + item);
-
       this.maids = this.shuffle(item);
       this.fullMaids = this.shuffle(item);
     });
