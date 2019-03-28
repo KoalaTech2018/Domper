@@ -8,6 +8,8 @@ import { database } from 'firebase';
 import { AngularFireDatabase } from "angularfire2/database";
 import { AlertController } from "ionic-angular";
 import { TranslateService } from "@ngx-translate/core";
+import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser/ngx";
+
 
 @Component({
   selector: "page-maid",
@@ -30,7 +32,8 @@ export class ModalContentPage implements OnInit {
     public afd: AngularFireDatabase,
     private afAuth: AngularFireAuth,
     private alertCtrl: AlertController,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private inAppBrowser: InAppBrowser
   ) {
     this.maid = this.params.get("obj");
     this.maidId = this.params.get("maidId");
@@ -95,6 +98,17 @@ export class ModalContentPage implements OnInit {
             this.maid = snapshot.val();
         }
     )
+  }
+
+  openWebpage(url: string) {
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+
+    // Opening a URL and returning an InAppBrowserObject
+    const browser = this.inAppBrowser.create(url, '_target', options);
+
+   // Inject scripts, css and more with browser.X
   }
 
   addMaidToUserCollection() {

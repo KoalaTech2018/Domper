@@ -44,6 +44,8 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { CallNumber } from "@ionic-native/call-number";
 import { EmailComposer } from "@ionic-native/email-composer";
 
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -117,6 +119,7 @@ var config = {
     SearchBox
   ],
   providers: [
+    InAppBrowser,
     StatusBar,
     SplashScreen,
     GooglePlus,

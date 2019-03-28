@@ -28,6 +28,12 @@
                 <h2>{{maid.name}}</h2>
             </ion-item>
 
+            <ion-item *ngIf="maid.videoUrl!=null && maid.videoUrl!=''" no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
+                <button ion-button (click)="openWebpage(maid.videoUrl)">
+                    <ion-icon name="play-circle" color="primary" ></ion-icon>
+                </button>
+            </ion-item>
+
             <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
                 <ion-icon class="fa fa-money" aria-hidden="true" item-start small color="primary"></ion-icon>
                 <ion-label>{{ 'fee' | translate }}</ion-label>
