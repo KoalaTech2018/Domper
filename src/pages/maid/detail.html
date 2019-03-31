@@ -21,17 +21,17 @@
             </ion-item>
             <ion-item>
                 <div style="padding-left: 35%;
-                padding-right: 35%; margin-top: 3px;">
+                padding-right: 35%; margin-top: 3px; padding-bottom: 3px;">
                     <img class="avatars-detail" src="{{maid.imgUrl}}">
                 </div>
-                <br />
-                <h2>{{maid.name}}</h2>
-            </ion-item>
-
-            <ion-item *ngIf="maid.videoUrl!=null && maid.videoUrl!=''" no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
-                <button ion-button (click)="openWebpage(maid.videoUrl)">
-                    <ion-icon name="play-circle" color="primary" ></ion-icon>
-                </button>
+                <h2>{{maid.name}}<br/>
+                    <button *ngIf="maid.pdfUrl!=null && maid.pdfUrl!=''" ion-button (click)="openWebpage(maid.pdfUrl)">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<ion-icon class="fa fa-file-pdf-o" aria-hidden="true" small color="white"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </button>
+                    <button *ngIf="maid.videoUrl!=null && maid.videoUrl!=''" ion-button (click)="openWebpage(maid.videoUrl)">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<ion-icon class="fa fa-play-circle" aria-hidden="true" small color="white"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </button>
+                </h2>
             </ion-item>
 
             <ion-item no-margin [ngStyle]="{'font-size': '16px'}" class="grey">
