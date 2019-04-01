@@ -219,13 +219,13 @@ export class MaidPage {
 
             var skillFound = true;
             for (var j in data.skillList) {
-              console.log(data.skillList[j]);
               if (this.fullMaids[i].skills.includes(data.skillList[j])) {
                 skillFound = true;
               }else{
                 skillFound = false;
               }
             }
+            
             if(skillFound && otherFound && countryFound && religionFound) newList.push(this.fullMaids[i]);
           }
           this.maids = newList;

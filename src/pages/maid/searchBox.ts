@@ -89,21 +89,25 @@ export class SearchBox {
         upper:280,
         lower:0
       };
+      this.search_work_exp = 0;
+  
     }else{
       this.search_country = this.searchObj.country;
       this.search_religion = this.searchObj.religion;
       this.search_age = {
-        upper: this.searchObj.search_age_start,
-        lower: this.searchObj.search_age_end
+        upper: this.searchObj.search_age_end,
+        lower: this.searchObj.search_age_start
       };
       this.search_weight = {
-        upper: this.searchObj.search_weight_start,
-        lower: this.searchObj.search_weight_end
+        upper: this.searchObj.search_weight_end,
+        lower: this.searchObj.search_weight_start
       };
       this.search_height = {
-        upper: this.searchObj.search_height_start,
-        lower: this.searchObj.search_height_end
+        upper: this.searchObj.search_height_end,
+        lower: this.searchObj.search_height_start
       };
+      this.search_work_exp = this.searchObj.search_work_exp;
+      
       for(var i in this.searchObj.skillList){
         for(var j in this.skillSet){
           if(this.searchObj.skillList[i]==this.skillSet[j]){
@@ -125,8 +129,8 @@ export class SearchBox {
                 search_height_start: <number>(null), 
                 search_height_end: <number>(null),
                 search_weight_start: <number>(null),  
-                search_weight_end: <number>null, 
-                search_work_exp: <number>null, 
+                search_weight_end: <number>(null), 
+                search_work_exp: <number>(null), 
                 country: [], 
                 skillList: [],
                 religion: []};
