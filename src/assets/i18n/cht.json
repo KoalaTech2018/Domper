@@ -184,5 +184,8 @@
 "specSer1":"每月定期免費提供「中菜烹飪課程」由煤氣公司名廚教導「家常小菜」共36道菜色",
 "specSer2":"翻譯服務",
 "specSer3":"初到港女傭輔導服務(包括上門輔導)",
-"approx": "起"
+"approx": "起",
+"wrongScanTitle": "掃描失敗",
+"wrongScanText": "找不到相關資料，請重新掃描",
+"scanCompanyTitle": "掃描僱傭公司二維碼"
 }

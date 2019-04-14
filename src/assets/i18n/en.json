@@ -184,5 +184,8 @@
 "specSer1":"The 'Chinese Cuisine Cooking Course' is provided free of charge on a regular basis every month. The town gas company's celebrity chefs teach 'home-cooked side dishes' a total of 36 dishes.",
 "specSer2":"Translation service.",
 "specSer3":"First-time maid counselling services (including home counselling).",
-"approx": "Approx."
+"approx": "Approx.",
+"wrongScanTitle": "Scan Failure",
+"wrongScanText": "Related data is not found, please scan again.",
+"scanCompanyTitle": "Scan Company QR Code"
 }

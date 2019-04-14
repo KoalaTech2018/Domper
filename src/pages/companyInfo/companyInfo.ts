@@ -9,8 +9,8 @@ import {
 import { AngularFireDatabase } from "angularfire2/database";
 import { AngularFireStorage } from "angularfire2/storage";
 import { Observable } from "rxjs/Observable";
-import { CallNumber } from "@ionic-native/call-number";
-import { EmailComposer } from "@ionic-native/email-composer";
+import { CallNumber } from "@ionic-native/call-number/ngx";
+import { EmailComposer } from "@ionic-native/email-composer/ngx";
 
 @Component({
   selector: "page-companyInfo",

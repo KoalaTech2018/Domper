@@ -1,0 +1,36 @@
+page-qrscanner {
+
+    .large {
+        font-size: 30px; //Used to ajust ion icon size
+    }
+
+    .qrscanner{
+        background:none;
+        overflow: hidden; // Stop the scroll
+        &-area {
+            width:100%;
+            height:85%;
+            background: url(../../assets/imgs/scanner.svg) no-repeat center center;
+            background-size: contain;
+        }
+    }
+
+    .qrscanner .scroll-content{
+        overflow: hidden; // Stop the scroll
+    }
+
+    .button-bottom {    
+        width:80%;
+        position: absolute;
+        bottom: 8vh;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align:center;
+    
+        .fab {
+            display:inline-block;
+            margin:0 10px;
+        }
+    
+    }
+}

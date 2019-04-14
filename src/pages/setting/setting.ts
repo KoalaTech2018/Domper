@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TranslateService } from "@ngx-translate/core";
-import { EmailComposer } from "@ionic-native/email-composer";
+import { EmailComposer } from "@ionic-native/email-composer/ngx";
 
 import { PrivatePolicyPage } from "../PrivacyPolicy/privacyPolicy";
 import { PrivatePolicyEnPage } from "../PrivacyPolicy/privacyPolicyEn";

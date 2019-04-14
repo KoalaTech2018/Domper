@@ -25,6 +25,7 @@ export class MaidPage {
   branchObj;
   itemsRef: AngularFireList<any>;
   searchData;
+  ionApp = <HTMLElement>document.getElementsByTagName('ion-app')[0];
 
   constructor(
     public navCtrl: NavController,
@@ -39,7 +40,6 @@ export class MaidPage {
     this.promoteCompany = navParams.get("promoteCompany");
     this.countryCode = navParams.get("objString");
     console.log(this.countryCode);
-
     if (
       (this.promoteCompany != null || this.branchObj != null) &&
       this.countryCode == null

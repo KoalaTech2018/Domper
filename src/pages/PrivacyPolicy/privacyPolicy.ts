@@ -7,7 +7,7 @@ import {
 
 import { AngularFireDatabase } from "angularfire2/database";
 
-import { EmailComposer } from "@ionic-native/email-composer";
+import { EmailComposer } from "@ionic-native/email-composer/ngx";
 
 @Component({
   selector: "page-privacyPolicy",

@@ -23,16 +23,16 @@ import { AboutDomperPage } from "../pages/aboutDomper/aboutDomper";
 
 import { SearchBox } from '../pages/maid/searchBox';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-import { GooglePlus } from "@ionic-native/google-plus";
-import { Facebook } from '@ionic-native/facebook'
+import { GooglePlus } from "@ionic-native/google-plus/ngx";
+import { Facebook } from '@ionic-native/facebook/ngx'
 
 import { AuthService } from "../pages/svc/auth.service";
 
@@ -41,10 +41,12 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
-import { CallNumber } from "@ionic-native/call-number";
-import { EmailComposer } from "@ionic-native/email-composer";
+import { CallNumber } from "@ionic-native/call-number/ngx";
+import { EmailComposer } from "@ionic-native/email-composer/ngx";
 
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+import { QRScannerPage } from '../pages/qrscanner/qrscanner';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -78,7 +80,8 @@ var config = {
     TermsAndConditionsEnPage,
     QuestionPage,
     AboutDomperPage,
-    SearchBox
+    SearchBox,
+    QRScannerPage
   ],
   imports: [
     BrowserModule,
@@ -116,9 +119,11 @@ var config = {
     TermsAndConditionsEnPage,
     QuestionPage,
     AboutDomperPage,
-    SearchBox
+    SearchBox,
+    QRScannerPage
   ],
   providers: [
+    QRScanner,
     InAppBrowser,
     StatusBar,
     SplashScreen,
