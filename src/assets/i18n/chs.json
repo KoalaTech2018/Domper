@@ -22,6 +22,7 @@
 "exp": "工作年資",
 "exps": "經驗",
 "language": "語言",
+"lang": "語言",
 "english":"英文",
 "cantonese":"廣東話",
 "mandarin": "普通话",
@@ -187,5 +188,7 @@
 "approx": "起",
 "wrongScanTitle": "掃描失敗",
 "wrongScanText": "找不到相關資料，請重新掃描",
-"scanCompanyTitle": "掃描僱傭公司二維碼"
+"scanCompanyTitle": "掃描僱傭公司二維碼",
+"popularCompany": "熱門公司",
+"companyDistrict": "公司地區"
 }
