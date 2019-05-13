@@ -190,5 +190,6 @@
 "wrongScanText": "Related data is not found, please scan again.",
 "scanCompanyTitle": "Scan Company QR Code",
 "popularCompany": "Popular Companies",
-"companyDistrict": "District of Companies"
+"companyDistrict": "District of Companies",
+"number": "No."
 }

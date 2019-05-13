@@ -69,12 +69,8 @@
                     <h6 [ngStyle]="{'font-size': '12px'}">{{ 'lang' | translate }}:</h6>
                   </ion-col>
                 
-                  <ion-col col-8 no-padding> 
-                    <h6 [ngStyle]="{'font-size': '12px'}">
-                      <div *ngFor="let lang of split(maid.language)">
-                          {{lang | translate}}
-                      </div>
-                    </h6>
+                  <ion-col  no-padding *ngFor="let lang of split(maid.language)" pull-0> 
+                    <h6 [ngStyle]="{'font-size': '12px'}">{{lang | translate}}</h6>
                   </ion-col>
                 </ion-row>
              

@@ -39,6 +39,10 @@
           <ion-input [(ngModel)]="search_weight_end" type="number" value="100"></ion-input>
       </ion-item> -->
       <ion-item>
+        <ion-label style="margin-left:8px;">{{ 'number' | translate }}</ion-label>
+        <ion-input [(ngModel)]="search_name" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-range [(ngModel)]="search_age" dualKnobs=true min="18" max="65" pin="true">
             <ion-label range-left>{{ 'age' | translate }}</ion-label>
         </ion-range>
@@ -61,7 +65,15 @@
       </ion-item>
       <!-- <input [(ngModel)]="search_age" type="number" name="age" placeholder="Age"> -->
       <ion-item>
-          <ion-label>{{'religion' | translate}}</ion-label>
+        <ion-label style="margin-left:8px;">{{'language' | translate}}</ion-label>
+        <ion-select [(ngModel)]="search_language" multiple="true">
+          <ion-option value="english">{{'english' | translate}}</ion-option>
+          <ion-option value="cantonese">{{'cantonese' | translate}}</ion-option>
+          <ion-option value="mandarin">{{'mandarin' | translate}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-label style="margin-left:8px;">{{'religion' | translate}}</ion-label>
           <ion-select [(ngModel)]="search_religion" multiple="true">
             <ion-option value="christian">{{'christian' | translate}}</ion-option>
             <ion-option value="catholic">{{'catholic' | translate}}</ion-option>
@@ -71,7 +83,7 @@
           </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label>{{'nationality' | translate}}</ion-label>
+        <ion-label style="margin-left:8px;">{{'nationality' | translate}}</ion-label>
         <ion-select [(ngModel)]="search_country" multiple="true">
           <ion-option value="philippines">{{'philippines' | translate}}</ion-option>
           <ion-option value="indonesia">{{'indonesia' | translate}}</ion-option>
@@ -124,9 +136,15 @@
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[20]]" contenteditable="false" (click)="tagClick(20)">{{skillSet[20] | translate}}</span>
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[21]]" contenteditable="false" (click)="tagClick(21)">{{skillSet[21] | translate}}</span>
         <span [ngClass]="{false: 'skillTag', true: 'skillTag_clicked'}[isClick[22]]" contenteditable="false" (click)="tagClick(22)">{{skillSet[22] |translate}}</span>
-        <br /><br />
-        <button ion-button round outline (click)="search()">Search</button>
   </div>
-  
-
 </ion-content>
+
+<ion-footer no-border>
+  <ion-grid class="gridFooter">
+      <ion-row style="padding-bottom:10px;">
+          <ion-col>
+            <button ion-button round outline class="center" (click)="search()">{{ 'search' | translate}}</button>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-footer>

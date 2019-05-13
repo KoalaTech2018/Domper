@@ -190,5 +190,6 @@
 "wrongScanText": "找不到相關資料，請重新掃描",
 "scanCompanyTitle": "掃描僱傭公司二維碼",
 "popularCompany": "熱門公司",
-"companyDistrict": "公司地區"
+"companyDistrict": "公司地區",
+"number" : "編號"
 }
