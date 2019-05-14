@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { TranslateService } from "@ngx-translate/core";
 import { EmailComposer } from "@ionic-native/email-composer/ngx";
 
@@ -24,6 +24,7 @@ import { ResetPwdPage } from "../signup/resetPwd";
 
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { Platform } from "ionic-angular";
+import { ContactUsPage } from '../contactUs/contactUs';
 
 @Component({
   selector: "page-setting",
@@ -46,6 +47,7 @@ export class SettingPage {
     private emailComposer: EmailComposer,
     public formBuilder: FormBuilder,
     private auth: AuthService,
+    public alertCtrl: AlertController,
     public platform: Platform
   ) {
     this.language = this.translate.getDefaultLang();
@@ -59,7 +61,7 @@ export class SettingPage {
     this.afAuth.auth.onAuthStateChanged(user => {
       if (user) {
         this.userId = user.uid;
-        console.log(user.displayName);
+        console.log(user);
         this.userName = user.displayName;
       } else {
         this.userId = null;
@@ -89,6 +91,10 @@ export class SettingPage {
   }
 
   tryLogin(value) {
+    if(value.email==null || value.email==""){
+      this.doAlert("Please enter your Email Address");
+      return;
+    }
     this.auth.doLogin(value).then(
       res => {
         console.log(res);
@@ -96,7 +102,7 @@ export class SettingPage {
       },
       err => {
         console.log(err);
-        this.errorMessage = err.message;
+        this.doAlert(err.message);
       }
     );
   }
@@ -113,7 +119,8 @@ export class SettingPage {
       },
       err => {
         console.log(err);
-        this.errorMessage = err.message;
+        this.doAlert(err.message);
+        //this.errorMessage = err.message;
       }
     );
   }
@@ -126,7 +133,8 @@ export class SettingPage {
       },
       err => {
         console.log(err);
-        this.errorMessage = err.message;
+        this.doAlert(err.message);
+        //this.errorMessage = err.message;
       }
     );
   }
@@ -180,5 +188,19 @@ export class SettingPage {
 
   redirectToResetPwd() {
     this.navCtrl.push(ResetPwdPage);
+  }
+
+  redirectToContactUs(){
+    this.navCtrl.push(ContactUsPage);
+  }
+
+  doAlert(message) {
+    let alert = this.alertCtrl.create({
+      title: 'Validation Error',
+      subTitle: message,
+      buttons: ['Ok']
+    });
+
+    alert.present();
   }
 }

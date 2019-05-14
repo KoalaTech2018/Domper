@@ -11,9 +11,9 @@
     <div *ngIf="enableLogin()">
       <form class="form" [formGroup]="loginForm"(ngSubmit)="tryLogin(loginForm.value)">
         <ion-list inset>
-          <ion-item>
+          <!-- <ion-item>
             <h6>{{ "loginAcc" | translate }}</h6>
-          </ion-item>
+          </ion-item> -->
 
           <ion-item>
             <ion-input type="text" placeholder="{{ 'email' | translate }}" formControlName="email"></ion-input>
@@ -25,7 +25,7 @@
         </ion-list>
 
         <div padding-horizontal>
-          <div><label class="error-message">{{errorMessage}}</label></div>
+          <!-- <div><label class="error-message">{{errorMessage}}</label></div> -->
 
           <button ion-button round full type="submit">{{ "login" | translate }}</button> 
           <div class="login-footer" (click)="redirectToResetPwd()">
@@ -123,7 +123,7 @@
     <ion-item
       [ngStyle]="{ 'font-size': '14px' }"
       class="grey"
-      (click)="sendEmail()"
+      (click)="redirectToContactUs()"
     >
       <ion-label>{{ "contactUs" | translate }}</ion-label>
       <ion-icon

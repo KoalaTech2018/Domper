@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title
+      >{{ "appName" | translate }} @ {{ "contactUs" | translate }}</ion-title
+    >
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-item [ngStyle]="{ 'font-size': '16px' }" class="black">
+      <div item-start>{{"website" | translate }}</div>
+    </ion-item>
+
+    <ion-item [ngStyle]="{ 'font-size': '16px' }" class="grey">
+      <div item-start class="grey"><a href = "www.skylartech.net/domper">www.skylartech.net/domper</a></div>
+    </ion-item>
+
+    <ion-item [ngStyle]="{ 'font-size': '16px' }" class="black">
+      <div item-start>{{ "email" | translate }}</div>
+    </ion-item>
+
+    <ion-item [ngStyle]="{ 'font-size': '16px' }" class="grey">
+      <div item-start><a herf (click)="sendEmail()">info@skylartech.net</a></div>
+    </ion-item>
+
+    <ion-item [ngStyle]="{ 'font-size': '16px' }" class="black">
+      <div item-start>{{ "tele2" | translate }}</div>
+    </ion-item>
+
+    <ion-item [ngStyle]="{ 'font-size': '16px' }" class="grey">
+      <div item-start>
+        <a herf (click)="contactCompanyByPhoneNo('94198996')">94198996</a> / 
+        <a herf (click)="contactCompanyByPhoneNo('95372062')">95372062</a>
+      </div>
+    </ion-item>
+   
+  </ion-card>
+
+ 
+</ion-content>
+ 

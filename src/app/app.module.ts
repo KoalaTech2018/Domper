@@ -19,6 +19,7 @@ import { PrivatePolicyEnPage } from "../pages/PrivacyPolicy/privacyPolicyEn";
 import { TermsAndConditionsCnPage } from "../pages/termsAndConditions/termsAndConditionsCn";
 import { TermsAndConditionsEnPage } from "../pages/termsAndConditions/termsAndConditionsEn";
 import { QuestionPage } from "../pages/question/question";
+import { ContactUsPage } from "../pages/contactUs/contactUs";
 import { AboutDomperPage } from "../pages/aboutDomper/aboutDomper";
 
 import { SearchBox } from '../pages/maid/searchBox';
@@ -79,6 +80,7 @@ var config = {
     TermsAndConditionsCnPage,
     TermsAndConditionsEnPage,
     QuestionPage,
+    ContactUsPage,
     AboutDomperPage,
     SearchBox,
     QRScannerPage
@@ -118,6 +120,7 @@ var config = {
     TermsAndConditionsCnPage,
     TermsAndConditionsEnPage,
     QuestionPage,
+    ContactUsPage,
     AboutDomperPage,
     SearchBox,
     QRScannerPage
