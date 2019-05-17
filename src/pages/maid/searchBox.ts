@@ -13,6 +13,8 @@ export class SearchBox {
   search_height;
   search_weight;
   search_country;
+  search_language;
+  search_name;
 
   isClick = [
     false,
@@ -92,6 +94,8 @@ export class SearchBox {
       this.search_work_exp = 0;
   
     }else{
+      this.search_name = this.searchObj.search_name;
+      this.search_language = this.searchObj.language;
       this.search_country = this.searchObj.country;
       this.search_religion = this.searchObj.religion;
       this.search_age = {
@@ -133,7 +137,10 @@ export class SearchBox {
                 search_work_exp: <number>(null), 
                 country: [], 
                 skillList: [],
-                religion: []};
+                religion: [],
+                language: [],
+                search_name: String(null)
+              };
     console.log("From Search " + this.search_country);
     obj.search_age_start = this.search_age.lower;
     obj.search_age_end = this.search_age.upper;
@@ -144,6 +151,8 @@ export class SearchBox {
     obj.search_work_exp = this.search_work_exp;
     obj.country = this.search_country;
     obj.religion = this.search_religion;
+    obj.language = this.search_language;
+    obj.search_name = this.search_name;
 
     var skillList = [];
     for (var i in this.isClick) {

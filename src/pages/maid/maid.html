@@ -11,10 +11,10 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> -->
-  <ion-card>
-    <div class="container" *ngIf="downloadURL">
+  <ion-card *ngIf="downloadURL">
+    <div class="container" >
       <img [src]="downloadURL" (click)="openCompanyByUrl(downloadURL)">
     </div>
   </ion-card>
@@ -22,7 +22,7 @@
     <ion-col *ngIf="maids==''" col-12 no-padding>
       <ion-card>
         <ion-item>
-          <div [ngStyle]="{'font-size': '16px'}" class="greyOnMsg">
+          <div [ngStyle]="{'font-size': '14px'}" class="greyOnMsg">
             {{ 'noResult' | translate }}
           </div>
         </ion-item>
@@ -52,26 +52,25 @@
             </ion-col>
 
             <ion-col col-8 no-padding>
-                <ion-row>
-                    <ion-col col-4 no-padding><h6 [ngStyle]="{'font-size': '12px'}">{{ 'exp' | translate }}:</h6></ion-col>
-                    <ion-col col-8 no-padding><h6 [ngStyle]="{'font-size': '12px'}">{{maid.working_exp_yr}} {{ 'years' |translate }}</h6></ion-col>
+                <ion-row style="height:6px;">
+                  &nbsp;
                 </ion-row>
                 <ion-row>
-                    <ion-col col-4 no-padding><h6 [ngStyle]="{'font-size': '12px'}">{{ 'fee' | translate }}:</h6></ion-col>
-                    <ion-col col-8 no-padding><h6 [ngStyle]="{'font-size': '12px'}">{{ 'hkd' | translate }}($) {{maid.fee |
+                    <ion-col col-4 no-padding><h6 [ngStyle]="{'font-size': '14px'}">{{ 'exp' | translate }}:</h6></ion-col>
+                    <ion-col col-8 no-padding><h6 [ngStyle]="{'font-size': '14px'}">{{maid.working_exp_yr}} {{ 'years' |translate }}</h6></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-4 no-padding><h6 [ngStyle]="{'font-size': '14px'}">{{ 'fee' | translate }}:</h6></ion-col>
+                    <ion-col col-8 no-padding><h6 [ngStyle]="{'font-size': '14px'}">{{ 'hkd' | translate }}($) {{maid.fee |
                         translate}} {{ 'approx' | translate }}</h6></ion-col>
                 </ion-row>
                 <ion-row >
                   <ion-col col-4 no-padding >
-                    <h6 [ngStyle]="{'font-size': '12px'}">{{ 'language' | translate }}:</h6>
+                    <h6 [ngStyle]="{'font-size': '14px'}">{{ 'lang' | translate }}:</h6>
                   </ion-col>
                 
-                  <ion-col col-8 no-padding> 
-                    <h6 [ngStyle]="{'font-size': '12px'}">
-                      <div *ngFor="let lang of split(maid.language)">
-                          {{lang | translate}}
-                      </div>
-                    </h6>
+                  <ion-col  no-padding *ngFor="let lang of split(maid.language)" pull-0> 
+                    <h6 [ngStyle]="{'font-size': '14px'}">{{lang | translate}}</h6>
                   </ion-col>
                 </ion-row>
              

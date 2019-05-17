@@ -163,7 +163,6 @@ export class MaidPage {
         //   ref.orderByChild("age").startAt(+data)
         // )
         // .valueChanges();
-        console.log("HIT");
         console.log(this.fullMaids);
         console.log(data);
         // search_age_start;
@@ -193,8 +192,31 @@ export class MaidPage {
             }else{
               otherFound = false;
             }
+
+            var nameFound = false;
+            if(data.search_name!=null && data.search_name!=""){
+              var n = this.fullMaids[i].name.indexOf(data.search_name);
+              if(n>0){
+                nameFound = true;
+              }
+            }else{
+              nameFound = true;
+            }
+
+            var langFound = false;
+            if(data.language!=null && data.language.length>0){
+              for (var k in data.language) {
+                if(this.fullMaids[i].language==data.language[k]){
+                  langFound = true;
+                  break;
+                }
+              }
+            }else{
+              langFound = true;  
+            }
+
             var countryFound = false;
-            if(data.country!=null){
+            if(data.country!=null && data.country.length>0){
               for (var k in data.country) {
                 if(this.fullMaids[i].country==data.country[k]){
                   countryFound = true;
@@ -206,7 +228,7 @@ export class MaidPage {
             }
 
             var religionFound = false;
-            if(data.religion!=null){
+            if(data.religion!=null && data.religion.length>0){
               for (var k in data.religion) {
                 if(this.fullMaids[i].religion==data.religion[k]){
                   religionFound = true;
@@ -226,7 +248,8 @@ export class MaidPage {
               }
             }
             
-            if(skillFound && otherFound && countryFound && religionFound) newList.push(this.fullMaids[i]);
+            if(skillFound && otherFound && countryFound && religionFound && langFound && nameFound) 
+              newList.push(this.fullMaids[i]);
           }
           this.maids = newList;
         this.searchData = data;

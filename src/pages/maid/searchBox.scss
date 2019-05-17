@@ -1,13 +1,13 @@
 page-searchBox {
-    input[type=text], select {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
+    // input[type=text], select {
+    //     width: 100%;
+    //     padding: 12px 20px;
+    //     margin: 8px 0;
+    //     display: inline-block;
+    //     border: 1px solid #ccc;
+    //     border-radius: 4px;
+    //     box-sizing: border-box;
+    // }
     .search-form {
         border-radius: 5px;
         background-color: #FFF;
@@ -39,4 +39,17 @@ page-searchBox {
     
     .range-ios .range-knob-handle .range-pin {
     transform: translate3d(0, 0, 0) scale(1); }
+
+    .center{
+        margin-left: auto;
+        margin-right: auto;
+        display: block !important;
+        background-color: #52B6BC;
+       -webkit-text-fill-color: #fff;
+        box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+        }
+    .gridFooter {
+        padding: 0px;
+        border: none;
+    }
 }

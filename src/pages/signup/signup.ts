@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { TranslateService } from "@ngx-translate/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 
@@ -18,6 +18,7 @@ export class SignupPage {
     public navCtrl: NavController,
     public translate: TranslateService,
     public formBuilder: FormBuilder,
+    public alertCtrl: AlertController,
     private auth: AuthService
   ) {}
 
@@ -29,14 +30,26 @@ export class SignupPage {
   }
 
   tryRegister(value) {
+    if(value.email==null || value.email==""){
+      this.doAlert("Validation Error", "Please enter your Email Address");
+      return;
+    }
     this.auth.doRegister(value).then(res => {
-        this.errorMessage = "";
-        this.successMessage = "Your account has been created. Please log in now.";
-        this.navCtrl.push(SettingPage);
+        this.doAlert("Success", "You have created account successfully");
+        this.navCtrl.pop();
       }, err => {
-        this.errorMessage = err.message;
-        this.successMessage = "";
+        this.doAlert("Validation Error", err.message);
       });
+  }
+
+  doAlert(title, message) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: message,
+      buttons: ['Ok']
+    });
+
+    alert.present();
   }
  
 }

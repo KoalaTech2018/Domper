@@ -34,7 +34,7 @@
     </ion-slide>
   </ion-slides>
  -->
-  <h6>🔥 熱門公司</h6>
+  <h6>🔥 {{'popularCompany'| translate}}</h6>
   <ion-slides slidesPerView="2.1">
     <ion-slide *ngFor="let company of companys; let i = index" (click)="redirectToMaid(i)" class="card-slide">
       <!-- <h1 [ngStyle]="{'font-size': '15px'}">{{company.name}}</h1> -->
@@ -84,7 +84,7 @@
       <h4 [ngStyle]="{'font-size': '10px'}">{{ 'others' | translate }}</h4>
     </ion-col>
   </ion-row> -->
-<h6>🏃🏻 公司地區</h6>
+<h6>🏃🏻 {{'companyDistrict'| translate}}</h6>
 
     <ion-slides slidesPerView="4.8">
         <ion-slide class="region-label" >
@@ -163,6 +163,8 @@
       </ion-slide>
       <ion-slide class="region-slide" (click)="redirectToCompanyByDistrict('islands')">
         {{ 'islands' | translate }}
+      </ion-slide>
+      <ion-slide >
       </ion-slide>
       <ion-slide >
       </ion-slide>

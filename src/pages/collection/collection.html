@@ -39,14 +39,12 @@
 
           </ion-row>
           <ion-row (click)="redirectToMaidDetail(userCollection.id)">
-            <ion-col col-3 no-padding>
-  
+            <ion-col col-4 no-padding>
               <ion-row>
                 <ion-avatar class="avatars">
                   <img src="{{userCollection.imgUrl}}"> 
                 </ion-avatar>
               </ion-row>
-  
             </ion-col>
   
             <!-- <ion-col col-9 no-padding> -->
@@ -55,8 +53,29 @@
               <h6 [ngStyle]="{'font-size': '16px'}">{{ 'fee' | translate }}:{{ 'hkd' | translate }}($) {{userCollection.fee}} </h6>
               -->
             <!-- </ion-col> -->
-              <ion-col col-9 no-padding>
-                <ion-row>
+              <ion-col col-8 no-padding>
+                  <ion-row style="height:6px;">
+                      &nbsp;
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 no-padding><h6 [ngStyle]="{'font-size': '14px'}">{{ 'exp' | translate }}:</h6></ion-col>
+                        <ion-col col-8 no-padding><h6 [ngStyle]="{'font-size': '14px'}">{{userCollection.working_exp_yr}} {{ 'years' |translate }}</h6></ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 no-padding><h6 [ngStyle]="{'font-size': '14px'}">{{ 'fee' | translate }}:</h6></ion-col>
+                        <ion-col col-8 no-padding><h6 [ngStyle]="{'font-size': '14px'}">{{ 'hkd' | translate }}($) {{userCollection.fee |
+                            translate}} {{ 'approx' | translate }}</h6></ion-col>
+                    </ion-row>
+                    <ion-row >
+                      <ion-col col-4 no-padding >
+                        <h6 [ngStyle]="{'font-size': '14px'}">{{ 'lang' | translate }}:</h6>
+                      </ion-col>
+                    
+                      <ion-col  no-padding *ngFor="let lang of split(userCollection.language)" pull-0> 
+                        <h6 [ngStyle]="{'font-size': '14px'}">{{lang | translate}}</h6>
+                      </ion-col>
+                  </ion-row>
+                <!-- <ion-row>
                   <h6 [ngStyle]="{'font-size': '16px'}">{{ 'exp' | translate }}: {{userCollection.working_exp_yr}} {{ 'years' |
                     translate }}</h6>
               
@@ -72,7 +91,7 @@
                   <ion-col no-padding *ngFor="let lang of split(userCollection.language)" pull-0>
                     <h6 [ngStyle]="{'font-size': '16px'}">{{lang | translate}}</h6>
                   </ion-col>
-                </ion-row>
+                </ion-row> -->
               
               </ion-col>
           </ion-row>
