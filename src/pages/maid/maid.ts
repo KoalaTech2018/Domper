@@ -26,6 +26,7 @@ export class MaidPage {
   itemsRef: AngularFireList<any>;
   searchData;
   ionApp = <HTMLElement>document.getElementsByTagName('ion-app')[0];
+  maidLazyHolder = [];
 
   constructor(
     public navCtrl: NavController,
@@ -72,6 +73,7 @@ export class MaidPage {
       this.maids$.subscribe(item => {
         this.maids = item;
         this.fullMaids = item;
+        this.initLazyHolder();
       });
     } else if (this.countryCode != null) {
       console.log("From country");
@@ -114,6 +116,7 @@ export class MaidPage {
     this.maids$.subscribe(item => {
       this.maids = this.shuffle(item);
       this.fullMaids = this.shuffle(item);
+      this.initLazyHolder()
     });
   }
 
@@ -145,6 +148,7 @@ export class MaidPage {
     this.maids$.subscribe(item => {
       this.maids = this.shuffle(item);
       this.fullMaids = this.shuffle(item);
+      this.initLazyHolder();
     });
   }
 
@@ -252,9 +256,49 @@ export class MaidPage {
               newList.push(this.fullMaids[i]);
           }
           this.maids = newList;
+          //Clean Lazy Holder
+          this.initLazyHolder();
         this.searchData = data;
       }
     });
     modal.present();
+  }
+
+  pushMaidCounter = 0;
+
+  initLazyHolder(){
+    this.maidLazyHolder=[];
+    this.pushMaidCounter = 0;
+    for (let i = this.pushMaidCounter; i < 25; i++) {
+      if(this.maids[i]!=null){
+        this.maidLazyHolder.push( this.maids[i]);
+      }else{
+        break;
+      }
+    }
+    this.pushMaidCounter = this.pushMaidCounter + 25;
+  }
+
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      var bottomReach = false;
+      for (let i = this.pushMaidCounter; i < this.pushMaidCounter+25; i++) {
+        if(this.maids[i]!=null){
+          this.maidLazyHolder.push( this.maids[i]);
+        }else{
+          bottomReach = true;
+          break;
+        }
+      }
+      this.pushMaidCounter = this.pushMaidCounter + 25;
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+
+      if(bottomReach){
+        infiniteScroll.enable(false);
+      }
+    }, 500);
   }
 }

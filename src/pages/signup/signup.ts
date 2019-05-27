@@ -4,7 +4,7 @@ import { TranslateService } from "@ngx-translate/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 
 import { AuthService } from "../svc/auth.service";
-import { SettingPage } from "../setting/setting";
+
 @Component({
   selector: "page-signup",
   templateUrl: "signup.html"

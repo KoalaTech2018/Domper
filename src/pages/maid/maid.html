@@ -22,16 +22,22 @@
     <ion-col *ngIf="maids==''" col-12 no-padding>
       <ion-card>
         <ion-item>
-          <div [ngStyle]="{'font-size': '14px'}" class="greyOnMsg">
-            {{ 'noResult' | translate }}
-          </div>
+          <ion-row>
+            <ion-col col-5 no-padding>
+                <ion-spinner></ion-spinner>
+            </ion-col>
+            <ion-col col-7>
+                <div [ngStyle]="{'font-size': '14px'}" class="greyOnMsgLeft">
+                  {{ 'noResult' | translate }}
+                </div>
+            </ion-col>
+          </ion-row>
         </ion-item>
       </ion-card>
     </ion-col>
   </ion-row>
-
   <ion-row>
-    <ion-col *ngFor="let maid of maids; let i = index" (click)="openModal(i)" col-12 no-padding>
+    <ion-col *ngFor="let maid of maidLazyHolder; let i = index" (click)="openModal(i)" col-12 no-padding>
       <ion-card *ngIf="maid.isEmployed=='N'">
         <ion-item>
 
@@ -81,4 +87,7 @@
       </ion-card>
     </ion-col>
   </ion-row>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

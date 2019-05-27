@@ -38,17 +38,22 @@ export class HomePage {
     public alertController: AlertController,
     public translate: TranslateService
   ) {
-    this.getMaidDataFromFireBase();
-    this.getCompanyiesFromFireBase();
+    try{
+      this.getMaidDataFromFireBase();
+      this.getCompanyiesFromFireBase();
 
-    this.user = this.afAuth.authState;
-    this.afAuth.auth.onAuthStateChanged(user => { 
-      if (user) { 
-        console.log(user.uid);
-      } else {
-        console.log("No login session");
-      }
-    });
+      this.user = this.afAuth.authState;
+      this.afAuth.auth.onAuthStateChanged(user => { 
+        if (user) { 
+          console.log(user.uid);
+        } else {
+          console.log("No login session");
+        }
+      });
+    }catch(e){
+      console.log(e.message);
+    }
+    
   }
 
   public companies$: Observable<any[]>;
