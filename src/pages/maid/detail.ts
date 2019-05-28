@@ -106,7 +106,8 @@ export class ModalContentPage implements OnInit {
     }
 
     // Opening a URL and returning an InAppBrowserObject
-    const browser = this.inAppBrowser.create(url, '_target', options);
+    var googleViewer = 'https://docs.google.com/gview?embedded=true&url=';
+    const browser = this.inAppBrowser.create(googleViewer + url, '_blank', options);
 
    // Inject scripts, css and more with browser.X
   }
