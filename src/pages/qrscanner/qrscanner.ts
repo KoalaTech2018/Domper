@@ -58,6 +58,7 @@ export class QRScannerPage {
   }
 
   close(data:any = null) {
+      this.qrScanner.destroy();
       this.viewController.dismiss(data);
   } 
 
@@ -81,8 +82,6 @@ export class QRScannerPage {
       ionApp2.style.display = 'block';
       var ionApp3 = <HTMLElement>document.getElementsByTagName('ion-app')[0].childNodes[2];
       ionApp3.style.display = 'block';
-
-      this.qrScanner.hide();
   }
 
   ionViewCanEnter() {
